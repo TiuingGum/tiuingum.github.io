@@ -1,137 +1,114 @@
-<!DOCTYPE html>
-<html>
-<head>
-  <img src="logo.jfif" width="80">
-  <title>BT Bread</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+export default function EcommerceTemplate() {
+  const featuredProducts = [
+    {
+      name: 'Midnight Hoodie',
+      price: '$79',
+      image:
+        'https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?q=80&w=1200&auto=format&fit=crop',
+    },
+    {
+      name: 'Leather Weekender',
+      price: '$149',
+      image:
+        'https://images.unsplash.com/photo-1542291026-7eec264c27ff?q=80&w=1200&auto=format&fit=crop',
+    },
+    {
+      name: 'Minimal Watch',
+      price: '$199',
+      image:
+        'https://images.unsplash.com/photo-1523170335258-f5ed11844a49?q=80&w=1200&auto=format&fit=crop',
+    },
+  ];
 
-  <style>
-    body {
-      margin: 0;
-      font-family: Arial, sans-serif;
-      background-color: #f8f5f0;
-      color: #333;
-    }
+  return (
+    <div className="min-h-screen bg-zinc-950 text-white font-sans">
+      <header className="sticky top-0 z-50 border-b border-white/10 bg-zinc-950/80 backdrop-blur">
+        <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4">
+          <div>
+            <h1 className="text-2xl font-black tracking-tight">BTBREAD.</h1>
+          </div>
 
-    header {
-      background-color: #3e2f23;
-      color: white;
-      padding: 20px;
-      text-align: center;
-    }
+          <nav className="hidden gap-8 text-sm text-zinc-300 md:flex">
+            <a href="#shop" className="transition hover:text-white">
+              Shop
+            </a>
+            <a href="#featured" className="transition hover:text-white">
+              Featured
+            </a>
+            <a href="#about" className="transition hover:text-white">
+              About
+            </a>
+            <a href="#contact" className="transition hover:text-white">
+              Contact
+            </a>
+          </nav>
 
-    nav {
-      background-color: #2c2118;
-      padding: 10px;
-      text-align: center;
-    }
+          <button className="rounded-full border border-white/20 px-5 py-2 text-sm transition hover:bg-white hover:text-black">
+            Cart (0)
+          </button>
+        </div>
+      </header>
 
-    nav a {
-      color: white;
-      margin: 0 15px;
-      text-decoration: none;
-      font-weight: bold;
-    }
+      <main>
+        <section className="relative overflow-hidden border-b border-white/10">
+          <div className="absolute inset-0 bg-gradient-to-br from-zinc-800 via-zinc-950 to-black opacity-80" />
 
-    .hero {
-      text-align: center;
-      padding: 60px 20px;
-      background-color: #e8dccd;
-    }
+          <div className="relative mx-auto grid max-w-7xl gap-12 px-6 py-24 md:grid-cols-2 md:items-center md:py-32">
+            <div>
+              <p className="mb-4 text-sm uppercase tracking-[0.4em] text-zinc-400">
+                Premium Everyday Goods
+              </p>
 
-    .hero h1 {
-      margin-bottom: 10px;
-    }
+              <h2 className="max-w-xl text-5xl font-black leading-tight md:text-7xl">
+                Build a clean modern online store.
+              </h2>
 
-    .btn {
-      display: inline-block;
-      background-color: #8b5e3c;
-      color: white;
-      padding: 12px 25px;
-      text-decoration: none;
-      border-radius: 5px;
-      margin-top: 15px;
-    }
+              <p className="mt-6 max-w-lg text-lg leading-relaxed text-zinc-300">
+                A sleek ecommerce landing page template built for GitHub Pages.
+                Swap in your products, connect your checkout solution, and launch.
+              </p>
 
-    .section {
-      padding: 40px 20px;
-      max-width: 800px;
-      margin: auto;
-      text-align: center;
-    }
+              <div className="mt-10 flex flex-wrap gap-4">
+                <a
+                  href="#shop"
+                  className="rounded-full bg-white px-7 py-3 font-semibold text-black transition hover:scale-105"
+                >
+                  Shop Now
+                </a>
 
-    .products {
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: 20px;
-    }
+                <a
+                  href="#featured"
+                  className="rounded-full border border-white/20 px-7 py-3 font-semibold transition hover:bg-white hover:text-black"
+                >
+                  Explore Collection
+                </a>
+              </div>
+            </div>
 
-    .card {
-      background: white;
-      padding: 20px;
-      border-radius: 8px;
-      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-    }
+            <div className="relative">
+              <div className="absolute -left-8 -top-8 h-40 w-40 rounded-full bg-white/10 blur-3xl" />
 
-    footer {
-      background-color: #3e2f23;
-      color: white;
-      text-align: center;
-      padding: 20px;
-      margin-top: 40px;
-    }
+              <img
+                src="https://images.unsplash.com/photo-1441986300917-64674bd600d8?q=80&w=1400&auto=format&fit=crop"
+                alt="Store showcase"
+                className="h-[550px] w-full rounded-[2rem] object-cover shadow-2xl"
+              />
+            </div>
+          </div>
+        </section>
 
-    @media (min-width: 600px) {
-      .products {
-        grid-template-columns: 1fr 1fr;
-      }
-    }
-  </style>
-</head>
+        <section id="featured" className="mx-auto max-w-7xl px-6 py-24">
+          <div className="flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
+            <div>
+              <p className="text-sm uppercase tracking-[0.35em] text-zinc-500">
+                Featured Products
+              </p>
+              <h3 className="mt-3 text-4xl font-black">
+                Best sellers this season.
+              </h3>
+            </div>
 
-<body>
-
-<header>
-  <h1>BT Bread 🍞</h1>
-  <p>Fresh sourdough, baked weekly</p>
-</header>
-
-<nav>
-  <a href="#home">Home</a>
-  <a href="#products">Products</a>
-  <a href="#contact">Contact</a>
-</nav>
-
-<section class="hero" id="home">
-  <h1>Handmade Sourdough</h1>
-  <p>Slow fermented. Small batch. Big flavour.</p>
-  <a class="btn" href="https://paypal.me/btbread" target="_blank">
-</section>
-
-<section class="section" id="products">
-  <h2>Our Loaves</h2>
-
-  <div class="products">
-    <div class="card">
-      <h3>Classic Sourdough</h3>
-      <p>$8</p>
-    </div>
-
-    <div class="card">
-      <h3>Whole Wheat</h3>
-      <p>$9</p>
-    </div>
-  </div>
-</section>
-
-<section class="section" id="contact">
-  <h2>Contact</h2>
-  <p>DM or order via PayPal</p>
-</section>
-
-<footer>
-  <p>© 2026 BT Bread</p>
-</footer>
-
-</body>
-</html>
+            <p className="max-w-md text-zinc-400">
+              Designed to look premium while staying lightweight enough to host
+              free on GitHub Pages.
+            </p>
