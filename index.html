@@ -57,7 +57,7 @@
       position: sticky;
       top: 0;
       z-index: 100;
-      background: rgba(253, 248, 237, 0.92);
+      background: rgba(255, 255, 255, 0.96);
       backdrop-filter: blur(12px);
       border-bottom: 1.5px solid var(--warm-gray);
     }
@@ -69,9 +69,29 @@
       padding: 0.85rem 0;
     }
 
-    .logo-wrap img {
-      height: 100px;
-      width: auto;
+    /* ── LOGO HERO ── */
+    .logo-hero {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 4rem 1rem 3rem;
+      border-bottom: 1.5px solid var(--warm-gray);
+      text-align: center;
+    }
+
+    .logo-hero img {
+      width: min(300px, 60vw);
+      height: auto;
+    }
+
+    .logo-hero-tagline {
+      margin-top: 1.2rem;
+      font-family: 'Playfair Display', serif;
+      font-style: italic;
+      font-size: 1.15rem;
+      color: var(--text-muted);
+      letter-spacing: 0.04em;
     }
 
     .nav-links {
@@ -556,10 +576,11 @@
     }
 
     .footer-logo img {
-      height: 100px;
+      height: 80px;
       width: auto;
-      filter: brightness(0) invert(1);
-      opacity: 0.9;
+      background: white;
+      border-radius: 0.75rem;
+      padding: 0.4rem 0.6rem;
     }
 
     .footer-tagline {
@@ -618,9 +639,7 @@
 
   <header>
     <div class="container navbar">
-      <a href="#" class="logo-wrap">
-        <img src="assets/BTBreadLogo.svg" alt="BTBread Bakery Logo">
-      </a>
+      <a href="#" style="font-family:'Playfair Display',serif; font-weight:900; font-size:1.3rem; color:var(--brown); letter-spacing:-0.02em;">BTBread</a>
 
       <nav class="nav-links">
         <a href="#shop">Shop</a>
@@ -631,6 +650,12 @@
       <a href="#shop" class="cart-btn">🧺 Cart (0)</a>
     </div>
   </header>
+
+  <!-- LOGO HERO -->
+  <div class="logo-hero">
+    <img src="assets/BTBreadLogo.svg" alt="BTBread Bakery">
+    <p class="logo-hero-tagline">Baked fresh. Delivered with love.</p>
+  </div>
 
   <main>
 
