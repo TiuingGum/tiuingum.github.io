@@ -153,18 +153,17 @@
     }
 
     .logo-hero-card {
-      position: relative;
-      z-index: 1;
-      background: rgba(255,255,255,0.18);
-      backdrop-filter: blur(16px);
-      -webkit-backdrop-filter: blur(16px);
-      border: 1.5px solid rgba(255,255,255,0.4);
+      background: var(--cream);
+      border: 4px solid var(--brown);
       border-radius: 2rem;
-      padding: 2.5rem 3rem;
+      padding: 3rem 3.5rem;
       display: flex;
       flex-direction: column;
       align-items: center;
-      box-shadow: 0 12px 48px rgba(0,0,0,0.25);
+    
+      box-shadow:
+        0 10px 0 var(--brown-mid),
+        0 20px 40px rgba(0,0,0,0.2);
     }
 
     .logo-hero-card img {
