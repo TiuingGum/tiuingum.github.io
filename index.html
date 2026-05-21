@@ -772,56 +772,8 @@
     </div>
 
     <!-- SHOP -->
-    <script>
-    const products = [
-      {
-        name: "All-White Sourdough",
-        price: "$10.00",
-        image: "assets/all-white.webp",
-        badge: "Popular"
-      },
+
     
-      {
-        name: "Babka",
-        price: "$20.00",
-        image: "assets/babka.webp",
-        badge: "New"
-      },
-    
-      {
-        name: "Garlic Confit Focaccia",
-        price: "$15.00",
-        image: "assets/garlic.webp"
-      }
-    ];
-    const grid = document.getElementById('products-grid');
-    
-    products.forEach(product => {
-    
-      grid.innerHTML += `
-        <div class="product-card">
-    
-          ${product.badge ? `
-            <div class="product-badge">${product.badge}</div>
-          ` : ''}
-    
-          <img src="${product.image}" alt="${product.name}">
-    
-          <div class="product-info">
-    
-            <div>
-              <div class="product-name">${product.name}</div>
-              <div class="product-price">${product.price}</div>
-            </div>
-    
-            <button class="add-btn">Add to Cart</button>
-    
-          </div>
-    
-        </div>
-      `;
-    });      
-    </script>
     <!-- ABOUT -->
     <section id="about" class="about">
       <div class="container about-grid">
@@ -902,4 +854,54 @@
   </footer>
    
 </body>
+<script>
+    const products = [
+      {
+        name: "All-White Sourdough",
+        price: "$10.00",
+        image: "assets/all-white.webp",
+        badge: "Popular"
+      },
+    
+      {
+        name: "Babka",
+        price: "$20.00",
+        image: "assets/babka.webp",
+        badge: "New"
+      },
+    
+      {
+        name: "Garlic Confit Focaccia",
+        price: "$15.00",
+        image: "assets/garlic.webp"
+      }
+    ];
+    const grid = document.getElementById('products-grid');
+    
+    products.forEach(product => {
+    
+      grid.innerHTML += `
+        <div class="product-card">
+    
+          ${product.badge ? `
+            <div class="product-badge">${product.badge}</div>
+          ` : ''}
+    
+          <img src="${product.image}" alt="${product.name}">
+    
+          <div class="product-info">
+    
+            <div>
+              <div class="product-name">${product.name}</div>
+              <div class="product-price">${product.price}</div>
+            </div>
+    
+            <button class="add-btn">Add to Cart</button>
+    
+          </div>
+    
+        </div>
+      `;
+    });      
+</script>
 </html>
