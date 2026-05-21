@@ -174,24 +174,24 @@
     .logo-hero-card img {
       width: 250px;
       height: 250px;
-        }
-    
+    }
+
     @keyframes waxSealPress {
       0% {
         transform: scale(1.6) translateY(-40px);
         opacity: 0;
         box-shadow: 0 0 0 rgba(0, 0, 0, 0);
       }
-    
+
       40% {
         transform: scale(0.92) translateY(8px);
         opacity: 1;
       }
-    
+
       70% {
         transform: scale(1.03) translateY(-2px);
       }
-    
+
       100% {
         transform: scale(1) translateY(0);
         box-shadow: 0 12px 0 var(--brown-mid);
@@ -212,25 +212,25 @@
 
     .hero::after {
       content: '';
-    
+
       position: absolute;
-    
+
       left: -30rem;
       top: 50%;
       transform: translateY(-50%);
-    
+
       width: 1000px;
       height: 1000px;
-    
+
       background-image: url('assets/BTBreadLogoNoText.svg');
       background-repeat: no-repeat;
       background-size: contain;
       background-position: center;
-    
+
       opacity: 0.05;
-    
+
       pointer-events: none;
-    
+
       z-index: 0;
     }
 
@@ -419,14 +419,14 @@
 
     /* NEW: image frame */
     .product-card img {
-      width: 100%;
-      height: 220px;
+      width: 50%;
+      height: 50px;
       /* controls card size */
       object-fit: cover;
       /* crops image nicely */
       display: block;
     }
-    
+
     .product-card:hover {
       transform: translateY(-8px);
       box-shadow: 0 18px 45px rgba(59, 42, 26, 0.18);
@@ -439,7 +439,7 @@
       justify-content: space-between;
       align-items: center;
       gap: 1rem;
-    
+
       border-top: 1px solid var(--yellow-light);
     }
 
@@ -448,7 +448,7 @@
       font-weight: 800;
       color: var(--brown);
     }
-    
+
     .product-price {
       font-size: 0.95rem;
       color: var(--brown-light);
@@ -459,16 +459,16 @@
       position: absolute;
       top: 1rem;
       left: 1rem;
-    
+
       background: var(--yellow);
       color: var(--brown);
-    
+
       padding: 0.3rem 0.8rem;
       font-size: 0.7rem;
       font-weight: 900;
       letter-spacing: 0.08em;
       text-transform: uppercase;
-    
+
       border-radius: 999px;
       border: 1.5px solid var(--brown);
     }
@@ -477,18 +477,18 @@
       background: var(--yellow);
       border: 2px solid var(--brown);
       color: var(--brown);
-    
+
       padding: 0.5rem 1rem;
       border-radius: 999px;
-    
+
       font-weight: 800;
       font-size: 0.75rem;
-    
+
       cursor: pointer;
-    
+
       transition: all 0.2s ease;
     }
-  
+
     .add-btn:hover {
       background: var(--brown);
       color: var(--cream);
@@ -848,17 +848,17 @@
     <!-- SHOP -->
 
     <section id="shop" class="products-section container">
-    
+
       <div class="section-tag">Fresh From the Oven</div>
-    
+
       <h2 class="section-title">
         Our <em>best sellers</em><br>this season.
       </h2>
-    
+
       <div class="products-grid" id="products-grid"></div>
-    
+
     </section>
-    
+
     <!-- ABOUT -->
     <section id="about" class="about">
       <div class="container about-grid">
@@ -866,11 +866,11 @@
           <img src="https://images.unsplash.com/photo-1556910103-1c02745aae4d?q=80&w=1400&auto=format&fit=crop"
             alt="Baker at work" />
         </div>
- 
+
         <div>
           <div class="section-tag">Built for bread lovers</div>
           <h2 class="section-title">Made the <em>old-fashioned</em> way.</h2>
- 
+
           <div class="about-cards">
             <div class="about-card">
               <div class="about-icon">🌾</div>
@@ -879,7 +879,7 @@
                 <p>Every loaf starts with premium, locally milled flour — nothing artificial, ever.</p>
               </div>
             </div>
- 
+
             <div class="about-card">
               <div class="about-icon">⏱️</div>
               <div>
@@ -887,7 +887,7 @@
                 <p>We let our doughs develop naturally over 24–48 hours for maximum flavour and texture.</p>
               </div>
             </div>
- 
+
             <div class="about-card">
               <div class="about-icon">🚚</div>
               <div>
@@ -899,21 +899,21 @@
         </div>
       </div>
     </section>
- 
+
     <!-- NEWSLETTER -->
     <section id="newsletter" class="newsletter container">
       <div class="section-tag">Stay in the Loop</div>
       <h2 class="section-title">Join the <em>BTBread</em> family.</h2>
       <p>Be the first to hear about new bakes, seasonal specials, and exclusive discounts.</p>
- 
+
       <form class="newsletter-form" onsubmit="return false;">
         <input type="email" placeholder="your@email.com">
         <button type="submit">Subscribe</button>
       </form>
     </section>
- 
+
   </main>
- 
+
   <footer>
     <div class="container">
       <div class="footer-top">
@@ -921,49 +921,49 @@
           <img src="assets/BTBreadLogoHorizontal.svg" alt="BTBread Bakery">
           <div class="footer-tagline">Fresh artisan sourdough, engineered to your taste.</div>
         </div>
- 
+
         <div class="footer-links">
           <a href="#">Instagram</a>
           <a href="#">TikTok</a>
           <a href="#">Contact</a>
         </div>
       </div>
- 
+
       <div class="footer-bottom">
         <span>© 2025 BTBread Bakery. All rights reserved.</span>
         <span>Made with 🍞 and a lot of butter.</span>
       </div>
     </div>
   </footer>
-   
+
 </body>
 <script>
-    const products = [
-      {
-        name: "All-White Sourdough",
-        price: "$10.00",
-        image: "assets/all-white.webp",
-        badge: "Popular"
-      },
-    
-      {
-        name: "Babka",
-        price: "$20.00",
-        image: "assets/babka.webp",
-        badge: "New"
-      },
-    
-      {
-        name: "Garlic Confit Focaccia",
-        price: "$15.00",
-        image: "assets/garlic.webp"
-      }
-    ];
-    const grid = document.getElementById('products-grid');
-    
-    products.forEach(product => {
-    
-      grid.innerHTML += `
+  const products = [
+    {
+      name: "All-White Sourdough",
+      price: "$10.00",
+      image: "assets/all-white.webp",
+      badge: "Popular"
+    },
+
+    {
+      name: "Babka",
+      price: "$20.00",
+      image: "assets/babka.webp",
+      badge: "New"
+    },
+
+    {
+      name: "Garlic Confit Focaccia",
+      price: "$15.00",
+      image: "assets/garlic.webp"
+    }
+  ];
+  const grid = document.getElementById('products-grid');
+
+  products.forEach(product => {
+
+    grid.innerHTML += `
         <div class="product-card">
     
           ${product.badge ? `
@@ -985,7 +985,7 @@
     
         </div>
       `;
-    });      
+  });      
 </script>
 
 </html>
