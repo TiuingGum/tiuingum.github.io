@@ -455,6 +455,11 @@
       display: block;
     }
 
+    .products-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    }
+
     .product-card:hover {
       transform: translateY(-8px);
       box-shadow: 0 18px 45px rgba(59, 42, 26, 0.18);
@@ -520,11 +525,6 @@
       background: var(--brown);
       color: var(--cream);
       transform: translateY(-2px);
-    }
-    
-    .products-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
     }
 
     /* ── ABOUT ── */
@@ -979,15 +979,74 @@
     },
 
     {
+      name: "Blue Cheese Sourdough Foccacia",
+      price: "$15.00",
+      image: "assets/bluefoc.webp",
+    },
+
+    {
+      name: "Brown Sugar Choc Chip Sourdough",
+      price: "$15.00",
+      image: "assets/ChocChip.webp",
+    },
+
+    {
+      name: "Flax Seed Sourdough",
+      price: "$11.00",
+      image: "assets/Flax.webp",
+    },
+
+    {
+      name: "Honey Smoked Ham and Cheese Sourdough Foccacia",
+      price: "$18.00",
+      image: "assets/honeysmokedfoc.webp",
+    },
+
+    {
+      name: "Jalapeno Cheddar Sourdough Foccacia",
+      price: "$15.00",
+      image: "assets/jalapenofoc.webp",
+    },
+
+    {
+      name: "Olive and Rosemary Sourdough Foccacia",
+      price: "$13.00",
+      image: "assets/olivefoc.webp",
+    },
+
+    {
+      name: "Lao Gan Ma Sourdough Foccacia",
+      price: "$13.00",
+      image: "assets/laoganmafoc.webp",
+    },
+
+    {
+      name: "Lao Gan Ma Sourdough",
+      price: "$12.00",
+      image: "assets/laoganma.webp",
+    },
+
+    {
+      name: "Sundried Tomato Sourdough",
+      price: "$15.00",
+      image: "assets/sundried.webp",
+    },
+
+    {
       name: "Babka",
       price: "$20.00",
       image: "assets/babka.webp",
-      badge: "New"
+    },
+
+    {
+      name: "Sourdough Foccacia",
+      price: "$12.00",
+      image: "assets/foc.webp",
     },
 
     {
       name: "Garlic Confit Focaccia",
-      price: "$15.00",
+      price: "$18.00",
       image: "assets/garlic.webp"
     }
   ];
