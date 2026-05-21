@@ -405,119 +405,17 @@
 
     /* ── PRODUCTS ── */
 
-    .products-section {
-      padding: 6rem 0;
-    }
-
-    .section-tag {
-      display: inline-block;
-      font-size: 0.75rem;
-      font-weight: 900;
-      letter-spacing: 0.22em;
-      text-transform: uppercase;
-      color: var(--brown-light);
-      margin-bottom: 0.75rem;
-    }
-
-    .section-title {
-      font-size: clamp(2rem, 4vw, 3.2rem);
-      font-weight: 900;
-      color: var(--brown);
-      line-height: 1.1;
-    }
-
-    .section-title em {
-      font-style: italic;
-      color: var(--brown-light);
-    }
-
-    .products-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 2rem;
-      margin-top: 3rem;
-    }
-
-    .product-card {
-      background: white;
-      border: 1.5px solid var(--warm-gray);
-      border-radius: 1.5rem;
-      overflow: hidden;
-      transition: 0.3s ease;
-      position: relative;
-    }
-
-    .product-card:hover {
-      transform: translateY(-6px);
-      box-shadow: 0 20px 50px rgba(59, 42, 26, 0.14);
-      border-color: var(--brown-light);
-    }
-
-    .product-card img {
-      width: 100%;
-      height: 300px;
-      object-fit: cover;
-      transition: transform 0.4s ease;
-    }
-
-    .product-card:hover img {
-      transform: scale(1.04);
-    }
-
-    .product-badge {
-      position: absolute;
-      top: 1rem;
-      left: 1rem;
-      background: var(--yellow);
-      color: var(--brown);
-      border-radius: 999px;
-      padding: 0.25rem 0.8rem;
-      font-size: 0.7rem;
-      font-weight: 900;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      border: 1.5px solid var(--brown);
-    }
-
-    .product-info {
-      padding: 1.5rem;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      border-top: 1.5px solid var(--yellow-light);
-    }
-
-    .product-name {
-      font-size: 1.2rem;
-      font-weight: 900;
-      color: var(--brown);
-    }
-
-    .product-price {
-      color: var(--brown-light);
-      margin-top: 0.25rem;
-      font-size: 0.95rem;
-      font-weight: 700;
-    }
-
-    .add-btn {
-      background: var(--yellow);
-      border: 2px solid var(--brown);
-      color: var(--brown);
-      padding: 0.6rem 1.2rem;
-      border-radius: 999px;
-      cursor: pointer;
-      font-weight: 900;
-      font-size: 0.8rem;
-      letter-spacing: 0.06em;
-      white-space: nowrap;
-    }
-
-    .add-btn:hover {
-      background: var(--brown);
-      color: var(--cream);
-      transform: translateY(-2px);
-    }
+    <section id="shop" class="products-section container">
+    
+      <div class="section-tag">Fresh From the Oven</div>
+    
+      <h2 class="section-title">
+        Our <em>best sellers</em><br>this season.
+      </h2>
+    
+      <div class="products-grid" id="products-grid"></div>
+    
+    </section>
 
     /* ── ABOUT ── */
 
@@ -874,50 +772,56 @@
     </div>
 
     <!-- SHOP -->
-    <section id="shop" class="products-section container">
-      <div class="section-tag">Fresh From the Oven</div>
-      <h2 class="section-title">Our <em>best sellers</em><br>this season.</h2>
- 
-      <div class="products-grid">
- 
+    <script>
+    const products = [
+      {
+        name: "All-White Sourdough",
+        price: "$10.00",
+        image: "assets/all-white.webp",
+        badge: "Popular"
+      },
+    
+      {
+        name: "Babka",
+        price: "$20.00",
+        image: "assets/babka.webp",
+        badge: "New"
+      },
+    
+      {
+        name: "Garlic Confit Focaccia",
+        price: "$15.00",
+        image: "assets/garlic.webp"
+      }
+    ];
+    const grid = document.getElementById('products-grid');
+    
+    products.forEach(product => {
+    
+      grid.innerHTML += `
         <div class="product-card">
-          <div class="product-badge">Fan Favourite</div>
-          <img src="https://images.unsplash.com/photo-1585478259715-876acc5be8eb?q=80&w=1200&auto=format&fit=crop" alt="Sourdough Loaf">
+    
+          ${product.badge ? `
+            <div class="product-badge">${product.badge}</div>
+          ` : ''}
+    
+          <img src="${product.image}" alt="${product.name}">
+    
           <div class="product-info">
+    
             <div>
-              <div class="product-name">Classic Sourdough</div>
-              <div class="product-price">$12.00</div>
+              <div class="product-name">${product.name}</div>
+              <div class="product-price">${product.price}</div>
             </div>
+    
             <button class="add-btn">Add to Cart</button>
+    
           </div>
+    
         </div>
- 
-        <div class="product-card">
-          <div class="product-badge">New</div>
-          <img src="https://images.unsplash.com/photo-1555507036-ab1f4038808a?q=80&w=1200&auto=format&fit=crop" alt="Croissants">
-          <div class="product-info">
-            <div>
-              <div class="product-name">Butter Croissants</div>
-              <div class="product-price">$8.00 / 4pk</div>
-            </div>
-            <button class="add-btn">Add to Cart</button>
-          </div>
-        </div>
- 
-        <div class="product-card">
-          <img src="https://images.unsplash.com/photo-1509365390695-33aee754301f?q=80&w=1200&auto=format&fit=crop" alt="Focaccia">
-          <div class="product-info">
-            <div>
-              <div class="product-name">Herb Focaccia</div>
-              <div class="product-price">$14.00</div>
-            </div>
-            <button class="add-btn">Add to Cart</button>
-          </div>
-        </div>
- 
-      </div>
-    </section>
- 
+      `;
+    });      
+    </script>
     <!-- ABOUT -->
     <section id="about" class="about">
       <div class="container about-grid">
@@ -996,6 +900,6 @@
       </div>
     </div>
   </footer>
- 
+   
 </body>
 </html>
