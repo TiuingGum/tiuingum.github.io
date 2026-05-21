@@ -419,10 +419,10 @@
 
     /* NEW: image frame */
     .product-card img {
-      width: 100px;
-      height: 100px;
+      width: 200px;
+      height: 200px;
       /* controls card size */
-      object-fit: cover;
+      object-fit: scale-down;
       /* crops image nicely */
       display: block;
     }
@@ -493,6 +493,11 @@
       background: var(--brown);
       color: var(--cream);
       transform: translateY(-2px);
+    }
+    
+    .products-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     }
 
     /* ── ABOUT ── */
