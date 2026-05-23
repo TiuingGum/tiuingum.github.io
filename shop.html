@@ -391,24 +391,32 @@
 
         <div class="filter-bar">
 
-            <button class="filter-btn active">
+            <button class="filter-btn active", onclick="filterProducts('All')">
                 All
             </button>
 
-            <button class="filter-btn">
+            <button class="filter-btn", onclick="filterProducts('Sourdough')">
                 Sourdough
             </button>
 
-            <button class="filter-btn">
-                Sweet
+            <button class="filter-btn", onclick="filterProducts('Focaccia')">
+                Foccacia
             </button>
 
-            <button class="filter-btn">
+            <button class="filter-btn", onclick="filterProducts('Savoury')">
                 Savoury
             </button>
 
-            <button class="filter-btn">
-                Pastries
+            <button class="filter-btn", onclick="filterProducts('Sweet')">
+                Sweet
+            </button>
+
+            <button class="filter-btn", onclick="filterProducts('Vegetarian')">
+                Vegetarian
+            </button>
+
+            <button class="filter-btn", onclick="filterProducts('Vegan-Options')">
+                Vegan Options
             </button>
 
         </div>
@@ -454,76 +462,122 @@
         const products = [
 
             {
+                name: "Blue Cheese Sourdough Foccacia",
+                price: "$15.00",
+                image: "assets/bluefoc.jpg",
+                badge: "Most Popular",
+                tags: ["sourdough", "savory", "focaccia", "vegetarian"]
+            },
+
+            {
+                name: "All-White Sourdough",
+                price: "$10.00",
+                image: "assets/all-white.jpg",
+                badge: "The OG",
+                tags: ["sourdough", "savory", "vegetarian", "vegan-options"]
+            },
+
+            {
+                name: "Flax Seed Sourdough",
+                price: "$11.00",
+                image: "assets/Flax.jpg",
+                tags: ["sourdough", "savory", "vegetarian"]
+            },
+
+            {
                 name: "Brown Sugar Choc Chip Sourdough",
                 price: "$15.00",
-                image: "assets/ChocChip.webp",
+                image: "assets/ChocChip.jpg",
+                tags: ["sourdough", "sweet", "vegetarian"]
             },
 
             {
                 name: "Honey Smoked Ham and Cheese Sourdough Foccacia",
                 price: "$18.00",
-                image: "assets/honeysmokedfoc.webp",
+                image: "assets/honeysmokedfoc.jpg",
+                tags: ["sourdough", "savory", "focaccia"]
             },
 
             {
                 name: "Jalapeno Cheddar Sourdough Foccacia",
                 price: "$15.00",
-                image: "assets/jalapenofoc.webp",
+                image: "assets/jalapenofoc.jpg",
+                tags: ["sourdough", "savory", "focaccia", "spicy"]
             },
 
             {
                 name: "Olive and Rosemary Sourdough Foccacia",
                 price: "$13.00",
-                image: "assets/olivefoc.webp",
+                image: "assets/olivefoc.jpg",
+                tags: ["sourdough", "savory", "focaccia", "vegetarian", "vegan-options"]
             },
 
             {
                 name: "Lao Gan Ma Sourdough Foccacia",
                 price: "$13.00",
-                image: "assets/laoganmafoc.webp",
+                image: "assets/laoganmafoc.jpg",
+                tags: ["sourdough", "savory", "focaccia", "vegetarian", "vegan-options"]
             },
 
             {
                 name: "Lao Gan Ma Sourdough",
                 price: "$12.00",
-                image: "assets/laoganma.webp",
+                image: "assets/laoganma.jpg",
+                tags: ["sourdough", "savory", "vegetarian", "vegan-options"]
             },
 
             {
                 name: "Sundried Tomato Sourdough",
                 price: "$15.00",
-                image: "assets/sundried.webp",
+                image: "assets/sundried.jpg",
+                tags: ["sourdough", "savory", "vegetarian"]
             },
 
             {
                 name: "Babka",
                 price: "$20.00",
-                image: "assets/babka.webp",
+                image: "assets/babka.jpg",
+                tags: ["sweet", "vegetarian", "vegan-options"]
             },
 
             {
                 name: "Sourdough Foccacia",
                 price: "$12.00",
-                image: "assets/foc.webp",
+                image: "assets/foc.jpg",
+                tags: ["sourdough", "savory", "focaccia", "vegetarian", "vegan-options"]
             },
 
             {
                 name: "Garlic Confit Focaccia",
                 price: "$18.00",
-                image: "assets/garlic.webp"
+                image: "assets/garlic.jpg",
+                tags: ["sourdough", "savory", "focaccia", "vegetarian", "vegan-options"]
+            },
+
+            {
+                name: "Omega Seed Mix",
+                price: "$15.00",
+                image: "assets/omega.jpg",
+                tags: ["sourdough", "savory", "vegetarian", "vegan-options"]
             }
 
         ];
 
         const grid = document.getElementById('products-grid');
 
-        products.forEach(product => {
+        function renderProducts(productArray) {
+
+        grid.innerHTML = '';
+        products.sort((a, b) => a.name.localeCompare(b.name));
+        productArray.forEach(product => {
 
             grid.innerHTML += `
             <div class="product-card">
 
                 ${product.badge ? `
-                <div class="product-badge">${product.badge}</div>
+                <div class="product-badge">
+                    ${product.badge}
+                </div>
                 ` : ''}
 
                 <div class="product-image">
@@ -531,18 +585,47 @@
                 </div>
 
                 <div class="product-info">
+
                 <div class="product-text">
-                    <div class="product-name">${product.name}</div>
-                    <div class="product-price">${product.price}</div>
+
+                    <div class="product-name">
+                    ${product.name}
+                    </div>
+
+                    <div class="product-price">
+                    ${product.price}
+                    </div>
+
                 </div>
-                <button class="add-btn">Add to Cart</button>
+
+                <button class="add-btn">
+                    Add to Cart
+                </button>
+
                 </div>
 
             </div>
             `;
 
         });
+        }
 
+        function filterProducts(category) {
+
+            let filteredProducts;
+
+            if (category === 'All') {
+                filteredProducts = products;
+            } else {
+                filteredProducts = products.filter(
+                product => product.category === category
+                );
+            }
+
+            renderProducts(filteredProducts);
+        }
+
+    renderProducts(products);
     </script>
 
 </body>
