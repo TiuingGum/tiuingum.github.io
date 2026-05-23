@@ -457,85 +457,65 @@
 
     .products-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 2.5rem;
+      /* more space between cards */
+      margin-top: 4rem;
     }
 
-    .product-card:hover {
-      transform: translateY(-8px);
-      box-shadow: 0 18px 45px rgba(59, 42, 26, 0.18);
-      border-color: var(--brown-light);
+    .product-card {
+      background: white;
+      border: 1px solid var(--warm-gray);
+      border-radius: 1.5rem;
+      overflow: hidden;
+      position: relative;
+
+      width: 100%;
+      /* remove fixed 400px */
+      max-width: 400px;
+      /* keeps nice sizing */
+
+      transition:
+        transform 0.25s ease,
+        box-shadow 0.25s ease,
+        border-color 0.25s ease;
     }
 
-    .product-info>div {
+    .product-info {
       padding: 1.5rem;
 
       display: flex;
-      flex-direction: column;
-
-      height: 190px;
+      justify-content: space-between;
+      align-items: flex-start;
+      /* aligns button with text top */
+      gap: 1rem;
     }
 
     .product-text {
-      margin-bottom: auto;
-    }
-    .product-name {
-      font-size: 1.1rem;
-      font-weight: 800;
-      color: var(--brown);
-      line-height: 1.3;
-      min-height: calc(1.3em * 2);
-    }
-
-    .product-price {
-      font-size: 0.95rem;
-      color: var(--brown-light);
-      margin-top: 0.25rem;
-    }
-
-    .product-badge {
-      position: absolute;
-      top: 1rem;
-      left: 1rem;
-
-      background: var(--yellow);
-      color: var(--brown);
-
-      padding: 0.3rem 0.8rem;
-      font-size: 0.7rem;
-      font-weight: 900;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-
-      border-radius: 999px;
-      border: 1.5px solid var(--brown);
+      flex: 1;
+      min-width: 0;
     }
 
     .add-btn {
       background: var(--yellow);
-      border: 2px solid var(--brown);
       color: var(--brown);
 
-      padding: 0.5rem 1rem;
+      border: 2px solid var(--brown);
+
+      padding: 0.6rem 1rem;
       border-radius: 999px;
 
-      font-weight: 800;
       font-size: 0.75rem;
+      font-weight: 900;
+      letter-spacing: 0.06em;
 
       cursor: pointer;
 
-      transition: all 0.2s ease;
-      align-self: fit-content;
-    }
+      transition: 0.2s ease;
 
-    .add-btn:hover {
-      background: var(--brown);
-      color: var(--cream);
-      transform: translateY(-2px);
-    }
-
-    .shop-more {
-      margin-top: 3rem;
-      text-align: center;
+      flex-shrink: 0;
+      /* prevents squishing/overflow */
+      align-self: flex-start;
     }
 
     /* ── ABOUT ── */
