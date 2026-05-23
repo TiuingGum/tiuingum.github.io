@@ -156,6 +156,7 @@
         /* FILTERS */
 
         .filter-bar {
+            font-family: 'Inter', sans-serif;
             display: flex;
             justify-content: center;
             flex-wrap: wrap;
@@ -231,6 +232,7 @@
         }
 
         .product-name {
+            font-family: 'Inter', sans-serif;
             flex: 1;
             min-width: 0;
             font-weight: 900;
@@ -396,27 +398,27 @@
                 All
             </button>
 
-            <button class="filter-btn" , onclick="filterProducts('Sourdough')">
+            <button class="filter-btn" , onclick="filterProducts('sourdough')">
                 Sourdough
             </button>
 
-            <button class="filter-btn" , onclick="filterProducts('Focaccia')">
+            <button class="filter-btn" , onclick="filterProducts('focaccia')">
                 Foccacia
             </button>
 
-            <button class="filter-btn" , onclick="filterProducts('Savoury')">
+            <button class="filter-btn" , onclick="filterProducts('savoury')">
                 Savoury
             </button>
-
-            <button class="filter-btn" , onclick="filterProducts('Sweet')">
+S
+            <button class="filter-btn" , onclick="filterProducts('sweet')">
                 Sweet
             </button>
 
-            <button class="filter-btn" , onclick="filterProducts('Vegetarian')">
+            <button class="filter-btn" , onclick="filterProducts('vegetarian')">
                 Vegetarian
             </button>
 
-            <button class="filter-btn" , onclick="filterProducts('Vegan-Options')">
+            <button class="filter-btn" , onclick="filterProducts('vegan-Options')">
                 Vegan Options
             </button>
 
@@ -573,40 +575,40 @@
             productArray.forEach(product => {
 
                 grid.innerHTML += `
-            <div class="product-card">
+                <div class="product-card">
 
-                ${product.badge ? `
-                <div class="product-badge">
-                    ${product.badge}
-                </div>
-                ` : ''}
+                    ${product.badge ? `
+                    <div class="product-badge">
+                        ${product.badge}
+                    </div>
+                    ` : ''}
 
-                <div class="product-image">
-                <img src="${product.image}" alt="${product.name}">
-                </div>
-
-                <div class="product-info">
-
-                <div class="product-text">
-
-                    <div class="product-name">
-                    ${product.name}
+                    <div class="product-image">
+                    <img src="${product.image}" alt="${product.name}">
                     </div>
 
-                    <div class="product-price">
-                    ${product.price}
+                    <div class="product-info">
+
+                    <div class="product-text">
+
+                        <div class="product-name">
+                        ${product.name}
+                        </div>
+
+                        <div class="product-price">
+                        ${product.price}
+                        </div>
+
+                    </div>
+
+                    <button class="add-btn">
+                        Add to Cart
+                    </button>
+
                     </div>
 
                 </div>
-
-                <button class="add-btn">
-                    Add to Cart
-                </button>
-
-                </div>
-
-            </div>
-            `;
+                `;
 
             });
         }
