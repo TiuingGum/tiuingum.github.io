@@ -520,47 +520,26 @@
         products.forEach(product => {
 
             grid.innerHTML += `
+            <div class="product-card">
 
-        <div class="product-card">
+                ${product.badge ? `
+                <div class="product-badge">${product.badge}</div>
+                ` : ''}
 
-            ${product.badge ? `
-            <div class="product-badge">
-                ${product.badge}
+                <div class="product-image">
+                <img src="${product.image}" alt="${product.name}">
+                </div>
+
+                <div class="product-info">
+                <div class="product-text">
+                    <div class="product-name">${product.name}</div>
+                    <div class="product-price">${product.price}</div>
+                </div>
+                <button class="add-btn">Add to Cart</button>
+                </div>
+
             </div>
-            ` : ''}
-
-            <div class="product-image">
-
-            <img
-                src="${product.image}"
-                alt="${product.name}"
-            >
-
-            </div>
-
-        <div class="product-info">
-
-        <div class="product-text">
-
-            <div class="product-name">
-            ${product.name}
-            </div>
-
-            <div class="product-price">
-            ${product.price}
-            </div>
-
-        </div>
-
-        <button class="add-btn">
-            Add to Cart
-        </button>
-
-        </div>
-
-        </div>
-
-      `;
+            `;
 
         });
 
