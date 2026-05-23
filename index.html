@@ -460,6 +460,19 @@
         box-shadow 0.25s ease,
         border-color 0.25s ease;
     }
+  
+    .product-image {
+      width: 100%;
+      aspect-ratio: 1 / 1; /* makes it square */
+      overflow: hidden;
+    }
+
+    .product-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover; /* crops nicely instead of stretching */
+      display: block;
+    }
 
     .product-info {
       padding: 1.5rem;

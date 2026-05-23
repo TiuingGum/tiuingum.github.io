@@ -234,6 +234,19 @@
             flex: 1;
             min-width: 0;
         }
+    
+        .product-image {
+            width: 100%;
+            aspect-ratio: 1 / 1; /* makes it square */
+            overflow: hidden;
+        }
+
+            .product-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover; /* crops nicely instead of stretching */
+            display: block;
+        }
 
         .product-price {
         font-size: 0.95rem;
