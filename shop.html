@@ -392,31 +392,31 @@
 
         <div class="filter-bar">
 
-            <button class="filter-btn active", onclick="filterProducts('All')">
+            <button class="filter-btn active" , onclick="filterProducts('All')">
                 All
             </button>
 
-            <button class="filter-btn", onclick="filterProducts('Sourdough')">
+            <button class="filter-btn" , onclick="filterProducts('Sourdough')">
                 Sourdough
             </button>
 
-            <button class="filter-btn", onclick="filterProducts('Focaccia')">
+            <button class="filter-btn" , onclick="filterProducts('Focaccia')">
                 Foccacia
             </button>
 
-            <button class="filter-btn", onclick="filterProducts('Savoury')">
+            <button class="filter-btn" , onclick="filterProducts('Savoury')">
                 Savoury
             </button>
 
-            <button class="filter-btn", onclick="filterProducts('Sweet')">
+            <button class="filter-btn" , onclick="filterProducts('Sweet')">
                 Sweet
             </button>
 
-            <button class="filter-btn", onclick="filterProducts('Vegetarian')">
+            <button class="filter-btn" , onclick="filterProducts('Vegetarian')">
                 Vegetarian
             </button>
 
-            <button class="filter-btn", onclick="filterProducts('Vegan-Options')">
+            <button class="filter-btn" , onclick="filterProducts('Vegan-Options')">
                 Vegan Options
             </button>
 
@@ -568,11 +568,11 @@
 
         function renderProducts(productArray) {
 
-        grid.innerHTML = '';
-        products.sort((a, b) => a.name.localeCompare(b.name));
-        productArray.forEach(product => {
+            grid.innerHTML = '';
+            products.sort((a, b) => a.name.localeCompare(b.name));
+            productArray.forEach(product => {
 
-            grid.innerHTML += `
+                grid.innerHTML += `
             <div class="product-card">
 
                 ${product.badge ? `
@@ -608,25 +608,25 @@
             </div>
             `;
 
-        });
+            });
         }
 
-        function filterProducts(category) {
+        function filterProducts(tags) {
 
             let filteredProducts;
 
-            if (category === 'All') {
+            if (tags.includes('All')) {
                 filteredProducts = products;
             } else {
                 filteredProducts = products.filter(
-                product => product.category === category
+                    product => product.tags.some(tag => tags.includes(tag))
                 );
             }
 
             renderProducts(filteredProducts);
         }
 
-    renderProducts(products);
+        renderProducts(products);
     </script>
 
 </body>
