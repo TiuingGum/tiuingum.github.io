@@ -442,7 +442,7 @@
       overflow: hidden;
       position: relative;
       transition: 0.25s ease;
-      width: 200px;
+      width: 400px;
     }
 
     /* NEW: image frame */
@@ -525,6 +525,11 @@
       background: var(--brown);
       color: var(--cream);
       transform: translateY(-2px);
+    }
+
+    .shop-more {
+      margin-top: 3rem;
+      text-align: center;
     }
 
     /* ── ABOUT ── */
@@ -878,17 +883,23 @@
     </div>
 
     <!-- SHOP -->
-
+    
     <section id="shop" class="products-section container">
-
+    
       <div class="section-tag">Fresh From the Oven</div>
-
+    
       <h2 class="section-title">
         Our <em>best sellers</em><br>this season.
       </h2>
-
+    
       <div class="products-grid" id="products-grid"></div>
-
+    
+      <div class="shop-more">
+        <a href="shop.html" class="btn-primary">
+          Browse Full Menu
+        </a>
+      </div>
+    
     </section>
 
     <!-- ABOUT -->
@@ -971,84 +982,28 @@
 </body>
 <script>
   const products = [
-    {
-      name: "All-White Sourdough",
-      price: "$10.00",
-      image: "assets/all-white.webp",
-      badge: "Popular"
-    },
 
+  
     {
       name: "Blue Cheese Sourdough Foccacia",
       price: "$15.00",
       image: "assets/bluefoc.webp",
+      badge: "Most Popular"
     },
 
     {
-      name: "Brown Sugar Choc Chip Sourdough",
-      price: "$15.00",
-      image: "assets/ChocChip.webp",
+      name: "All-White Sourdough",
+      price: "$10.00",
+      image: "assets/all-white.webp",
+      badge: "The OG"
     },
 
     {
       name: "Flax Seed Sourdough",
       price: "$11.00",
       image: "assets/Flax.webp",
-    },
-
-    {
-      name: "Honey Smoked Ham and Cheese Sourdough Foccacia",
-      price: "$18.00",
-      image: "assets/honeysmokedfoc.webp",
-    },
-
-    {
-      name: "Jalapeno Cheddar Sourdough Foccacia",
-      price: "$15.00",
-      image: "assets/jalapenofoc.webp",
-    },
-
-    {
-      name: "Olive and Rosemary Sourdough Foccacia",
-      price: "$13.00",
-      image: "assets/olivefoc.webp",
-    },
-
-    {
-      name: "Lao Gan Ma Sourdough Foccacia",
-      price: "$13.00",
-      image: "assets/laoganmafoc.webp",
-    },
-
-    {
-      name: "Lao Gan Ma Sourdough",
-      price: "$12.00",
-      image: "assets/laoganma.webp",
-    },
-
-    {
-      name: "Sundried Tomato Sourdough",
-      price: "$15.00",
-      image: "assets/sundried.webp",
-    },
-
-    {
-      name: "Babka",
-      price: "$20.00",
-      image: "assets/babka.webp",
-    },
-
-    {
-      name: "Sourdough Foccacia",
-      price: "$12.00",
-      image: "assets/foc.webp",
-    },
-
-    {
-      name: "Garlic Confit Focaccia",
-      price: "$18.00",
-      image: "assets/garlic.webp"
     }
+
   ];
   const grid = document.getElementById('products-grid');
 
