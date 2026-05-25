@@ -161,6 +161,7 @@
             font-family: 'Inter', sans-serif;
             display: flex;
             justify-content: center;
+            align-items: center;
             flex-wrap: wrap;
             gap: 1rem;
 
@@ -173,7 +174,7 @@
 
             padding: 0.7rem 1.2rem;
             border-radius: 999px;
-            
+
             font-family: 'Inter', sans-serif;
             font-size: 0.82rem;
             font-weight: 800;
@@ -189,6 +190,38 @@
         .filter-btn.active {
             background: var(--brown);
             color: var(--cream);
+            border-color: var(--brown);
+        }
+
+        .sort-wrapper {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .sort-label {
+            font-size: 0.82rem;
+            font-weight: 800;
+            letter-spacing: 0.06em;
+            text-transform: uppercase;
+            color: var(--brown-mid);
+        }
+
+        .sort-select {
+            border: 2px solid var(--warm-gray);
+            border-radius: 999px;
+            padding: 0.65rem 1rem;
+            background: white;
+            color: var(--brown);
+            font-family: 'Inter', sans-serif;
+            font-weight: 700;
+            cursor: pointer;
+            outline: none;
+            transition: border-color 0.2s ease;
+        }
+
+        .sort-select:hover,
+        .sort-select:focus {
             border-color: var(--brown);
         }
 
@@ -394,33 +427,42 @@
 
         <div class="filter-bar">
 
-            <button class="filter-btn active" , onclick="filterProducts('All')">
+            <button class="filter-btn active" onclick="filterProducts('All')">
                 All
             </button>
 
-            <button class="filter-btn" , onclick="filterProducts('sourdough')">
+            <button class="filter-btn" onclick="filterProducts('sourdough')">
                 Sourdough
             </button>
 
-            <button class="filter-btn" , onclick="filterProducts('focaccia')">
+            <button class="filter-btn" onclick="filterProducts('focaccia')">
                 Foccacia
             </button>
 
-            <button class="filter-btn" , onclick="filterProducts('savory')">
+            <button class="filter-btn" onclick="filterProducts('savory')">
                 Savoury
             </button>
 
-            <button class="filter-btn" , onclick="filterProducts('sweet')">
+            <button class="filter-btn" onclick="filterProducts('sweet')">
                 Sweet
             </button>
 
-            <button class="filter-btn" , onclick="filterProducts('vegetarian')">
+            <button class="filter-btn" onclick="filterProducts('vegetarian')">
                 Vegetarian
             </button>
 
-            <button class="filter-btn" , onclick="filterProducts('vegan-options')">
+            <button class="filter-btn" onclick="filterProducts('vegan-options')">
                 Vegan Options
             </button>
+
+            <div class="sort-wrapper">
+                <span class="sort-label">Sort:</span>
+                <select id="sort-select" class="sort-select" onchange="changeSort(this.value)">
+                    <option value="name">Name</option>
+                    <option value="price-asc">Price: low to high</option>
+                    <option value="price-desc">Price: high to low</option>
+                </select>
+            </div>
 
         </div>
 
@@ -567,13 +609,12 @@
         ];
 
         const grid = document.getElementById('products-grid');
+        let currentFilter = 'All';
+        let currentSort = 'name';
 
         function renderProducts(productArray) {
-
             grid.innerHTML = '';
-            products.sort((a, b) => a.name.localeCompare(b.name));
             productArray.forEach(product => {
-
                 grid.innerHTML += `
                 <div class="product-card">
 
@@ -609,26 +650,59 @@
 
                 </div>
                 `;
-
             });
         }
 
-        function filterProducts(tags) {
+        function parsePrice(priceString) {
+            return parseFloat(priceString.replace(/[^0-9.]/g, '')) || 0;
+        }
 
+        function sortProducts(productArray, sortBy) {
+            return [...productArray].sort((a, b) => {
+                if (sortBy === 'price-asc') {
+                    return parsePrice(a.price) - parsePrice(b.price);
+                }
+
+                if (sortBy === 'price-desc') {
+                    return parsePrice(b.price) - parsePrice(a.price);
+                }
+
+                return a.name.localeCompare(b.name);
+            });
+        }
+
+        function applyFiltersAndSort() {
             let filteredProducts;
 
-            if (tags.includes('All')) {
+            if (currentFilter === 'All') {
                 filteredProducts = products;
             } else {
                 filteredProducts = products.filter(
-                    product => product.tags.some(tag => tags.includes(tag))
+                    product => product.tags.some(tag => tag === currentFilter)
                 );
             }
 
-            renderProducts(filteredProducts);
+            const sortedProducts = sortProducts(filteredProducts, currentSort);
+            renderProducts(sortedProducts);
         }
 
-        renderProducts(products);
+        function filterProducts(tags) {
+            currentFilter = tags;
+            document.querySelectorAll('.filter-btn').forEach(btn => {
+                btn.classList.toggle(
+                    'active',
+                    btn.textContent.trim().toLowerCase() === tags.toLowerCase()
+                );
+            });
+            applyFiltersAndSort();
+        }
+
+        function changeSort(sortValue) {
+            currentSort = sortValue;
+            applyFiltersAndSort();
+        }
+
+        applyFiltersAndSort();
     </script>
 
 </body>
