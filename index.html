@@ -493,6 +493,48 @@
       align-self: flex-start;
     }
 
+    .btn-primary,
+    .btn-secondary,
+    .add-btn {
+      transition:
+        transform 0.2s ease,
+        background 0.2s ease,
+        color 0.2s ease,
+        border-color 0.2s ease;
+    }
+
+    .btn-primary {
+      background: var(--brown);
+      color: var(--cream);
+      padding: 1rem 2rem;
+      border-radius: 999px;
+      font-weight: 900;
+      font-size: 0.9rem;
+      letter-spacing: 0.06em;
+      border: 2px solid var(--brown);
+    }
+
+    .btn-primary:hover {
+      background: var(--brown-mid);
+      border-color: var(--brown-mid);
+      transform: translateY(-2px);
+    }
+
+    .btn-secondary {
+      color: var(--brown);
+      padding: 1rem 2rem;
+      border-radius: 999px;
+      font-weight: 900;
+      font-size: 0.9rem;
+      letter-spacing: 0.06em;
+      border: 2px solid var(--warm-gray);
+    }
+
+    .btn-secondary:hover {
+      border-color: var(--brown);
+      transform: translateY(-2px);
+    }
+
     /* ── ABOUT ── */
 
     .about {
@@ -818,23 +860,19 @@
     <div class="marquee-strip">
       <div class="marquee-track">
 
-        <span>Sourdough</span><span class="dot">✦</span>
+        <span>Boules</span><span class="dot">✦</span>
+        <span>Batards</span><span class="dot">✦</span>
         <span>Focaccia</span><span class="dot">✦</span>
-        <span>Croissants</span><span class="dot">✦</span>
-        <span>Rye Loaves</span><span class="dot">✦</span>
-        <span>Cinnamon Rolls</span><span class="dot">✦</span>
-        <span>Brioche</span><span class="dot">✦</span>
         <span>Baguettes</span><span class="dot">✦</span>
-        <span>Multigrain</span><span class="dot">✦</span>
+        <span>Demi-Baguettes</span><span class="dot">✦</span>
+        <span>Sandwich Loaves</span><span class="dot">✦</span>
 
-        <span>Sourdough</span><span class="dot">✦</span>
+        <span>Boules</span><span class="dot">✦</span>
+        <span>Batards</span><span class="dot">✦</span>
         <span>Focaccia</span><span class="dot">✦</span>
-        <span>Croissants</span><span class="dot">✦</span>
-        <span>Rye Loaves</span><span class="dot">✦</span>
-        <span>Cinnamon Rolls</span><span class="dot">✦</span>
-        <span>Brioche</span><span class="dot">✦</span>
         <span>Baguettes</span><span class="dot">✦</span>
-        <span>Multigrain</span><span class="dot">✦</span>
+        <span>Demi-Baguettes</span><span class="dot">✦</span>
+        <span>Sandwich Loaves</span><span class="dot">✦</span>
 
       </div>
     </div>
