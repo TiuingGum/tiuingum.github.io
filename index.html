@@ -807,7 +807,11 @@
 
       </nav>
 
-      <a href="#cart" class="cart-btn">🧺 Cart (0)</a>
+      🧺 Cart (
+      <span id="cart-count">0</span>
+      )
+      —
+      <span id="cart-total">$0.00</span>
 
     </div>
   </header>
@@ -1034,12 +1038,13 @@
             <div class="product-name">${product.name}</div>
             <div class="product-pricedisplay">${product.pricedisplay}</div>
           </div>
-          <button class="add-btn">Add to Cart</button>
         </div>
 
       </div>
     `;
-  });      
+  });     
+  
+  
 </script>
 
 </html>

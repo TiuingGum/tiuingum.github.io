@@ -404,7 +404,11 @@
                 <a href="#newsletter">Newsletter</a>
             </nav>
 
-            <a href="#cart" class="cart-btn">🧺 Cart (0)</a>
+            🧺 Cart (
+            <span id="cart-count">0</span>
+            )
+            —
+            <span id="cart-total">$0.00</span>
 
         </div>
     </header>
@@ -506,6 +510,8 @@
     <!-- PRODUCTS SCRIPT -->
 
     <script>
+
+        let cart = [];
 
         const products = [
 
@@ -632,6 +638,29 @@
             }
 
         ];
+        
+        function addToCart(id) {
+
+            const product = products.find(p => p.id === id);
+
+            cart.push(product);
+
+            updateCart();
+
+        }
+
+        function updateCart() {
+
+            const total = cart.reduce((sum, item) => {
+                return sum + item.price;
+            }, 0);
+
+            document.getElementById("cart-total").textContent =
+                `$${total.toFixed(2)}`;
+
+            document.getElementById("cart-count").textContent =
+                cart.length;
+        }
 
         const grid = document.getElementById('products-grid');
         let currentFilter = 'All';
@@ -667,7 +696,7 @@
 
                     </div>
 
-                    <button class="add-btn">
+                    <button class="add-btn" onclick="addToCart(${product.id})">
                         Add to Cart
                     </button>
 
@@ -728,6 +757,7 @@
         }
 
         applyFiltersAndSort();
+
     </script>
 
 </body>
