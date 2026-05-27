@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>BTBread Affiliates</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700;900&display=swap" rel="stylesheet">
+
+  <style>
+    :root{--cream:#fdf8ed;--yellow:#f9e07a;--brown:#3b2a1a;--brown-mid:#6b4c2a;--warm-gray:#c8b89a;--text:#2c1a0e;--text-muted:#8a6a4a}
+    *{margin:0;padding:0;box-sizing:border-box}
+    body{font-family:'Inter',sans-serif;background:var(--cream);color:var(--text);overflow-x:hidden}
+    a{color:inherit;text-decoration:none}
+    img{display:block;max-width:100%}
+    .container{width:min(1200px,92%);margin:0 auto}
+
+    header{position:sticky;top:0;z-index:100;background:rgba(255,255,255,0.96);backdrop-filter:blur(12px);border-bottom:1.5px solid var(--warm-gray)}
+    .navbar{display:flex;align-items:center;justify-content:space-between;padding:0.85rem 0}
+    .nav-links{display:flex;gap:2.5rem;font-weight:400;letter-spacing:0.12em;text-transform:uppercase;font-size:1.2rem;color:var(--brown-mid)}
+    .cart-btn{border:2px solid var(--brown);color:var(--brown);padding:0.5rem 1rem;border-radius:999px;font-weight:900;font-size:0.82rem}
+
+    .page-hero{padding:3.5rem 0 2rem;text-align:center}
+    .page-label{display:inline-block;background:var(--yellow);color:var(--brown);padding:0.35rem 1rem;border-radius:999px;font-weight:900;letter-spacing:0.12em;margin-bottom:1rem}
+    .page-title{font-size:clamp(1.8rem,3.5vw,2.6rem);font-weight:900;color:var(--brown);margin-top:0.75rem}
+    .page-sub{color:var(--text-muted);margin-top:0.75rem;max-width:720px;margin-inline:auto}
+
+    .products-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1.5rem;margin-top:2.5rem;margin-bottom:3.5rem}
+    .product-card{background:white;border:1px solid var(--warm-gray);border-radius:1rem;overflow:hidden;position:relative;transition:transform .25s ease,box-shadow .25s ease}
+    .product-image{position:relative;width:100%;aspect-ratio:1/1;overflow:hidden;background:#f5f5f5}
+    .product-image img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+    .product-info{padding:1rem;display:flex;justify-content:space-between;align-items:flex-start;gap:0.75rem}
+    .product-text{flex:1}
+    .product-name{font-weight:900}
+    .product-price{color:var(--brown-mid);margin-top:0.25rem}
+    .affiliate-btn{background:var(--yellow);border:2px solid var(--brown);padding:.55rem .85rem;border-radius:999px;font-weight:900;color:var(--brown);cursor:pointer}
+    .product-badge{position:absolute;top:0.75rem;left:0.75rem;background:var(--yellow);padding:0.25rem .6rem;border-radius:999px;border:1.5px solid var(--brown);font-weight:900;font-size:0.75rem}
+
+    footer{background:var(--brown);color:var(--cream);padding:2.5rem 0}
+    .footer-inner{display:flex;justify-content:space-between;flex-wrap:wrap;gap:1rem}
+
+    @media (max-width:700px){.nav-links{display:none}}
+  </style>
+</head>
+
+<body>
+
+  <header>
+    <div class="container navbar">
+      <a href="index.html" style="font-weight:200;font-size:1.6rem;color:var(--brown);letter-spacing:-0.02em;">BTBread</a>
+      <nav class="nav-links">
+        <a href="shop.html">Shop</a>
+        <a href="index.html#about">Our Story</a>
+        <a href="index.html#newsletter">Newsletter</a>
+      </nav>
+      <a href="#cart" class="cart-btn">🧺 Cart (0)</a>
+    </div>
+  </header>
+
+  <main>
+    <section class="container page-hero">
+      <div class="page-label">AFFILIATES</div>
+      <h1 class="page-title">Recommended gear &amp; baking tools</h1>
+      <p class="page-sub">Curated Amazon picks that we love — support the bakery when you buy through these links. (Replace the sample links with your affiliate URLs.)</p>
+    </section>
+
+    <section class="container">
+      <div class="products-grid" id="affiliates-grid"></div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container footer-inner">
+      <div style="font-weight:900;font-size:1rem">BTBread</div>
+      <div style="color:var(--warm-gray)">© 2026 BTBread Bakery</div>
+    </div>
+  </footer>
+
+  <script>
+    // Replace 'tag=yourAffiliateTag' with your Amazon affiliate tag.
+    const affiliateProducts = [
+      { name: 'Digital Kitchen Scale', price: '$29.99', image: 'assets/omega.jpg', url: 'https://www.amazon.com/dp/ASIN1/?tag=yourAffiliateTag', badge: 'Top Pick' },
+      { name: 'Baker\'s Bench Scraper', price: '$9.99', image: 'assets/garlic.jpg', url: 'https://www.amazon.com/dp/ASIN2/?tag=yourAffiliateTag' },
+      { name: 'Cast Iron Dutch Oven', price: '$89.99', image: 'assets/breadhero.webp', url: 'https://www.amazon.com/dp/ASIN3/?tag=yourAffiliateTag' },
+      { name: 'Proofing Basket (Banneton)', price: '$18.95', image: 'assets/foc.jpg', url: 'https://www.amazon.com/dp/ASIN4/?tag=yourAffiliateTag' }
+    ];
+
+    const grid = document.getElementById('affiliates-grid');
+
+    function renderAffiliates(items) {
+      grid.innerHTML = '';
+      items.forEach(item => {
+        grid.innerHTML += `
+          <div class="product-card">
+            ${item.badge ? `<div class="product-badge">${item.badge}</div>` : ''}
+            <a href="${item.url}" target="_blank" rel="noopener noreferrer" class="product-image">
+              <img src="${item.image}" alt="${item.name}">
+            </a>
+            <div class="product-info">
+              <div class="product-text">
+                <div class="product-name">${item.name}</div>
+                <div class="product-price">${item.price || ''}</div>
+              </div>
+              <div>
+                <a class="affiliate-btn" href="${item.url}" target="_blank" rel="noopener noreferrer">Buy on Amazon</a>
+              </div>
+            </div>
+          </div>
+        `;
+      });
+    }
+
+    renderAffiliates(affiliateProducts);
+  </script>
+
+</body>
+
+</html>
