@@ -49,7 +49,7 @@
         }
 
         .container {
-            width: min(1200px, 92%);
+            width: min(1700px, 92%);
             margin: 0 auto;
         }
 
@@ -294,7 +294,7 @@
         display: block;
         }
 
-        .product-price {
+        .product-pricedisplay {
             font-size: 0.95rem;
             color: var(--brown-light);
             margin-top: 0.25rem;
@@ -462,8 +462,8 @@
                 <span class="sort-label">Sort:</span>
                 <select id="sort-select" class="sort-select" onchange="changeSort(this.value)">
                     <option value="name">Name</option>
-                    <option value="price-asc">Price: low to high</option>
-                    <option value="price-desc">Price: high to low</option>
+                    <option value="pricedisplay-asc">pricedisplay: low to high</option>
+                    <option value="pricedisplay-desc">pricedisplay: high to low</option>
                 </select>
             </div>
 
@@ -511,7 +511,8 @@
 
             {
                 name: "Blue Cheese Sourdough Foccacia",
-                price: "$15.00",
+                pricedisplay: "$15.00",
+                price: 15,
                 image: "assets/bluefoc.jpg",
                 badge: "Most Popular",
                 tags: ["sourdough", "savory", "focaccia", "vegetarian"]
@@ -519,7 +520,8 @@
 
             {
                 name: "All-White Sourdough",
-                price: "$10.00",
+                pricedisplay: "$10.00",
+                price: 10,
                 image: "assets/all-white.jpg",
                 badge: "The OG",
                 tags: ["sourdough", "savory", "vegetarian", "vegan-options"]
@@ -527,91 +529,104 @@
 
             {
                 name: "Flax Seed Sourdough",
-                price: "$11.00",
+                pricedisplay: "$11.00",
+                price: 11,
                 image: "assets/Flax.jpg",
                 tags: ["sourdough", "savory", "vegetarian"]
             },
 
             {
                 name: "Brown Sugar Choc Chip Sourdough",
-                price: "$15.00",
+                pricedisplay: "$15.00",
+                price: 15,
                 image: "assets/ChocChip.jpg",
                 tags: ["sourdough", "sweet", "vegetarian"]
             },
 
             {
                 name: "Honey Smoked Ham and Cheese Sourdough Foccacia",
-                price: "$18.00",
+                pricedisplay: "$18.00",
+                price: 18,
                 image: "assets/honeysmokedfoc.jpg",
                 tags: ["sourdough", "savory", "focaccia"]
             },
 
             {
                 name: "Jalapeno Cheddar Sourdough Foccacia",
-                price: "$15.00",
+                pricedisplay: "$15.00",
+                price: 15,
                 image: "assets/jalapenofoc.jpg",
                 tags: ["sourdough", "savory", "focaccia", "spicy"]
             },
 
             {
                 name: "Olive and Rosemary Sourdough Foccacia",
-                price: "$13.00",
+                pricedisplay: "$13.00",
+                price: 13,
                 image: "assets/olivefoc.jpg",
                 tags: ["sourdough", "savory", "focaccia", "vegetarian", "vegan-options"]
             },
 
             {
                 name: "Lao Gan Ma Sourdough Foccacia",
-                price: "$13.00",
+                pricedisplay: "$13.00",
+                price: 13,
                 image: "assets/laoganmafoc.jpg",
                 tags: ["sourdough", "savory", "focaccia", "vegetarian", "vegan-options"]
             },
 
             {
                 name: "Lao Gan Ma Sourdough",
-                price: "$12.00",
+                pricedisplay: "$12.00",
+                price: 12,
                 image: "assets/laoganma.jpg",
                 tags: ["sourdough", "savory", "vegetarian", "vegan-options"]
             },
 
             {
                 name: "Sundried Tomato Sourdough",
-                price: "$15.00",
+                pricedisplay: "$15.00",
+                price: 15,
                 image: "assets/sundried.jpg",
                 tags: ["sourdough", "savory", "vegetarian"]
             },
 
             {
                 name: "Babka",
-                price: "$20.00",
+                pricedisplay: "$20.00",
+                price: 20,
                 image: "assets/babka.jpg",
                 tags: ["sweet", "vegetarian", "vegan-options"]
             },
 
             {
                 name: "Sourdough Foccacia",
-                price: "$12.00",
+                pricedisplay: "$12.00",
+                price: 12,
                 image: "assets/foc.jpg",
                 tags: ["sourdough", "savory", "focaccia", "vegetarian", "vegan-options"]
             },
 
             {
                 name: "Garlic Confit Focaccia",
-                price: "$18.00",
+                pricedisplay: "$18.00",
+                price: 18,
                 image: "assets/garlic.jpg",
                 tags: ["sourdough", "savory", "focaccia", "vegetarian", "vegan-options"]
             },
 
             {
                 name: "Curry Sourdough",
-                price: "$12.00",
+                pricedisplay: "$12.00",
+                price: 12,
                 image: "assets/curry.jpg",
                 tags: ["sourdough", "savory", "vegetarian", "vegan-options"]
             },
 
             {
                 name: "Omega Seed Mix",
-                price: "$15.00",
+                pricedisplay: "$15.00",
+                price: 15,
                 image: "assets/omega.jpg",
                 tags: ["sourdough", "savory", "vegetarian", "vegan-options"]
             }
@@ -646,8 +661,8 @@
                         ${product.name}
                         </div>
 
-                        <div class="product-price">
-                        ${product.price}
+                        <div class="product-pricedisplay">
+                        ${product.pricedisplay}
                         </div>
 
                     </div>
@@ -663,18 +678,18 @@
             });
         }
 
-        function parsePrice(priceString) {
-            return parseFloat(priceString.replace(/[^0-9.]/g, '')) || 0;
+        function parsepricedisplay(pricedisplayString) {
+            return parseFloat(pricedisplayString.replace(/[^0-9.]/g, '')) || 0;
         }
 
         function sortProducts(productArray, sortBy) {
             return [...productArray].sort((a, b) => {
-                if (sortBy === 'price-asc') {
-                    return parsePrice(a.price) - parsePrice(b.price);
+                if (sortBy === 'pricedisplay-asc') {
+                    return parsepricedisplay(a.pricedisplay) - parsepricedisplay(b.pricedisplay);
                 }
 
-                if (sortBy === 'price-desc') {
-                    return parsePrice(b.price) - parsePrice(a.price);
+                if (sortBy === 'pricedisplay-desc') {
+                    return parsepricedisplay(b.pricedisplay) - parsepricedisplay(a.pricedisplay);
                 }
 
                 return a.name.localeCompare(b.name);

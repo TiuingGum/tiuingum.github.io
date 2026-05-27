@@ -71,7 +71,7 @@
     }
 
     .container {
-      width: min(1200px, 92%);
+      width: min(1700px, 92%);
       margin: 0 auto;
     }
 
@@ -449,7 +449,7 @@
       font-weight: 900;
     }
 
-    .product-price {
+    .product-pricedisplay {
       font-size: 0.95rem;
       color: var(--brown-light);
       margin-top: 0.25rem;
@@ -952,7 +952,7 @@
       </form>
     </section>
 
-  </main>
+  </main>container
 
   <footer>
     <div class="container">
@@ -983,28 +983,32 @@
 
     {
       name: "Blue Cheese Sourdough Foccacia",
-      price: "$15.00",
+      pricedisplay: "$15.00",
+      price: 15,
       image: "assets/bluefoc.jpg",
       badge: "Most Popular"
     },
 
     {
       name: "All-White Sourdough",
-      price: "$10.00",
+      pricedisplay: "$10.00",
+      price: 10,
       image: "assets/all-white.jpg",
       badge: "The OG"
     },
 
     {
       name: "Lao Gan Ma Sourdough",
-      price: "$12.00",
+      pricedisplay: "$12.00",
+      price: 12,
       image: "assets/laoganma.jpg",
       badge: "Try Something New"
     },
 
     {
       name: "Flax Seed Sourdough",
-      price: "$11.00",
+      pricedisplay: "$11.00",
+      price: 11,
       image: "assets/Flax.jpg",
       badge: "Underrated"
     }
@@ -1028,7 +1032,7 @@
         <div class="product-info">
           <div class="product-text">
             <div class="product-name">${product.name}</div>
-            <div class="product-price">${product.price}</div>
+            <div class="product-pricedisplay">${product.pricedisplay}</div>
           </div>
           <button class="add-btn">Add to Cart</button>
         </div>
