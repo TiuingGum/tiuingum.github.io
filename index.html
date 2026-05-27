@@ -273,7 +273,7 @@
     }
 
     .hero-image-wrap img {
-      border-radius: 63% 37% 72% 28% / 31% 56% 44% 69%  ;
+      border-radius: 63% 37% 72% 28% / 31% 56% 44% 69%;
       height: 580px;
       object-fit: cover;
       width: 500px;
@@ -284,7 +284,7 @@
       content: '';
       position: absolute;
       inset: 0;
-      border-radius: 63% 37% 72% 28% / 31% 56% 44% 69%  ;
+      border-radius: 63% 37% 72% 28% / 31% 56% 44% 69%;
       background: linear-gradient(to top,
           rgba(0, 0, 0, 0.18),
           rgba(0, 0, 0, 0));
@@ -807,11 +807,7 @@
 
       </nav>
 
-      🧺 Cart (
-      <span id="cart-count">0</span>
-      )
-      —
-      <span id="cart-total">$0.00</span>
+      🧺 Cart (<span id="cart-count">0</span>) — <span id="cart-total">$0.00</span>
 
     </div>
   </header>
@@ -982,6 +978,11 @@
 
 </body>
 <script>
+
+  let cart = JSON.parse(
+    localStorage.getItem('btbread-cart')
+  ) || [];
+
   const products = [
 
 
@@ -1042,9 +1043,10 @@
 
       </div>
     `;
-  });     
-  
-  
+  });
+
+  updateCart();
+
 </script>
 
 </html>

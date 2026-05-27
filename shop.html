@@ -276,22 +276,22 @@
         }
 
         .product-image {
-        position: relative;
-        width: 100%;
-        aspect-ratio: 1 / 1;
-        overflow: hidden;
-        background: #f5f5f5;
+            position: relative;
+            width: 100%;
+            aspect-ratio: 1 / 1;
+            overflow: hidden;
+            background: #f5f5f5;
         }
 
         .product-image img {
-        position: absolute;
-        inset: 0;
+            position: absolute;
+            inset: 0;
 
-        width: 100%;
-        height: 100%;
+            width: 100%;
+            height: 100%;
 
-        object-fit: cover;
-        display: block;
+            object-fit: cover;
+            display: block;
         }
 
         .product-pricedisplay {
@@ -404,11 +404,7 @@
                 <a href="#newsletter">Newsletter</a>
             </nav>
 
-            🧺 Cart (
-            <span id="cart-count">0</span>
-            )
-            —
-            <span id="cart-total">$0.00</span>
+            🧺 Cart (<span id="cart-count">0</span>) — <span id="cart-total">$0.00</span>
 
         </div>
     </header>
@@ -511,7 +507,9 @@
 
     <script>
 
-        let cart = [];
+        let cart = JSON.parse(
+            localStorage.getItem('btbread-cart')
+        ) || [];
 
         const products = [
 
@@ -638,15 +636,19 @@
             }
 
         ];
-        
+
         function addToCart(id) {
 
             const product = products.find(p => p.id === id);
 
             cart.push(product);
 
-            updateCart();
+            localStorage.setItem(
+                'btbread-cart',
+                JSON.stringify(cart)
+            );
 
+            updateCart();
         }
 
         function updateCart() {
@@ -757,6 +759,8 @@
         }
 
         applyFiltersAndSort();
+
+        updateCart();
 
     </script>
 
