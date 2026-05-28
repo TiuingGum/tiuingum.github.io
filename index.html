@@ -959,27 +959,27 @@
     </section>
 
     <footer>
-    <div class="container">
-      <div class="footer-top">
-        <div class="footer-logo">
-          <img src="assets/BTBreadLogoHorizontal.svg" alt="BTBread Bakery">
-          <div class="footer-tagline">Handcrafted sourdough, engineered to your taste.</div>
+      <div class="container">
+        <div class="footer-top">
+          <div class="footer-logo">
+            <img src="assets/BTBreadLogoHorizontal.svg" alt="BTBread Bakery">
+            <div class="footer-tagline">Handcrafted sourdough, engineered to your taste.</div>
+          </div>
+
+          <div class="footer-links">
+            <a href="#">Instagram</a>
+            <a href="#">TikTok</a>
+            <a href="#">Contact</a>
+          </div>
         </div>
 
-        <div class="footer-links">
-          <a href="#">Instagram</a>
-          <a href="#">TikTok</a>
-          <a href="#">Contact</a>
+        <div class="footer-bottom">
+          <span>© 2025 BTBread Bakery. All rights reserved.</span>
         </div>
       </div>
+    </footer>
 
-      <div class="footer-bottom">
-        <span>© 2025 BTBread Bakery. All rights reserved.</span>
-      </div>
-    </div>
-  </footer>
-
-  </main>container
+  </main>
 
 </body>
 <script>
@@ -1049,6 +1049,24 @@
       </div>
     `;
   });
+
+  function updateCart() {
+
+  const total = cart.reduce((sum, item) => {
+      return sum + item.price;
+    }, 0);
+
+    const countEl = document.getElementById('cart-count');
+    const totalEl = document.getElementById('cart-total');
+
+    if (countEl) {
+      countEl.textContent = cart.length;
+    }
+
+    if (totalEl) {
+      totalEl.textContent = `$${total.toFixed(2)}`;
+    }
+  }
 
   updateCart();
 
