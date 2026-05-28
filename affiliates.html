@@ -463,6 +463,28 @@
             font-weight: 800;
             font-size: 1.1rem;
         }
+
+        .btn-primary {
+            background: var(--brown);
+            color: var(--cream);
+            padding: 1rem 2rem;
+            border-radius: 999px;
+            font-weight: 900;
+            font-size: 0.9rem;
+            letter-spacing: 0.06em;
+            border: 2px solid var(--brown);
+            cursor: pointer;
+
+            transition:
+                transform 0.2s ease,
+                background 0.2s ease;
+        }
+
+        .btn-primary:hover {
+            background: var(--brown-mid);
+            transform: translateY(-2px);
+        }
+        
     </style>
 </head>
 
@@ -539,6 +561,39 @@
             </div>
         </div>
     </footer>
+
+    <div class="cart-popup" id="cart-popup">
+
+        <div class="cart-panel">
+
+            <div class="cart-header">
+                <h2>Your Cart</h2>
+
+                <button class="close-cart" id="close-cart-btn">
+                    ✕
+                </button>
+            </div>
+
+            <div class="cart-items" id="cart-items">
+                <!-- JS inserts items here -->
+            </div>
+
+            <div class="cart-footer">
+
+                <div class="cart-total-line">
+                    Total:
+                    <span id="popup-cart-total">$0.00</span>
+                </div>
+
+                <button class="btn-primary">
+                    Checkout
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
 
     <script>
 
@@ -800,39 +855,6 @@
         updateCart();
 
     </script>
-
-    <div class="cart-popup" id="cart-popup">
-
-        <div class="cart-panel">
-
-            <div class="cart-header">
-                <h2>Your Cart</h2>
-
-                <button class="close-cart" id="close-cart-btn">
-                    ✕
-                </button>
-            </div>
-
-            <div class="cart-items" id="cart-items">
-                <!-- JS inserts items here -->
-            </div>
-
-            <div class="cart-footer">
-
-                <div class="cart-total-line">
-                    Total:
-                    <span id="popup-cart-total">$0.00</span>
-                </div>
-
-                <button class="btn-primary">
-                    Checkout
-                </button>
-
-            </div>
-
-        </div>
-
-    </div>
 
 </body>
 
