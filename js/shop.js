@@ -19,7 +19,7 @@ function renderProducts(list) {
           <div class="product-price">$${p.price}</div>
         </div>
 
-        <button class="add-btn">Add</button>
+        <button class="add-btn">Add to cart</button>
       </div>
     `;
 

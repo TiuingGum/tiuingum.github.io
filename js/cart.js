@@ -35,3 +35,35 @@ function updateCartUI(products) {
     total.textContent = getCartTotal(products).toFixed(2);
   }
 }
+
+/* 👇 ADD THIS WRAPPER */
+window.Cart = {
+  init(products) {
+    this.products = products;
+    this.update(products);
+    this.bind();
+  },
+
+  bind() {
+    const openBtn = document.getElementById("open-cart-btn");
+    const popup = document.getElementById("cart-popup");
+    const closeBtn = document.getElementById("close-cart-btn");
+
+    if (openBtn && popup) {
+      openBtn.addEventListener("click", (e) => {
+        e.preventDefault();
+        popup.classList.add("active");
+      });
+    }
+
+    if (closeBtn && popup) {
+      closeBtn.addEventListener("click", () => {
+        popup.classList.remove("active");
+      });
+    }
+  },
+
+  update(products) {
+    updateCartUI(products);
+  }
+};
