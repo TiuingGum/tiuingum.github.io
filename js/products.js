@@ -5,7 +5,8 @@ window.PRODUCTS = [
         price: 15,
         id: 1,
         image: "assets/bluefoc.jpg",
-        tags: ["sourdough", "savory", "focaccia", "vegetarian"]
+        tags: ["sourdough", "savory", "focaccia", "vegetarian"],
+        badge: "Most Popular"
     },
     {
         name: "All-White Sourdough",
@@ -13,7 +14,8 @@ window.PRODUCTS = [
         price: 10,
         id: 2,
         image: "assets/all-white.jpg",
-        tags: ["sourdough", "savory", "vegetarian", "vegan-options"]
+        tags: ["sourdough", "savory", "vegetarian", "vegan-options"],
+        badge: "The OG"
     },
     {
         name: "Flax Seed Sourdough",
@@ -21,7 +23,8 @@ window.PRODUCTS = [
         price: 11,
         id: 3,
         image: "assets/Flax.jpg",
-        tags: ["sourdough", "savory", "vegetarian"]
+        tags: ["sourdough", "savory", "vegetarian"],
+        badge: "Underrated"
     },
     {
         name: "Brown Sugar Choc Chip Sourdough",
@@ -69,7 +72,8 @@ window.PRODUCTS = [
         price: 12,
         id: 9,
         image: "assets/laoganma.jpg",
-        tags: ["sourdough", "savory", "vegetarian", "vegan-options"]
+        tags: ["sourdough", "savory", "vegetarian", "vegan-options"],
+        badge: "Try Something New"
     },
     {
         name: "Sundried Tomato Sourdough",

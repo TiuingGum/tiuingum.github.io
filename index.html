@@ -1127,47 +1127,46 @@
   </div>
 
 </body>
-<script>
-  const products = [
-
-    {
-      name: "Blue Cheese Sourdough Foccacia",
-      pricedisplay: "$15.00",
-      price: 15,
-      image: "assets/bluefoc.jpg",
-      badge: "Most Popular"
-    },
-
-    {
-      name: "All-White Sourdough",
-      pricedisplay: "$10.00",
-      price: 10,
-      image: "assets/all-white.jpg",
-      badge: "The OG"
-    },
-
-    {
-      name: "Lao Gan Ma Sourdough",
-      pricedisplay: "$12.00",
-      price: 12,
-      image: "assets/laoganma.jpg",
-      badge: "Try Something New"
-    },
-
-    {
-      name: "Flax Seed Sourdough",
-      pricedisplay: "$11.00",
-      price: 11,
-      image: "assets/Flax.jpg",
-      badge: "Underrated"
-    }
-
-  ]
-</script>
 <script src="js/products.js"></script>
 <script src="js/cart.js"></script>
 <script>
   Cart.init(PRODUCTS);
+</script>
+<script>
+  const featuredProducts = PRODUCTS.filter(p => p.badge);
+
+  function renderProducts(list) {
+  const grid = document.getElementById("products-grid");
+  grid.innerHTML = "";
+
+  list.forEach(p => {
+    grid.innerHTML += `
+      <div class="product-card">
+        
+        <div class="product-image">
+          <img src="${p.image}" alt="${p.name}">
+        </div>
+
+        ${p.badge ? `<div class="product-badge">${p.badge}</div>` : ""}
+
+        <div class="product-info">
+          <div>
+            <div class="product-name">${p.name}</div>
+            <div class="product-pricedisplay">${p.pricedisplay}</div>
+          </div>
+
+          <button class="add-btn" onclick="Cart.add(${p.id})">
+            Add
+          </button>
+        </div>
+
+      </div>
+    `;
+  });
+}
+
+renderProducts(PRODUCTS.filter(p => p.badge));
+
 </script>
 
 </html>
