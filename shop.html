@@ -718,6 +718,13 @@
             localStorage.getItem('btbread-cart')
         ) || [];
 
+        // remove old broken cart data
+        cart = cart.filter(item =>
+            typeof item === 'object' &&
+            item !== null &&
+            'price' in item
+        );
+
         const products = [
 
             {

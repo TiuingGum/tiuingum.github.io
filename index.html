@@ -1133,6 +1133,13 @@
     localStorage.getItem('btbread-cart')
   ) || [];
 
+  // remove old broken cart data
+  cart = cart.filter(item =>
+    typeof item === 'object' &&
+    item !== null &&
+    'price' in item
+  );
+
   const products = [
 
 
@@ -1217,36 +1224,36 @@
     }
   }
 
-          const cartPopup = document.getElementById('cart-popup');
+  const cartPopup = document.getElementById('cart-popup');
 
-        document
-            .getElementById('open-cart-btn')
-            .addEventListener('click', (e) => {
+  document
+    .getElementById('open-cart-btn')
+    .addEventListener('click', (e) => {
 
-                e.preventDefault();
+      e.preventDefault();
 
-                renderCartPopup();
+      renderCartPopup();
 
-                cartPopup.classList.add('active');
-            });
+      cartPopup.classList.add('active');
+    });
 
-        document
-            .getElementById('close-cart-btn')
-            .addEventListener('click', (e) => {
+  document
+    .getElementById('close-cart-btn')
+    .addEventListener('click', (e) => {
 
-                e.preventDefault();
+      e.preventDefault();
 
-                cartPopup.classList.remove('active');
-            });
+      cartPopup.classList.remove('active');
+    });
 
-        cartPopup.addEventListener('click', (e) => {
-            
-                e.preventDefault();
+  cartPopup.addEventListener('click', (e) => {
 
-            if (e.target === cartPopup) {
-                cartPopup.classList.remove('active');
-            }
-        });
+    e.preventDefault();
+
+    if (e.target === cartPopup) {
+      cartPopup.classList.remove('active');
+    }
+  });
 
   function renderCartPopup() {
 
