@@ -78,11 +78,24 @@
         .cart-btn {
             border: 2px solid var(--brown);
             color: var(--brown);
-            padding: 0.5rem 1rem;
+            padding: 0.6rem 1.3rem;
             border-radius: 999px;
             font-weight: 900;
             font-size: 0.82rem;
+            letter-spacing: 0.08em;
+            transition:
+                transform 0.2s ease,
+                background 0.2s ease,
+                color 0.2s ease,
+                border-color 0.2s ease;
         }
+
+        .cart-btn:hover {
+            background: var(--brown);
+            color: var(--cream);
+            transform: translateY(-2px);
+        }
+
 
         .page-hero {
             padding: 3.5rem 0 2rem;
