@@ -1,92 +1,90 @@
-let cart = JSON.parse(localStorage.getItem("btbread-cart")) || [];
-
-/* safety cleanup */
-cart = cart.map(i => ({
-  id: i.id,
-  qty: i.qty || 1
-}));
-
-function saveCart() {
-  localStorage.setItem("btbread-cart", JSON.stringify(cart));
-}
-
-function getProductById(products, id) {
-  return products.find(p => p.id === id);
-}
-
-function getCartCount() {
-  return cart.reduce((s, i) => s + i.qty, 0);
-}
-
-function getCartTotal(products) {
-  return cart.reduce((sum, item) => {
-    const p = getProductById(products, item.id);
-
-    if (!p) return sum; // 🔥 skip broken items safely
-
-    return sum + (p.price * item.qty);
-  }, 0);
-}
-
-function updateCartUI(products) {
-  const count = document.getElementById("cart-count");
-  const total = document.getElementById("cart-total");
-
-  if (count) count.textContent = getCartCount();
-
-  if (total && products) {
-    total.textContent = getCartTotal(products).toFixed(2);
-  }
-}
-
-/* 👇 ADD THIS WRAPPER */
 window.Cart = {
-  bind() {
-    const openBtn = document.getElementById("open-cart-btn");
-    const popup = document.getElementById("cart-popup");
-    const closeBtn = document.getElementById("close-cart-btn");
-
-    if (openBtn && popup) {
-      openBtn.addEventListener("click", (e) => {
-        e.preventDefault();
-        popup.classList.add("active");
-      });
-    }
-
-    if (closeBtn && popup) {
-      closeBtn.addEventListener("click", () => {
-        popup.classList.remove("active");
-      });
-    }
-  },
-
-  update(products) {
-    updateCartUI(products);
-  },
-
-  add(productId) {
-  const item = cart.find(i => i.id === productId);
-
-  if (item) {
-    item.qty++;
-  } else {
-    cart.push({ id: productId, qty: 1 });
-  }
-
-  localStorage.setItem("btbread-cart", JSON.stringify(cart));
-
-  this.update(this.products);
-},
+  data: [],
+  products: [],
 
   init(products) {
     this.products = products;
 
-    // remove invalid items immediately
-    cart = cart.filter(item =>
+    this.data = JSON.parse(localStorage.getItem("btbread-cart")) || [];
+
+    this.data = this.data.filter(item =>
       products.some(p => p.id === item.id)
     );
 
-    this.update(products);
+    this.save();
+    this.update();
     this.bind();
+  },
+
+  save() {
+    localStorage.setItem("btbread-cart", JSON.stringify(this.data));
+  },
+
+  add(id) {
+    const item = this.data.find(i => i.id === id);
+
+    if (item) item.qty++;
+    else this.data.push({ id, qty: 1 });
+
+    this.save();
+    this.update();
+  },
+
+  getTotal() {
+    return this.data.reduce((sum, item) => {
+      const p = this.products.find(x => x.id === item.id);
+      return p ? sum + p.price * item.qty : sum;
+    }, 0);
+  },
+
+  getCount() {
+    return this.data.reduce((s, i) => s + i.qty, 0);
+  },
+
+  update() {
+    const count = document.getElementById("cart-count");
+    const total = document.getElementById("cart-total");
+
+    if (count) count.textContent = this.getCount();
+    if (total) total.textContent = this.getTotal().toFixed(2);
+  },
+
+  renderPopup() {
+    const wrap = document.getElementById("cart-items");
+    if (!wrap) return;
+
+    wrap.innerHTML = "";
+
+    this.data.forEach(item => {
+      const p = this.products.find(x => x.id === item.id);
+      if (!p) return;
+
+      wrap.innerHTML += `
+        <div class="cart-item">
+          <div>
+            <b>${p.name}</b><br>
+            $${p.price} × ${item.qty}
+          </div>
+        </div>
+      `;
+    });
+  },
+
+  bind() {
+    const open = document.getElementById("open-cart-btn");
+    const popup = document.getElementById("cart-popup");
+    const close = document.getElementById("close-cart-btn");
+
+    if (open && popup) {
+      open.onclick = (e) => {
+        e.preventDefault();
+        this.renderPopup();
+        popup.classList.add("active");
+      };
+    }
+
+    if (close && popup) {
+      close.onclick = () => popup.classList.remove("active");
+    }
   }
 };
