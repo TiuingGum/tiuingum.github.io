@@ -50,6 +50,4 @@ function filterProducts(tag) {
 }
 
 applyFilter();
-
-renderProducts(PRODUCTS);
 updateCartUI();
