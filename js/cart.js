@@ -60,9 +60,23 @@ window.Cart = {
     }
   },
 
-    update(products) {
+  update(products) {
     updateCartUI(products);
   },
+
+  add(productId) {
+  const item = cart.find(i => i.id === productId);
+
+  if (item) {
+    item.qty++;
+  } else {
+    cart.push({ id: productId, qty: 1 });
+  }
+
+  localStorage.setItem("btbread-cart", JSON.stringify(cart));
+
+  this.update(this.products);
+},
 
   init(products) {
     this.products = products;
@@ -72,6 +86,7 @@ window.Cart = {
       products.some(p => p.id === item.id)
     );
 
+    this.products = products;
     this.update(products);
     this.bind();
   }
