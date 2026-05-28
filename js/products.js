@@ -1,4 +1,4 @@
-const products = [
+window.PRODUCTS = [
     {
         name: "Blue Cheese Sourdough Foccacia",
         pricedisplay: "$15.00",
