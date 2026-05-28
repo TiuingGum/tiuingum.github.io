@@ -93,6 +93,11 @@
             font-weight: 900;
             font-size: 0.82rem;
             letter-spacing: 0.08em;
+
+            display: inline-flex;
+            align-items: center;
+            gap: 0.25rem;
+
             transition:
                 transform 0.2s ease,
                 background 0.2s ease,
@@ -545,7 +550,7 @@
                 <a href="#newsletter">Newsletter</a>
             </nav>
 
-            <a href="cart-btn" class="open-cart-btn">
+            <a href="#" id="open-cart-btn" class="cart-btn">
                 <span>🧺 Cart (</span>
                 <span id="cart-count">0</span>
                 <span>)</span>
@@ -908,7 +913,9 @@
 
         document
             .getElementById('open-cart-btn')
-            .addEventListener('click', () => {
+            .addEventListener('click', (e) => {
+
+                e.preventDefault();
 
                 renderCartPopup();
 
@@ -917,12 +924,16 @@
 
         document
             .getElementById('close-cart-btn')
-            .addEventListener('click', () => {
+            .addEventListener('click', (e) => {
+
+                e.preventDefault();
 
                 cartPopup.classList.remove('active');
             });
 
         cartPopup.addEventListener('click', (e) => {
+
+            e.preventDefault();
 
             if (e.target === cartPopup) {
                 cartPopup.classList.remove('active');
@@ -937,17 +948,13 @@
 
             if (cart.length === 0) {
 
-                cartItems.innerHTML = `
-      <p>Your cart is empty.</p>
-    `;
+                cartItems.innerHTML = `<p>Your cart is empty.</p>`;
 
             } else {
 
                 cart.forEach(item => {
 
-                    cartItems.innerHTML += `
-        <div class="cart-item">
-
+                    cartItems.innerHTML += `<div class="cart-item">
           <div>
             <div class="cart-item-name">
               ${item.name}
