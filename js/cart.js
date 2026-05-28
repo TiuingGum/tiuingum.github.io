@@ -21,6 +21,9 @@ function getCartCount() {
 function getCartTotal(products) {
   return cart.reduce((sum, item) => {
     const p = getProductById(products, item.id);
+
+    if (!p) return sum; // 🔥 skip broken items safely
+
     return sum + (p.price * item.qty);
   }, 0);
 }
@@ -38,12 +41,6 @@ function updateCartUI(products) {
 
 /* 👇 ADD THIS WRAPPER */
 window.Cart = {
-  init(products) {
-    this.products = products;
-    this.update(products);
-    this.bind();
-  },
-
   bind() {
     const openBtn = document.getElementById("open-cart-btn");
     const popup = document.getElementById("cart-popup");
@@ -63,7 +60,19 @@ window.Cart = {
     }
   },
 
-  update(products) {
+    update(products) {
     updateCartUI(products);
+  },
+
+  init(products) {
+    this.products = products;
+
+    // remove invalid items immediately
+    cart = cart.filter(item =>
+      products.some(p => p.id === item.id)
+    );
+
+    this.update(products);
+    this.bind();
   }
 };
