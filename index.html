@@ -1026,9 +1026,11 @@
   ];
   const grid = document.getElementById('products-grid');
 
-  products.forEach(product => {
+  if (grid) {
 
-    grid.innerHTML += `
+    products.forEach(product => {
+
+      grid.innerHTML += `
       <div class="product-card">
 
         ${product.badge ? `
@@ -1048,11 +1050,13 @@
 
       </div>
     `;
-  });
+    });
+
+  }
 
   function updateCart() {
 
-  const total = cart.reduce((sum, item) => {
+    const total = cart.reduce((sum, item) => {
       return sum + item.price;
     }, 0);
 
