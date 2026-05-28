@@ -86,7 +86,6 @@ window.Cart = {
       products.some(p => p.id === item.id)
     );
 
-    this.products = products;
     this.update(products);
     this.bind();
   }
