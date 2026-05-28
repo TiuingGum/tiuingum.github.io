@@ -596,16 +596,17 @@
 
     <script>
 
-        let cart = JSON.parse(
-            localStorage.getItem('btbread-cart')
-        ) || [];
+        let cart = JSON.parse(localStorage.getItem('btbread-cart')) || [];
 
-        // remove old broken cart data
-        cart = cart.filter(item =>
-            typeof item === 'object' &&
-            item !== null &&
-            'price' in item
+        // only fix once, then re-save
+        const cleanedCart = cart.filter(item =>
+            item && typeof item === 'object' && 'price' in item
         );
+
+        if (cleanedCart.length !== cart.length) {
+            cart = cleanedCart;
+            localStorage.setItem('btbread-cart', JSON.stringify(cart));
+        }
 
         function updateCart() {
 

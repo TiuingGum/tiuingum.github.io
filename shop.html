@@ -4,18 +4,13 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
     <title>BTBread Shop</title>
-
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700;900&display=swap" rel="stylesheet">
 
     <style>
         :root {
             --cream: #fdf8ed;
-            --yellow-light: #fef3c0;
             --yellow: #f9e07a;
             --brown: #3b2a1a;
             --brown-mid: #6b4c2a;
@@ -32,20 +27,10 @@
         }
 
         body {
-            font-family: 'Inter', sans-serif;
+            font-family: Inter, sans-serif;
             background: var(--cream);
             color: var(--text);
             overflow-x: hidden;
-        }
-
-        a {
-            text-decoration: none;
-            color: inherit;
-        }
-
-        img {
-            display: block;
-            max-width: 100%;
         }
 
         .container {
@@ -54,390 +39,133 @@
         }
 
         /* HEADER */
-
         header {
             position: sticky;
             top: 0;
             z-index: 100;
             background: rgba(255, 255, 255, 0.96);
             backdrop-filter: blur(12px);
-            border-bottom: 1.5px solid var(--warm-gray);
+            border-bottom: 1px solid var(--warm-gray);
         }
 
         .navbar {
             display: flex;
-            align-items: center;
             justify-content: space-between;
-            padding: 0.85rem 0;
+            align-items: center;
+            padding: 1rem 0;
         }
 
         .nav-links {
             display: flex;
-            gap: 2.5rem;
-            font-weight: 300;
-            letter-spacing: 0.12em;
+            gap: 2rem;
             text-transform: uppercase;
-            font-size: 1.2rem;
+            font-size: 1rem;
             color: var(--brown-mid);
-        }
-
-        .nav-links a:hover {
-            color: var(--brown);
         }
 
         .cart-btn {
             border: 2px solid var(--brown);
-            color: var(--brown);
-            padding: 0.6rem 1.3rem;
+            padding: .5rem 1rem;
             border-radius: 999px;
-            font-weight: 900;
-            font-size: 0.82rem;
-            letter-spacing: 0.08em;
-
-            display: inline-flex;
-            align-items: center;
-            gap: 0.25rem;
-
-            transition:
-                transform 0.2s ease,
-                background 0.2s ease,
-                color 0.2s ease,
-                border-color 0.2s ease;
+            font-weight: 800;
         }
-
-        .cart-btn:hover {
-            background: var(--brown);
-            color: var(--cream);
-            transform: translateY(-2px);
-        }
-
 
         /* HERO */
-
         .shop-hero {
-            padding: 6rem 0 4rem;
             text-align: center;
-            position: relative;
-        }
-
-        .shop-label {
-            display: inline-block;
-            background: var(--yellow);
-            color: var(--brown);
-
-            padding: 0.4rem 1rem;
-            border-radius: 999px;
-
-            font-size: 0.75rem;
-            font-weight: 900;
-            letter-spacing: 0.12em;
-            text-transform: uppercase;
-
-            margin-bottom: 1.5rem;
+            padding: 5rem 0 2rem;
         }
 
         .shop-title {
-            font-family: 'Inter', sans-serif;
-            font-size: clamp(2.5rem, 6vw, 5rem);
-            line-height: 1;
+            font-size: 3rem;
             font-weight: 900;
             color: var(--brown);
         }
 
-        .shop-title em {
-            font-style: italic;
-            color: var(--brown-light);
-        }
-
-        .shop-subtitle {
-            font-family: 'Inter', sans-serif;
-            margin-top: 1.5rem;
-            max-width: 650px;
-            margin-inline: auto;
-
-            color: var(--text-muted);
-            line-height: 1.8;
-            font-size: 1.05rem;
-        }
-
-        /* FILTERS */
-
+        /* FILTER */
         .filter-bar {
-            font-family: 'Inter', sans-serif;
             display: flex;
-            justify-content: center;
-            align-items: center;
             flex-wrap: wrap;
             gap: 1rem;
-
-            margin-top: 3rem;
+            justify-content: center;
+            margin-top: 2rem;
         }
 
         .filter-btn {
-            background: white;
-            border: 2px solid var(--warm-gray);
-
-            padding: 0.7rem 1.2rem;
+            padding: .6rem 1rem;
             border-radius: 999px;
-
-            font-family: 'Inter', sans-serif;
-            font-size: 0.82rem;
-            font-weight: 800;
-            letter-spacing: 0.06em;
-            text-transform: uppercase;
-
+            border: 2px solid var(--warm-gray);
+            background: white;
             cursor: pointer;
-
-            transition: 0.2s ease;
+            font-weight: 800;
         }
 
-        .filter-btn:hover,
         .filter-btn.active {
             background: var(--brown);
-            color: var(--cream);
-            border-color: var(--brown);
-        }
-
-        .sort-wrapper {
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-        }
-
-        .sort-label {
-            font-family: 'Inter', sans-serif;
-            font-size: 0.82rem;
-            font-weight: 800;
-            letter-spacing: 0.06em;
-            text-transform: uppercase;
-            color: var(--brown-mid);
-        }
-
-        .sort-select {
-            border: 2px solid var(--warm-gray);
-            border-radius: 999px;
-            padding: 0.65rem 1rem;
-            background: white;
-            color: var(--brown);
-            font-family: 'Inter', sans-serif;
-            font-weight: 700;
-            cursor: pointer;
-            outline: none;
-            transition: border-color 0.2s ease;
-        }
-
-        .sort-select:hover,
-        .sort-select:focus {
+            color: white;
             border-color: var(--brown);
         }
 
         /* PRODUCTS */
-
-        .products-section {
-            padding-bottom: 6rem;
-        }
-
         .products-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 2.5rem;
-            /* more space between cards */
-            margin-top: 4rem;
+            gap: 2rem;
+            margin-top: 3rem;
         }
 
         .product-card {
             background: white;
             border: 1px solid var(--warm-gray);
-            border-radius: 1.5rem;
+            border-radius: 1.2rem;
             overflow: hidden;
+        }
+
+        .product-image {
+            aspect-ratio: 1/1;
             position: relative;
+        }
 
+        .product-image img {
             width: 100%;
-            /* remove fixed 400px */
-            max-width: 400px;
-            /* keeps nice sizing */
-
-            transition:
-                transform 0.25s ease,
-                box-shadow 0.25s ease,
-                border-color 0.25s ease;
+            height: 100%;
+            object-fit: cover;
         }
 
         .product-info {
-            padding: 1.5rem;
-
             display: flex;
             justify-content: space-between;
-            align-items: flex-start;
-            /* aligns button with text top */
+            padding: 1rem;
             gap: 1rem;
         }
 
         .product-name {
-            font-family: 'Inter', sans-serif;
-            flex: 1;
-            min-width: 0;
             font-weight: 900;
         }
 
-        .product-image {
-            position: relative;
-            width: 100%;
-            aspect-ratio: 1 / 1;
-            overflow: hidden;
-            background: #f5f5f5;
-        }
-
-        .product-image img {
-            position: absolute;
-            inset: 0;
-
-            width: 100%;
-            height: 100%;
-
-            object-fit: cover;
-            display: block;
-        }
-
-        .product-pricedisplay {
-            font-size: 0.95rem;
+        .product-price {
             color: var(--brown-light);
-            margin-top: 0.25rem;
-        }
-
-        .product-badge {
-            position: absolute;
-            top: 1rem;
-            left: 1rem;
-            background: var(--yellow);
-            color: var(--brown);
-            padding: 0.3rem 0.8rem;
-            border-radius: 999px;
-            border: 1.5px solid var(--brown);
-            font-size: 0.7rem;
-            font-weight: 900;
-            letter-spacing: 0.08em;
-            text-transform: uppercase;
-            z-index: 2;
+            margin-top: .2rem;
         }
 
         .add-btn {
             background: var(--yellow);
-            color: var(--brown);
-
             border: 2px solid var(--brown);
-
-            padding: 0.6rem 1rem;
             border-radius: 999px;
-
-            font-size: 0.75rem;
             font-weight: 900;
-            letter-spacing: 0.06em;
-
             cursor: pointer;
-
-            transition: 0.2s ease;
-
-            flex-shrink: 0;
-            /* prevents squishing/overflow */
-            align-self: flex-start;
+            padding: .5rem .8rem;
         }
 
-        /* ── FOOTER ── */
-
-        footer {
-            background: var(--brown);
-            color: var(--cream);
-            padding: 3rem 0 2rem;
-        }
-
-        .footer-top {
-            display: flex;
-            justify-content: space-between;
-            align-items: flex-start;
-            flex-wrap: wrap;
-            gap: 2rem;
-            padding-bottom: 2rem;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.15);
-        }
-
-        .footer-logo img {
-            height: 80px;
-            width: auto;
-            border-radius: 0.75rem;
-            padding: 0.4rem 0.6rem;
-            filter: brightness(0) invert(1);
-        }
-
-        .footer-tagline {
-            margin-top: 0.75rem;
-            color: var(--warm-gray);
-            font-size: 0.88rem;
-        }
-
-        .footer-links {
-            display: flex;
-            gap: 2rem;
-            color: var(--warm-gray);
-            font-size: 0.88rem;
-            font-weight: 900;
-            letter-spacing: 0.1em;
-            text-transform: uppercase;
-            align-items: center;
-        }
-
-        .footer-links a:hover {
-            color: var(--yellow);
-        }
-
-        .footer-bottom {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            flex-wrap: wrap;
-            gap: 1rem;
-            padding-top: 1.5rem;
-            color: var(--warm-gray);
-            font-size: 0.82rem;
-        }
-
-        /* RESPONSIVE */
-
-        @media (max-width: 1000px) {
-
-            .products-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
-
-        }
-
-        @media (max-width: 700px) {
-
-            .products-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .nav-links {
-                display: none;
-            }
-
-        }
-
+        /* CART */
         .cart-popup {
             position: fixed;
             inset: 0;
-
             background: rgba(0, 0, 0, 0.4);
-
-            display: flex;
-            justify-content: flex-end;
-
             opacity: 0;
             pointer-events: none;
-
-            transition: 0.25s ease;
-
-            z-index: 9999;
+            display: flex;
+            justify-content: flex-end;
         }
 
         .cart-popup.active {
@@ -447,306 +175,114 @@
 
         .cart-panel {
             width: 420px;
-            max-width: 100%;
-
-            height: 100%;
-
             background: var(--cream);
-
             padding: 2rem;
-
+            transform: translateX(100%);
+            transition: .25s;
             display: flex;
             flex-direction: column;
-
-            transform: translateX(100%);
-            transition: 0.25s ease;
         }
 
         .cart-popup.active .cart-panel {
             transform: translateX(0);
         }
 
-        .cart-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-
-            padding-bottom: 1rem;
-            border-bottom: 1px solid var(--warm-gray);
-        }
-
-        .close-cart {
-            border: none;
-            background: none;
-            font-size: 1.5rem;
-            cursor: pointer;
-        }
-
-        .cart-items {
-            flex: 1;
-            overflow-y: auto;
-
-            padding: 1.5rem 0;
-
-            display: flex;
-            flex-direction: column;
-            gap: 1rem;
-        }
-
         .cart-item {
             background: white;
-
+            padding: 1rem;
             border: 1px solid var(--warm-gray);
             border-radius: 1rem;
-
-            padding: 1rem;
-
             display: flex;
             justify-content: space-between;
             align-items: center;
-        }
-
-        .cart-item-name {
-            font-weight: 700;
-        }
-
-        .cart-item-price {
-            color: var(--brown-light);
-        }
-
-        .cart-footer {
-            border-top: 1px solid var(--warm-gray);
-
-            padding-top: 1rem;
-        }
-
-        .cart-total-line {
-            display: flex;
-            justify-content: space-between;
-
             margin-bottom: 1rem;
-
-            font-weight: 800;
-            font-size: 1.1rem;
         }
 
-        .btn-primary {
-            background: var(--brown);
-            color: var(--cream);
+        .qty-controls {
+            display: flex;
+            align-items: center;
+            gap: .5rem;
+        }
 
-            border: 2px solid var(--brown);
-
-            padding: 1rem 2rem;
-            border-radius: 999px;
-
-            font-weight: 900;
-            font-size: 0.9rem;
-            letter-spacing: 0.06em;
-
+        .qty-btn {
+            border: 1px solid var(--brown);
+            background: white;
+            padding: .2rem .5rem;
             cursor: pointer;
-
-            transition: 0.2s ease;
-        }
-
-        .btn-primary:hover {
-            background: var(--brown-mid);
-            transform: translateY(-2px);
+            border-radius: .4rem;
         }
     </style>
 </head>
 
 <body>
 
-    <!-- HEADER -->
-
     <header>
         <div class="container navbar">
-
-            <a href="#" style="font-weight:200; font-size:1.6rem; color:var(--brown); letter-spacing:-0.02em;">
-                BTBread
-            </a>
+            <div style="font-weight:900;">BTBread</div>
 
             <nav class="nav-links">
-                <a href="index.html">Home</a>
-                <a href="#about">Our Story</a>
-                <a href="affiliates.html">Affiliates</a>
-                <a href="#newsletter">Newsletter</a>
+                <a href="#">Home</a>
+                <a href="#">Shop</a>
             </nav>
 
             <a href="#" id="open-cart-btn" class="cart-btn">
-                <span>🧺 Cart (</span>
-                <span id="cart-count">0</span>
-                <span>)</span>
-                <span>—</span>
-                <span id="cart-total">$0.00</span>
+                🧺 Cart (<span id="cart-count">0</span>) $<span id="cart-total">0.00</span>
             </a>
-
         </div>
     </header>
 
-    <!-- HERO -->
-
     <section class="shop-hero container">
-
-        <div class="shop-label">
-            Full Bakery Menu
-        </div>
-
-        <h1 class="shop-title">
-            Fresh artisan <em>bakes</em>.
-        </h1>
-
-        <p class="shop-subtitle">
-            Slow-fermented sourdoughs, buttery pastries, and seasonal favourites —
-            baked fresh in small batches.
-        </p>
-
-        <!-- FILTERS -->
+        <h1 class="shop-title">Fresh artisan bakes</h1>
 
         <div class="filter-bar">
-
-            <button class="filter-btn active" onclick="filterProducts('All')">
-                All
-            </button>
-
-            <button class="filter-btn" onclick="filterProducts('sourdough')">
-                Sourdough
-            </button>
-
-            <button class="filter-btn" onclick="filterProducts('focaccia')">
-                Foccacia
-            </button>
-
-            <button class="filter-btn" onclick="filterProducts('savory')">
-                Savoury
-            </button>
-
-            <button class="filter-btn" onclick="filterProducts('sweet')">
-                Sweet
-            </button>
-
-            <button class="filter-btn" onclick="filterProducts('vegetarian')">
-                Vegetarian
-            </button>
-
-            <button class="filter-btn" onclick="filterProducts('vegan-options')">
-                Vegan Options
-            </button>
-
-            <div class="sort-wrapper">
-                <span class="sort-label">Sort:</span>
-                <select id="sort-select" class="sort-select" onchange="changeSort(this.value)">
-                    <option value="name">Name</option>
-                    <option value="pricedisplay-asc">Prices: Low to High</option>
-                    <option value="pricedisplay-desc">Prices: High to Low</option>
-                </select>
-            </div>
-
+            <button class="filter-btn active" data-filter="All" onclick="filterProducts('All')">All</button>
+            <button class="filter-btn" data-filter="sourdough" onclick="filterProducts('sourdough')">Sourdough</button>
+            <button class="filter-btn" data-filter="savory" onclick="filterProducts('savory')">Savory</button>
+            <button class="filter-btn" data-filter="sweet" onclick="filterProducts('sweet')">Sweet</button>
         </div>
-
     </section>
 
-    <!-- PRODUCTS -->
-
-    <section class="products-section container">
-
+    <section class="container">
         <div class="products-grid" id="products-grid"></div>
-
     </section>
 
-    <!-- FOOTER -->
-
-    <footer>
-        <div class="container">
-            <div class="footer-top">
-                <div class="footer-logo">
-                    <img src="assets/BTBreadLogoHorizontal.svg" alt="BTBread Bakery">
-                    <div class="footer-tagline">Handcrafted sourdough, engineered to your taste.</div>
-                </div>
-
-                <div class="footer-links">
-                    <a href="#">Instagram</a>
-                    <a href="#">TikTok</a>
-                    <a href="#">Contact</a>
-                </div>
-            </div>
-
-            <div class="footer-bottom">
-                <span>© 2025 BTBread Bakery. All rights reserved.</span>
-            </div>
-        </div>
-    </footer>
-
+    <!-- CART -->
     <div class="cart-popup" id="cart-popup">
-
         <div class="cart-panel">
-
-            <div class="cart-header">
-                <h2>Your Cart</h2>
-
-                <button class="close-cart" id="close-cart-btn">
-                    ✕
-                </button>
-            </div>
-
-            <div class="cart-items" id="cart-items">
-                <!-- JS inserts items here -->
-            </div>
-
-            <div class="cart-footer">
-
-                <div class="cart-total-line">
-                    Total:
-                    <span id="popup-cart-total">$0.00</span>
-                </div>
-
-                <button class="btn-primary">
-                    Checkout
-                </button>
-
-            </div>
-
+            <h2>Your Cart</h2>
+            <div id="cart-items"></div>
+            <h3>Total: $<span id="popup-total">0.00</span></h3>
+            <button>Checkout</button>
         </div>
-
     </div>
-
-    <!-- PRODUCTS SCRIPT -->
 
     <script>
 
-        let cart = JSON.parse(
-            localStorage.getItem('btbread-cart')
-        ) || [];
+        let cart = JSON.parse(localStorage.getItem("btbread-cart")) || [];
 
-        // remove old broken cart data
-        cart = cart.filter(item =>
-            typeof item === 'object' &&
-            item !== null &&
-            'price' in item
-        );
+        // safe migration (non-destructive)
+        cart = cart.map(item => ({
+            id: item.id,
+            qty: item.qty || 1
+        }));
 
         const products = [
-
             {
                 name: "Blue Cheese Sourdough Foccacia",
                 pricedisplay: "$15.00",
                 price: 15,
                 id: 1,
                 image: "assets/bluefoc.jpg",
-                badge: "Most Popular",
                 tags: ["sourdough", "savory", "focaccia", "vegetarian"]
             },
-
             {
                 name: "All-White Sourdough",
                 pricedisplay: "$10.00",
                 price: 10,
                 id: 2,
                 image: "assets/all-white.jpg",
-                badge: "The OG",
                 tags: ["sourdough", "savory", "vegetarian", "vegan-options"]
             },
-
             {
                 name: "Flax Seed Sourdough",
                 pricedisplay: "$11.00",
@@ -755,7 +291,6 @@
                 image: "assets/Flax.jpg",
                 tags: ["sourdough", "savory", "vegetarian"]
             },
-
             {
                 name: "Brown Sugar Choc Chip Sourdough",
                 pricedisplay: "$15.00",
@@ -764,7 +299,6 @@
                 image: "assets/ChocChip.jpg",
                 tags: ["sourdough", "sweet", "vegetarian"]
             },
-
             {
                 name: "Honey Smoked Ham and Cheese Sourdough Foccacia",
                 pricedisplay: "$18.00",
@@ -773,7 +307,6 @@
                 image: "assets/honeysmokedfoc.jpg",
                 tags: ["sourdough", "savory", "focaccia"]
             },
-
             {
                 name: "Jalapeno Cheddar Sourdough Foccacia",
                 pricedisplay: "$15.00",
@@ -782,7 +315,6 @@
                 image: "assets/jalapenofoc.jpg",
                 tags: ["sourdough", "savory", "focaccia", "spicy"]
             },
-
             {
                 name: "Olive and Rosemary Sourdough Foccacia",
                 pricedisplay: "$13.00",
@@ -791,7 +323,6 @@
                 image: "assets/olivefoc.jpg",
                 tags: ["sourdough", "savory", "focaccia", "vegetarian", "vegan-options"]
             },
-
             {
                 name: "Lao Gan Ma Sourdough Foccacia",
                 pricedisplay: "$13.00",
@@ -800,7 +331,6 @@
                 image: "assets/laoganmafoc.jpg",
                 tags: ["sourdough", "savory", "focaccia", "vegetarian", "vegan-options"]
             },
-
             {
                 name: "Lao Gan Ma Sourdough",
                 pricedisplay: "$12.00",
@@ -809,7 +339,6 @@
                 image: "assets/laoganma.jpg",
                 tags: ["sourdough", "savory", "vegetarian", "vegan-options"]
             },
-
             {
                 name: "Sundried Tomato Sourdough",
                 pricedisplay: "$15.00",
@@ -818,7 +347,6 @@
                 image: "assets/sundried.jpg",
                 tags: ["sourdough", "savory", "vegetarian"]
             },
-
             {
                 name: "Babka",
                 pricedisplay: "$20.00",
@@ -827,7 +355,6 @@
                 image: "assets/babka.jpg",
                 tags: ["sweet", "vegetarian", "vegan-options"]
             },
-
             {
                 name: "Sourdough Foccacia",
                 pricedisplay: "$12.00",
@@ -836,7 +363,6 @@
                 image: "assets/foc.jpg",
                 tags: ["sourdough", "savory", "focaccia", "vegetarian", "vegan-options"]
             },
-
             {
                 name: "Garlic Confit Focaccia",
                 pricedisplay: "$18.00",
@@ -845,7 +371,6 @@
                 image: "assets/garlic.jpg",
                 tags: ["sourdough", "savory", "focaccia", "vegetarian", "vegan-options"]
             },
-
             {
                 name: "Curry Sourdough",
                 pricedisplay: "$12.00",
@@ -854,7 +379,6 @@
                 image: "assets/curry.jpg",
                 tags: ["sourdough", "savory", "vegetarian", "vegan-options"]
             },
-
             {
                 name: "Omega Seed Mix",
                 pricedisplay: "$15.00",
@@ -863,204 +387,130 @@
                 image: "assets/omega.jpg",
                 tags: ["sourdough", "savory", "vegetarian", "vegan-options"]
             }
-
         ];
 
-        function addToCart(id) {
+        let currentFilter = "All";
+        let currentSort = "name";
 
-            const product = products.find(p => p.id === id);
-
-            cart.push(product);
-
-            localStorage.setItem(
-                'btbread-cart',
-                JSON.stringify(cart)
-            );
-
-            updateCart();
+        function saveCart() {
+            localStorage.setItem("btbread-cart", JSON.stringify(cart));
         }
 
-        function updateCart() {
+        function addToCart(id) {
+            const item = cart.find(i => i.id === id);
+            if (item) item.qty++;
+            else cart.push({ id, qty: 1 });
+            saveCart();
+            updateCartUI();
+        }
 
-            const total = cart.reduce((sum, item) => {
-                return sum + item.price;
+        function changeQty(id, delta) {
+            const item = cart.find(i => i.id === id);
+            if (!item) return;
+            item.qty += delta;
+            if (item.qty <= 0) cart = cart.filter(i => i.id !== id);
+            saveCart();
+            renderCart();
+            updateCartUI();
+        }
+
+        function getCartTotal() {
+            return cart.reduce((sum, item) => {
+                const p = products.find(x => x.id === item.id);
+                return sum + (p.price * item.qty);
             }, 0);
+        }
+
+        function updateCartUI() {
+            document.getElementById("cart-count").textContent =
+                cart.reduce((s, i) => s + i.qty, 0);
 
             document.getElementById("cart-total").textContent =
-                `$${total.toFixed(2)}`;
-
-            document.getElementById("cart-count").textContent =
-                cart.length;
+                getCartTotal().toFixed(2);
         }
 
-        const grid = document.getElementById('products-grid');
-        let currentFilter = 'All';
-        let currentSort = 'name';
+        function renderProducts(list) {
+            const grid = document.getElementById("products-grid");
+            grid.innerHTML = "";
 
-        function renderProducts(productArray) {
-            grid.innerHTML = '';
-            productArray.forEach(product => {
+            list.forEach(p => {
                 grid.innerHTML += `
-                <div class="product-card">
+        <div class="product-card">
+            <div class="product-image">
+                <img src="${p.image}">
+            </div>
 
-                    ${product.badge ? `
-                    <div class="product-badge">
-                        ${product.badge}
-                    </div>
-                    ` : ''}
-
-                    <div class="product-image">
-                    <img src="${product.image}" alt="${product.name}">
-                    </div>
-
-                    <div class="product-info">
-
-                    <div class="product-text">
-
-                        <div class="product-name">
-                        ${product.name}
-                        </div>
-
-                        <div class="product-pricedisplay">
-                        ${product.pricedisplay}
-                        </div>
-
-                    </div>
-
-                    <button class="add-btn" onclick="addToCart(${product.id})">
-                        Add to Cart
-                    </button>
-
-                    </div>
-
+            <div class="product-info">
+                <div>
+                    <div class="product-name">${p.name}</div>
+                    <div class="product-price">${p.pricedisplay}</div>
                 </div>
-                `;
+
+                <button class="add-btn" onclick="addToCart(${p.id})">Add</button>
+            </div>
+        </div>`;
             });
         }
 
-        function parsepricedisplay(pricedisplayString) {
-            return parseFloat(pricedisplayString.replace(/[^0-9.]/g, '')) || 0;
-        }
+        function filterProducts(tag) {
+            currentFilter = tag;
 
-        function sortProducts(productArray, sortBy) {
-            return [...productArray].sort((a, b) => {
-                if (sortBy === 'pricedisplay-asc') {
-                    return parsepricedisplay(a.pricedisplay) - parsepricedisplay(b.pricedisplay);
-                }
-
-                if (sortBy === 'pricedisplay-desc') {
-                    return parsepricedisplay(b.pricedisplay) - parsepricedisplay(a.pricedisplay);
-                }
-
-                return a.name.localeCompare(b.name);
+            document.querySelectorAll(".filter-btn").forEach(b => {
+                b.classList.toggle("active", b.dataset.filter === tag);
             });
+
+            apply();
         }
 
-        function applyFiltersAndSort() {
-            let filteredProducts;
+        function apply() {
+            let list = products;
 
-            if (currentFilter === 'All') {
-                filteredProducts = products;
-            } else {
-                filteredProducts = products.filter(
-                    product => product.tags.some(tag => tag === currentFilter)
-                );
+            if (currentFilter !== "All") {
+                list = list.filter(p => p.tags.includes(currentFilter));
             }
 
-            const sortedProducts = sortProducts(filteredProducts, currentSort);
-            renderProducts(sortedProducts);
+            renderProducts(list);
         }
 
-        function filterProducts(tags) {
-            currentFilter = tags;
-            document.querySelectorAll('.filter-btn').forEach(btn => {
-                btn.classList.toggle(
-                    'active',
-                    btn.textContent.trim().toLowerCase() === tags.toLowerCase()
-                );
+        function renderCart() {
+            const wrap = document.getElementById("cart-items");
+            wrap.innerHTML = "";
+
+            cart.forEach(item => {
+                const p = products.find(x => x.id === item.id);
+
+                wrap.innerHTML += `
+        <div class="cart-item">
+            <div>
+                <b>${p.name}</b><br>
+                $${p.price} x ${item.qty}
+            </div>
+
+            <div class="qty-controls">
+                <button class="qty-btn" onclick="changeQty(${item.id},-1)">-</button>
+                <button class="qty-btn" onclick="changeQty(${item.id},1)">+</button>
+            </div>
+        </div>`;
             });
-            applyFiltersAndSort();
+
+            document.getElementById("popup-total").textContent =
+                getCartTotal().toFixed(2);
         }
 
-        function changeSort(sortValue) {
-            currentSort = sortValue;
-            applyFiltersAndSort();
-        }
-
-        const cartPopup = document.getElementById('cart-popup');
-
-        document
-            .getElementById('open-cart-btn')
-            .addEventListener('click', (e) => {
-
-                e.preventDefault();
-
-                renderCartPopup();
-
-                cartPopup.classList.add('active');
-            });
-
-        document
-            .getElementById('close-cart-btn')
-            .addEventListener('click', (e) => {
-
-                e.preventDefault();
-
-                cartPopup.classList.remove('active');
-            });
-
-        cartPopup.addEventListener('click', (e) => {
-
+        /* CART OPEN */
+        document.getElementById("open-cart-btn").onclick = (e) => {
             e.preventDefault();
+            renderCart();
+            document.getElementById("cart-popup").classList.add("active");
+        };
 
-            if (e.target === cartPopup) {
-                cartPopup.classList.remove('active');
-            }
-        });
+        document.getElementById("cart-popup").onclick = (e) => {
+            if (e.target.id === "cart-popup")
+                e.target.classList.remove("active");
+        };
 
-        function renderCartPopup() {
-
-            const cartItems = document.getElementById('cart-items');
-
-            cartItems.innerHTML = '';
-
-            if (cart.length === 0) {
-
-                cartItems.innerHTML = `<p>Your cart is empty.</p>`;
-
-            } else {
-
-                cart.forEach(item => {
-
-                    cartItems.innerHTML += `<div class="cart-item">
-          <div>
-            <div class="cart-item-name">
-              ${item.name}
-            </div>
-
-            <div class="cart-item-price">
-              $${item.price.toFixed(2)}
-            </div>
-          </div>
-
-        </div>
-      `;
-                });
-            }
-
-            const total = cart.reduce((sum, item) => {
-                return sum + item.price;
-            }, 0);
-
-            document.getElementById(
-                'popup-cart-total'
-            ).textContent = `$${total.toFixed(2)}`;
-        }
-
-        applyFiltersAndSort();
-
-        updateCart();
-
+        apply();
+        updateCartUI();
 
     </script>
 
