@@ -1,4 +1,5 @@
 let filter = "All";
+let sort = "name";
 
 function renderProducts(list) {
     const grid = document.getElementById("products-grid");
@@ -11,6 +12,7 @@ function renderProducts(list) {
         div.innerHTML = `
       <div class="product-image">
         <img src="${p.image}">
+        ${p.badge ? `<div class="product-badge">${p.badge}</div>` : ""}
       </div>
 
       <div class="product-info">
@@ -30,10 +32,18 @@ function renderProducts(list) {
 }
 
 function applyFilter() {
-    let list = PRODUCTS;
+    let list = [...PRODUCTS];
 
     if (filter !== "All") {
         list = list.filter(p => p.tags.includes(filter));
+    }
+
+    if (sort === "pricedisplay-asc") {
+        list.sort((a, b) => a.price - b.price);
+    } else if (sort === "pricedisplay-desc") {
+        list.sort((a, b) => b.price - a.price);
+    } else {
+        list.sort((a, b) => a.name.localeCompare(b.name));
     }
 
     renderProducts(list);
@@ -47,6 +57,15 @@ function filterProducts(tag) {
     });
 
     applyFilter();
+}
+
+function changeSort(value) {
+    sort = value;
+    applyFilter();
+}
+
+function updateCartUI() {
+    Cart.update();
 }
 
 applyFilter();

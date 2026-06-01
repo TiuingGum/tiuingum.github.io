@@ -30,6 +30,21 @@ window.Cart = {
     this.update();
   },
 
+  remove(id) {
+    const index = this.data.findIndex(i => i.id === id);
+    if (index === -1) return;
+
+    if (this.data[index].qty > 1) {
+      this.data[index].qty--;
+    } else {
+      this.data.splice(index, 1);
+    }
+
+    this.save();
+    this.update();
+    this.renderPopup();
+  },
+
   getTotal() {
     return this.data.reduce((sum, item) => {
       const p = this.products.find(x => x.id === item.id);
@@ -44,9 +59,11 @@ window.Cart = {
   update() {
     const count = document.getElementById("cart-count");
     const total = document.getElementById("cart-total");
+    const popupTotal = document.getElementById("popup-cart-total");
 
     if (count) count.textContent = this.getCount();
-    if (total) total.textContent = this.getTotal().toFixed(2);
+    if (total) total.textContent = "$" + this.getTotal().toFixed(2);
+    if (popupTotal) popupTotal.textContent = "$" + this.getTotal().toFixed(2);
   },
 
   renderPopup() {
@@ -55,19 +72,38 @@ window.Cart = {
 
     wrap.innerHTML = "";
 
+    if (this.data.length === 0) {
+      wrap.innerHTML = `<p style="color: var(--text-muted); text-align: center; margin-top: 2rem;">Your cart is empty.</p>`;
+      this.update();
+      return;
+    }
+
     this.data.forEach(item => {
       const p = this.products.find(x => x.id === item.id);
       if (!p) return;
 
-      wrap.innerHTML += `
-        <div class="cart-item">
-          <div>
-            <b>${p.name}</b><br>
-            $${p.price} × ${item.qty}
-          </div>
+      const div = document.createElement("div");
+      div.className = "cart-item";
+
+      div.innerHTML = `
+        <div>
+          <div class="cart-item-name">${p.name}</div>
+          <div class="cart-item-price">$${p.price} × ${item.qty}</div>
+        </div>
+        <div style="display: flex; align-items: center; gap: 0.5rem;">
+          <button class="qty-btn remove-btn" data-id="${p.id}" title="Remove one">−</button>
+          <span style="font-weight: 800; min-width: 1.2rem; text-align: center;">${item.qty}</span>
+          <button class="qty-btn add-btn-cart" data-id="${p.id}" title="Add one">+</button>
         </div>
       `;
+
+      div.querySelector(".remove-btn").onclick = () => this.remove(p.id);
+      div.querySelector(".add-btn-cart").onclick = () => { this.add(p.id); this.renderPopup(); };
+
+      wrap.appendChild(div);
     });
+
+    this.update();
   },
 
   bind() {

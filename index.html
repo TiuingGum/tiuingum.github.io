@@ -899,6 +899,29 @@
       font-weight: 800;
       font-size: 1.1rem;
     }
+
+    /* Add this inside the <style> block in shop.html */
+    .qty-btn {
+      background: var(--yellow);
+      color: var(--brown);
+      border: 2px solid var(--brown);
+      border-radius: 999px;
+      width: 2rem;
+      height: 2rem;
+      font-size: 1.1rem;
+      font-weight: 900;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: 0.2s ease;
+      flex-shrink: 0;
+    }
+
+    .qty-btn:hover {
+      background: var(--brown);
+      color: var(--cream);
+    }
   </style>
 </head>
 
@@ -1136,11 +1159,11 @@
   const featuredProducts = PRODUCTS.filter(p => p.badge);
 
   function renderProducts(list) {
-  const grid = document.getElementById("products-grid");
-  grid.innerHTML = "";
+    const grid = document.getElementById("products-grid");
+    grid.innerHTML = "";
 
-  list.forEach(p => {
-    grid.innerHTML += `
+    list.forEach(p => {
+      grid.innerHTML += `
       <div class="product-card">
         
         <div class="product-image">
@@ -1162,10 +1185,10 @@
 
       </div>
     `;
-  });
-}
+    });
+  }
 
-renderProducts(PRODUCTS.filter(p => p.badge));
+  renderProducts(PRODUCTS.filter(p => p.badge));
 
 </script>
 
