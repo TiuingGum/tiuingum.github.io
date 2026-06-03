@@ -13,25 +13,29 @@ const bakingProducts = [
         name: 'Focaccia Pan',
         description: 'You can use nonstick but from my experience, they scratch easily when removing the focaccia which leads to harmful chemicals leaching into your food. Seasoned aluminium is naturally nonstick, non-toxic and more durable.',
         image: 'assets/focpan.jpg',
-        url: 'https://amzn.to/4vaKW4z'
+        url: 'https://amzn.to/4vaKW4z',
+        badge: "Won't give you cancer"
     },
     {
         name: 'Bread Oven',
-        description: 'Perfect for achieving that authentic bakery-style bake at home.',
+        description: 'Casual baking I would priorities a regular dutch oven. Really committing to the craft, this is perfect for achieving that authentic bakery-style bake at home.',
         image: 'assets/breadoven.jpg',
-        url: 'https://amzn.to/4nUJWza'
+        url: 'https://amzn.to/4nUJWza',
+        badge: "Commitment"
     },
     {
         name: 'Bench Scraper',
         description: 'An essential tool for shaping and handling dough as well as cleaning your work surface.',
         image: 'assets/benchscraper.jpg',
-        url: 'https://amzn.to/4wTXMFZ'
+        url: 'https://amzn.to/4wTXMFZ',
+        badge: "Essentials"
     },
     {
         name: 'Dough Whisk',
         description: '"Overrated" until your hands are covered in dough or you try to clean a traditional whisk. Trust me on this one.',
         image: 'assets/doughwhisk.jpg',
-        url: 'https://amzn.to/49WZtsp'
+        url: 'https://amzn.to/49WZtsp',
+        badge: "Game Changer"
     },
     {
         name: 'Traditional Bread Lame',
@@ -50,7 +54,23 @@ const bakingProducts = [
         description: 'A durable and effective tool for cleaning dried dough from jars and containers.',
         image: 'assets/chainmail.jpg',
         url: 'https://amzn.to/4uzeKYG'
+    },
+    {
+        name: 'Bread Knife',
+        description: 'This will genuinely be the only bread knife you will need for the rest of your life for $30.',
+        image: 'assets/breadknife.jpg',
+        url: 'https://amzn.to/4uQhilu',
+        badge: "Essential"
+    },
+    {
+        name: 'Thermometer',
+        description: 'Good insurance to ensure your bread is fully baked through. I find this more useful for enriched breads.',
+        image: 'assets/thermometer.jpg',
+        url: 'https://amzn.to/4x7MNcf',
+        badge: "I'm insecure."
     }
+
+
 ];
 
 // =========================
@@ -72,7 +92,7 @@ const fermentationProducts = [
     },
     {
         name: 'Silicone Bannetons',
-        description: 'Non-stick, dishwasher-safe and resistant to mould. These became my permanent replacement for traditional bannetons.',
+        description: 'Non-stick, dishwasher-safe and resistant to mould. These became my permanent replacement for traditional bannetons. For larger loaves, I recommend Bread Basket Company bannetons.',
         image: 'assets/banneton.jpg',
         url: 'https://amzn.to/4e5MPcZ'
     }
@@ -93,6 +113,8 @@ function renderAffiliateProducts(products, containerId) {
             <div class="product-image">
                 <img src="${product.image}" alt="${product.name}">
             </div>
+
+            ${product.badge ? `<div class="product-badge">${product.badge}</div>` : ""}
 
             <div class="product-info">
 
