@@ -15,11 +15,9 @@
     <style>
         :root {
             --cream: #fdf8ed;
-            --yellow-light: #fef3c0;
             --yellow: #f9e07a;
             --brown: #3b2a1a;
             --brown-mid: #6b4c2a;
-            --brown-light: #a07850;
             --warm-gray: #c8b89a;
             --text: #2c1a0e;
             --text-muted: #8a6a4a;
@@ -36,6 +34,31 @@
             background: var(--cream);
             color: var(--text);
             overflow-x: hidden;
+            position: relative;
+        }
+
+        /* ✅ GLOBAL WATERMARK (behind everything) */
+        body::before {
+            content: '';
+
+            position: fixed;
+            left: -15rem;
+            top: 50%;
+            transform: translateY(-50%);
+
+            width: 900px;
+            height: 900px;
+
+            background-image: url('assets/BTBreadLogoNoText.svg');
+            background-repeat: no-repeat;
+            background-size: contain;
+            background-position: center;
+
+            opacity: 0.03;
+            filter: blur(0.5px);
+
+            pointer-events: none;
+            z-index: 0;
         }
 
         a {
@@ -125,31 +148,6 @@
         .shop-hero>* {
             position: relative;
             z-index: 1;
-        }
-
-        .shop-hero::after {
-            content: '';
-
-            position: absolute;
-
-            left: -10rem;
-            top: 50%;
-            transform: translateY(-50%);
-
-            width: 900px;
-            height: 900px;
-
-            background-image: url('assets/BTBreadLogoNoText.svg');
-            background-repeat: no-repeat;
-            background-size: contain;
-            background-position: center;
-
-            opacity: 0.03;
-            filter: blur(0.5px);
-
-            pointer-events: none;
-
-            z-index: 0;
         }
 
         .shop-label {
