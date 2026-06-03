@@ -32,6 +32,39 @@
             background: var(--cream);
             color: var(--text);
             overflow-x: hidden;
+            position: relative;
+        }
+
+        /* ✅ GLOBAL WATERMARK (behind everything) */
+        body::before {
+            content: '';
+
+            position: fixed;
+            left: -15rem;
+            top: 50%;
+            transform: translateY(-50%);
+
+            width: 900px;
+            height: 900px;
+
+            background-image: url('assets/BTBreadLogoNoText.svg');
+            background-repeat: no-repeat;
+            background-size: contain;
+            background-position: center;
+
+            opacity: 0.03;
+            filter: blur(0.5px);
+
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        /* ensure content is above watermark */
+        header,
+        main,
+        footer {
+            position: relative;
+            z-index: 1;
         }
 
         a {
@@ -88,11 +121,7 @@
             align-items: center;
             gap: 0.25rem;
 
-            transition:
-                transform 0.2s ease,
-                background 0.2s ease,
-                color 0.2s ease,
-                border-color 0.2s ease;
+            transition: all 0.2s ease;
         }
 
         .cart-btn:hover {
@@ -101,10 +130,10 @@
             transform: translateY(-2px);
         }
 
-
         .page-hero {
-            padding: 3.5rem 0 2rem;
+            padding: 6rem 0 4rem;
             text-align: center;
+            position: relative;
         }
 
         .page-label {
@@ -130,39 +159,6 @@
             margin-top: 0.75rem;
             max-width: 720px;
             margin-inline: auto;
-            position: relative;
-            z-index: 1;
-        }
-
-        .page-hero {
-            position: relative;
-            padding: 6rem 0 4rem;
-            text-align: center;
-        }
-
-        .page-hero::after {
-            content: '';
-
-            position: absolute;
-
-            left: -10rem;
-            top: 70rem;
-            transform: translateY(-50%);
-
-            width: 900px;
-            height: 900px;
-
-            background-image: url('assets/BTBreadLogoNoText.svg');
-            background-repeat: no-repeat;
-            background-size: contain;
-            background-position: center;
-
-            opacity: 0.03;
-            filter: blur(0.5px);
-
-            pointer-events: none;
-
-            z-index: 0;
         }
 
         .affiliate-section {
@@ -186,88 +182,36 @@
             background: white;
             border: 1px solid var(--warm-gray);
             border-radius: 1rem;
-
             position: relative;
-
             overflow: visible;
-
-            transition:
-                transform .25s ease,
-                box-shadow .25s ease;
-
-            z-index: 1;
+            transition: transform .25s ease, box-shadow .25s ease;
         }
 
         .product-card:hover {
             transform: translateY(-6px);
             box-shadow: 0 12px 30px rgba(0, 0, 0, 0.12);
-
             z-index: 20;
-        }
-
-        /* IMAGE CONTAINER */
-        .product-image {
-            width: 100%;
-
-            overflow: hidden;
-
-            border-top-left-radius: 1rem;
-            border-top-right-radius: 1rem;
-
-            background: #f5f5f5;
         }
 
         .product-image img {
             width: 100%;
             height: 200px;
-
-            display: block;
-
             object-fit: contain;
         }
 
-        /* PRODUCT INFO */
         .product-info {
             padding: 1rem;
-
             display: flex;
             justify-content: space-between;
-            align-items: stretch;
             gap: 0.75rem;
-        }
-
-        .product-text {
-            flex: 1;
-
-            display: flex;
-            flex-direction: column;
         }
 
         .product-name {
             font-weight: 900;
-            line-height: 1.3;
         }
 
-        .product-badge {
-            position: absolute;
-            top: 1rem;
-            left: 1rem;
-            background: var(--yellow);
-            color: var(--brown);
-            padding: 0.3rem 0.8rem;
-            border-radius: 999px;
-            border: 1.5px solid var(--brown);
-            font-size: 0.7rem;
-            font-weight: 900;
-            letter-spacing: 0.08em;
-            text-transform: uppercase;
-            z-index: 2;
-        }
-
-        /* DESCRIPTION POPUP */
         .product-popup {
             position: absolute;
-
             left: 1rem;
             right: 1rem;
             bottom: 1rem;
@@ -276,7 +220,6 @@
             color: var(--cream);
 
             padding: 0.9rem 1rem;
-
             border-radius: 1rem;
 
             font-size: 0.9rem;
@@ -284,96 +227,14 @@
 
             opacity: 0;
             transform: translateY(10px);
-
             pointer-events: none;
-
-            transition:
-                opacity .25s ease,
-                transform .25s ease;
-
+            transition: 0.25s ease;
             z-index: 50;
         }
 
-        /* ── FOOTER ── */
-
-        footer {
-            background: var(--brown);
-            color: var(--cream);
-            padding: 3rem 0 2rem;
-        }
-
-        .footer-top {
-            display: flex;
-            justify-content: space-between;
-            align-items: flex-start;
-            flex-wrap: wrap;
-            gap: 2rem;
-            padding-bottom: 2rem;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.15);
-        }
-
-        .footer-logo img {
-            height: 80px;
-            width: auto;
-            border-radius: 0.75rem;
-            padding: 0.4rem 0.6rem;
-            filter: brightness(0) invert(1);
-        }
-
-        .footer-tagline {
-            margin-top: 0.75rem;
-            color: var(--warm-gray);
-            font-size: 0.88rem;
-        }
-
-        .footer-links {
-            display: flex;
-            gap: 2rem;
-            color: var(--warm-gray);
-            font-size: 0.88rem;
-            font-weight: 900;
-            letter-spacing: 0.1em;
-            text-transform: uppercase;
-            align-items: center;
-        }
-
-        .footer-links a:hover {
-            color: var(--yellow);
-        }
-
-        .footer-bottom {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            flex-wrap: wrap;
-            gap: 1rem;
-            padding-top: 1.5rem;
-            color: var(--warm-gray);
-            font-size: 0.82rem;
-        }
-
-        /* SHOW POPUP */
         .product-card:hover .product-popup {
             opacity: 1;
             transform: translateY(0);
-        }
-
-        .affiliate-btn {
-            background: var(--yellow);
-            border: 2px solid var(--brown);
-            padding: .55rem .85rem;
-            border-radius: 999px;
-            font-weight: 900;
-            color: var(--brown);
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            white-space: nowrap;
-            transition: transform .2s ease;
-        }
-
-        .affiliate-btn:hover {
-            transform: scale(1.03);
         }
 
         footer {
@@ -383,42 +244,35 @@
             margin-top: 2rem;
         }
 
-        .footer-inner {
+        .footer-top {
             display: flex;
             justify-content: space-between;
             flex-wrap: wrap;
-            gap: 1rem;
+            gap: 2rem;
         }
 
-        @media (max-width: 700px) {
-            .nav-links {
-                display: none;
-            }
+        .footer-logo img {
+            height: 80px;
+            filter: brightness(0) invert(1);
+        }
 
-            .product-info {
-                flex-direction: column;
-            }
-
-            .affiliate-btn {
-                width: 100%;
-                justify-content: center;
-            }
+        .footer-links {
+            display: flex;
+            gap: 2rem;
+            font-size: 0.88rem;
+            font-weight: 900;
+            text-transform: uppercase;
         }
 
         .cart-popup {
             position: fixed;
             inset: 0;
-
             background: rgba(0, 0, 0, 0.4);
-
             display: flex;
             justify-content: flex-end;
-
             opacity: 0;
             pointer-events: none;
-
             transition: 0.25s ease;
-
             z-index: 9999;
         }
 
@@ -430,16 +284,11 @@
         .cart-panel {
             width: 420px;
             max-width: 100%;
-
             height: 100%;
-
             background: var(--cream);
-
             padding: 2rem;
-
             display: flex;
             flex-direction: column;
-
             transform: translateX(100%);
             transition: 0.25s ease;
         }
@@ -448,112 +297,13 @@
             transform: translateX(0);
         }
 
-        .cart-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-
-            padding-bottom: 1rem;
-            border-bottom: 1px solid var(--warm-gray);
-        }
-
-        .close-cart {
-            border: none;
-            background: none;
-            font-size: 1.5rem;
-            cursor: pointer;
-        }
-
-        .cart-items {
-            flex: 1;
-            overflow-y: auto;
-
-            padding: 1.5rem 0;
-
-            display: flex;
-            flex-direction: column;
-            gap: 1rem;
-        }
-
-        .cart-item {
-            background: white;
-
-            border: 1px solid var(--warm-gray);
-            border-radius: 1rem;
-
-            padding: 1rem;
-
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .cart-item-name {
-            font-weight: 700;
-        }
-
-        .cart-item-price {
-            color: var(--brown-light);
-        }
-
-        .cart-footer {
-            border-top: 1px solid var(--warm-gray);
-
-            padding-top: 1rem;
-        }
-
-        .cart-total-line {
-            display: flex;
-            justify-content: space-between;
-
-            margin-bottom: 1rem;
-
-            font-weight: 800;
-            font-size: 1.1rem;
-        }
-
-        /* Add this inside the <style> block in shop.html */
-        .qty-btn {
-            background: var(--yellow);
-            color: var(--brown);
-            border: 2px solid var(--brown);
-            border-radius: 999px;
-            width: 2rem;
-            height: 2rem;
-            font-size: 1.1rem;
-            font-weight: 900;
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            transition: 0.2s ease;
-            flex-shrink: 0;
-        }
-
-        .qty-btn:hover {
-            background: var(--brown);
-            color: var(--cream);
-        }
-
         .btn-primary {
             background: var(--brown);
             color: var(--cream);
             padding: 1rem 2rem;
             border-radius: 999px;
             font-weight: 900;
-            font-size: 0.9rem;
-            letter-spacing: 0.06em;
-            border: 2px solid var(--brown);
             cursor: pointer;
-
-            transition:
-                transform 0.2s ease,
-                background 0.2s ease;
-        }
-
-        .btn-primary:hover {
-            background: var(--brown-mid);
-            transform: translateY(-2px);
         }
     </style>
 </head>
@@ -562,9 +312,7 @@
 
     <header>
         <div class="container navbar">
-            <a href="index.html" style="font-weight:200;font-size:1.6rem;color:var(--brown);letter-spacing:-0.02em;">
-                BTBread
-            </a>
+            <a href="index.html">BTBread</a>
 
             <nav class="nav-links">
                 <a href="index.html">Home</a>
@@ -573,12 +321,8 @@
                 <a href="index.html#newsletter">Newsletter</a>
             </nav>
 
-            <a href="#" id="open-cart-btn" class="cart-btn">
-                <span>🧺 Cart (</span>
-                <span id="cart-count">0</span>
-                <span>)</span>
-                <span>—</span>
-                <span id="cart-total">$0.00</span>
+            <a href="#" class="cart-btn">
+                🧺 Cart (<span id="cart-count">0</span>) — <span id="cart-total">$0.00</span>
             </a>
         </div>
     </header>
@@ -588,86 +332,50 @@
         <section class="container page-hero">
             <div class="page-label">AFFILIATES</div>
 
-            <h1 class="page-title">
-                Recommended gear &amp; baking tools
-            </h1>
+            <h1 class="page-title">Recommended gear & baking tools</h1>
 
             <p class="page-sub">
                 Curated Amazon picks that I use and love — support me when you buy through these links.
             </p>
         </section>
 
-        <!-- Baking Essentials -->
         <section class="container affiliate-section">
             <h2 class="section-title">Baking Essentials</h2>
             <div class="products-grid" id="baking-grid"></div>
         </section>
 
-        <!-- Fermentation & Proofing -->
         <section class="container affiliate-section">
-            <h2 class="section-title">Fermentation &amp; Proofing</h2>
+            <h2 class="section-title">Fermentation & Proofing</h2>
             <div class="products-grid" id="fermentation-grid"></div>
         </section>
 
     </main>
 
     <footer>
-        <div class="container">
-            <div class="footer-top">
-                <div class="footer-logo">
-                    <img src="assets/BTBreadLogoHorizontal.svg" alt="BTBread Bakery">
-                    <div class="footer-tagline">Handcrafted sourdough, engineered to your taste.</div>
-                </div>
-
-                <div class="footer-links">
-                    <a href="#">Instagram</a>
-                    <a href="#">TikTok</a>
-                    <a href="#">Contact</a>
-                </div>
+        <div class="container footer-top">
+            <div class="footer-logo">
+                <img src="assets/BTBreadLogoHorizontal.svg" />
+                <div>Handcrafted sourdough, engineered to your taste.</div>
             </div>
 
-            <div class="footer-bottom">
-                <span>© 2025 BTBread Bakery. All rights reserved.</span>
+            <div class="footer-links">
+                <a href="#">Instagram</a>
+                <a href="#">TikTok</a>
+                <a href="#">Contact</a>
             </div>
         </div>
     </footer>
 
     <div class="cart-popup" id="cart-popup">
-
         <div class="cart-panel">
-
-            <div class="cart-header">
-                <h2>Your Cart</h2>
-
-                <button class="close-cart" id="close-cart-btn">
-                    ✕
-                </button>
-            </div>
-
-            <div class="cart-items" id="cart-items">
-                <!-- JS inserts items here -->
-            </div>
-
-            <div class="cart-footer">
-
-                <div class="cart-total-line">
-                    Total:
-                    <span id="popup-cart-total">$0.00</span>
-                </div>
-
-                <button class="btn-primary">
-                    Checkout
-                </button>
-
-            </div>
-
+            <h2>Your Cart</h2>
         </div>
-
     </div>
 
     <script src="js/products.js"></script>
     <script src="js/cart.js"></script>
     <script src="js/affiliates.js"></script>
+
     <script>
         Cart.init(PRODUCTS);
     </script>
