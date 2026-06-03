@@ -130,6 +130,39 @@
             margin-top: 0.75rem;
             max-width: 720px;
             margin-inline: auto;
+            position: relative;
+            z-index: 1;
+        }
+
+        .page-hero {
+            position: relative;
+            padding: 3.5rem 0 2rem;
+            text-align: center;
+            overflow: hidden;
+        }
+
+        .page-hero::after {
+            content: '';
+
+            position: absolute;
+
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+
+            width: 900px;
+            height: 900px;
+
+            background-image: url('assets/BTBreadLogoNoText.svg');
+            background-repeat: no-repeat;
+            background-size: contain;
+            background-position: center;
+
+            opacity: 0.04;
+
+            pointer-events: none;
+
+            z-index: 0;
         }
 
         .affiliate-section {

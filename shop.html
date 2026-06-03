@@ -120,6 +120,30 @@
             position: relative;
         }
 
+        .shop-hero::after {
+            content: '';
+
+            position: absolute;
+
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+
+            width: 900px;
+            height: 900px;
+
+            background-image: url('assets/BTBreadLogoNoText.svg');
+            background-repeat: no-repeat;
+            background-size: contain;
+            background-position: center;
+
+            opacity: 0.04;
+
+            pointer-events: none;
+
+            z-index: 0;
+        }
+
         .shop-label {
             display: inline-block;
             background: var(--yellow);
