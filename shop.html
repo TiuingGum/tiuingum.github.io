@@ -118,6 +118,13 @@
             padding: 6rem 0 4rem;
             text-align: center;
             position: relative;
+            overflow: hidden;
+            isolation: isolate;
+        }
+
+        .shop-hero>* {
+            position: relative;
+            z-index: 1;
         }
 
         .shop-hero::after {
@@ -127,7 +134,7 @@
 
             left: -10rem;
             top: 50%;
-            transform: translate(-50%, -50%);
+            transform: translateY(-50%);
 
             width: 900px;
             height: 900px;
@@ -137,7 +144,8 @@
             background-size: contain;
             background-position: center;
 
-            opacity: 0.04;
+            opacity: 0.03;
+            filter: blur(0.5px);
 
             pointer-events: none;
 
