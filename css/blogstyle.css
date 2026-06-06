@@ -172,7 +172,7 @@ header {
     margin-top: 1.5rem;
     max-width: 650px;
     margin-inline: auto;
-    margin-bottom: 2rem;
+    margin-bottom: -2rem;
 
     color: var(--text-muted);
     line-height: 1.8;
