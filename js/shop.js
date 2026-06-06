@@ -10,7 +10,7 @@ function renderProducts(list) {
         div.className = "product-card";
 
         div.innerHTML = `
-      <div class="affiliate-image">
+      <div class="product-image">
         <img src="${p.image}">
         ${p.badge ? `<div class="product-badge">${p.badge}</div>` : ""}
       </div>

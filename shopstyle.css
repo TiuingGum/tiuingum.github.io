@@ -1,11 +1,14 @@
 :root {
-    --cream: #fdf8ed;
-    --yellow: #f9e07a;
-    --brown: #3b2a1a;
-    --brown-mid: #6b4c2a;
-    --warm-gray: #c8b89a;
-    --text: #2c1a0e;
-    --text-muted: #8a6a4a;
+        --cream: #fdf8ed;
+        --yellow-light: #fef3c0;
+        --yellow: #f9e07a;
+        --yellow-dark: #e8c840;
+        --brown: #3b2a1a;
+        --brown-mid: #6b4c2a;
+        --brown-light: #a07850;
+        --warm-gray: #c8b89a;
+        --text: #2c1a0e;
+        --text-muted: #8a6a4a;
 }
 
 * {
@@ -312,12 +315,6 @@ header {
 
     object-fit: cover;
     display: block;
-}
-
-.affiliate-image img {
-    width: 100%;
-    height: 200px;
-    object-fit: contain;
 }
 
 .product-price {
