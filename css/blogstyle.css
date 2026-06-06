@@ -37,7 +37,7 @@ body::before {
     width: 1500px;
     height: 1500px;
 
-    background-image: url('assets/BTBreadLogoNoText.svg');
+    background-image: url('../assets/BTBreadLogoNoText.svg');
     background-repeat: no-repeat;
     background-size: contain;
     background-position: center;
