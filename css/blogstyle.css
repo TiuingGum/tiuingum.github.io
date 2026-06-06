@@ -172,6 +172,7 @@ header {
     margin-top: 1.5rem;
     max-width: 650px;
     margin-inline: auto;
+    margin-bottom: 2rem;
 
     color: var(--text-muted);
     line-height: 1.8;
@@ -183,11 +184,13 @@ header {
     font-weight: 900;
     color: var(--brown);
     margin-bottom: 1.5rem;
+    margin-top: 3rem;
 }
 
 /* ── FOOTER ── */
 
 footer {
+    margin-top: 5rem;
     background: var(--brown);
     color: var(--cream);
     padding: 3rem 0 2rem;
