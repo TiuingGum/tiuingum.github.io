@@ -110,7 +110,7 @@ function renderAffiliateProducts(products, containerId) {
     container.innerHTML = products.map(product => `
         <div class="product-card">
 
-            <div class="product-image">
+            <div class="affiliate-image">
                 <img src="${product.image}" alt="${product.name}">
             </div>
 
