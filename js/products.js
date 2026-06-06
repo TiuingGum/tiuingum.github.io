@@ -35,7 +35,7 @@ window.PRODUCTS = [
         tags: ["sourdough", "sweet", "vegetarian"]
     },
     {
-        name: "Honey Smoked Ham and Cheese Sourdough Foccacia",
+        name: "Honey Smoked Ham and Cheese Sourdough Focaccia",
         pricedisplay: "$18.00",
         price: 18,
         id: 5,
@@ -43,7 +43,7 @@ window.PRODUCTS = [
         tags: ["sourdough", "savory", "focaccia"]
     },
     {
-        name: "Jalapeno Cheddar Sourdough Foccacia",
+        name: "Jalapeno Cheddar Sourdough Focaccia",
         pricedisplay: "$15.00",
         price: 15,
         id: 6,
