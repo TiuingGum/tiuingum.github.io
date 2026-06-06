@@ -460,6 +460,13 @@ header {
     transform: translateY(-2px);
 }
 
+.section-title {
+    font-size: 1.8rem;
+    font-weight: 900;
+    color: var(--brown);
+    margin-bottom: 1.5rem;
+}
+
 /* ── FOOTER ── */
 
 footer {
@@ -538,6 +545,12 @@ footer {
         display: none;
     }
 
+}
+
+.affiliates-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
 }
 
 .cart-popup {
