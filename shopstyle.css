@@ -314,7 +314,7 @@
             display: block;
         }
 
-        .product-pricedisplay {
+        .product-price {
             font-size: 0.95rem;
             color: var(--brown-light);
             margin-top: 0.25rem;
