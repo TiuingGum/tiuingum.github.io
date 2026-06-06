@@ -365,6 +365,11 @@ header {
     z-index: 50;
 }
 
+.product-card:hover .product-popup {
+    opacity: 1;
+    transform: translateY(0);
+}
+
 .add-btn {
     background: var(--yellow);
     color: var(--brown);
