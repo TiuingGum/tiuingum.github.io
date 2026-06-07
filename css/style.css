@@ -129,7 +129,7 @@
         border-bottom: 1.5px solid var(--warm-gray);
         text-align: center;
         position: relative;
-        background-image: url('assets/Bakery BG.webp');
+        background-image: url('../assets/Bakery BG.webp');
         background-size: cover;
         background-repeat: no-repeat;
         background-position: center top;
