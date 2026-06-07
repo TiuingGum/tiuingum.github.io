@@ -600,6 +600,19 @@
         line-height: 1.65;
     }
 
+    .about-card.clickable::after {
+        content: "→";
+        position: absolute;
+        right: 1rem;
+        opacity: 0;
+        transition: opacity 0.2s ease, transform 0.2s ease;
+    }
+
+    .about-card.clickable:hover::after {
+        opacity: 1;
+        transform: translateX(3px);
+    }
+
     /* ── NEWSLETTER ── */
 
     .newsletter {
