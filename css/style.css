@@ -600,6 +600,16 @@
         line-height: 1.65;
     }
 
+    .about-card.clickable {
+        cursor: pointer;
+        transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .about-card.clickable:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+    }
+
     .about-card.clickable::after {
         content: "→";
         position: absolute;
