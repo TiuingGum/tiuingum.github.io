@@ -398,3 +398,45 @@ footer {
     background: var(--brown-mid);
     transform: translateY(-2px);
 }
+
+.comparison-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 2rem 0;
+    background: white;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+}
+
+.comparison-table th {
+    background: var(--brown);
+    color: white;
+    padding: 1rem;
+    text-align: left;
+    font-weight: 600;
+}
+
+.comparison-table td {
+    padding: 1rem;
+    border-bottom: 1px solid #eee;
+    vertical-align: top;
+}
+
+.comparison-table tbody tr:nth-child(even) {
+    background: #faf8f3;
+}
+
+.comparison-table tbody tr:hover {
+    background: #f5efe2;
+}
+
+.comparison-table td:first-child {
+    font-weight: 600;
+    color: var(--brown);
+    width: 20%;
+}
+
+.comparison-table tr:last-child td {
+    border-bottom: none;
+}
