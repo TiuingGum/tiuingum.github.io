@@ -4,17 +4,16 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>BTBread — Blog</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;700;900&display=swap"
-        rel="stylesheet" />
-    <link rel="stylesheet" href="css/style.css" />
+    <title>BTBread Blog</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/blogstyle.css">
 </head>
 
 <body>
 
-    <!-- ── HEADER (matches index.html exactly) ── -->
     <header>
         <div class="container navbar">
 
@@ -42,99 +41,64 @@
     </header>
 
 
-    <!-- ── BLOG HERO ── -->
-    <section class="blog-hero">
-        <div class="container">
-            <span class="blog-hero-label">The BTBread Journal</span>
-            <h1>Baked with <em>knowledge,</em><br>served with love.</h1>
-            <p>Recipes, techniques, fermentation deep-dives, and sourdough obsessions — straight from the bench to your
-                screen.</p>
-        </div>
-    </section>
+    <main>
+        <section class="article-hero container">
 
-    <!-- ── FILTER BAR ── -->
-    <div class="filter-bar">
-        <div class="container">
-            <div class="filter-tabs">
-                <button class="filter-tab active">All Posts</button>
-                <button class="filter-tab">Technique</button>
-                <button class="filter-tab">Recipes</button>
-                <button class="filter-tab">Fermentation</button>
-                <button class="filter-tab">Gear &amp; Kit</button>
-                <button class="filter-tab">Behind the Bench</button>
-            </div>
-        </div>
-    </div>
-
-    <!-- ── ARTICLES GRID ── -->
-    <section class="articles-section">
-        <div class="container">
-            <div class="articles-header">
-                <div>
-                    <span class="section-tag">✦ Latest Posts</span>
-                    <h2 class="section-title">All <em>articles</em></h2>
-                </div>
-                <span style="color: var(--text-muted); font-size: 0.88rem;">Showing 6 of 18 posts</span>
+            <div class="article-label">
+                Blog Article
             </div>
 
-            <div class="articles-grid">
+            <h1 class="article-title">
+                How to Store Bread
+            </h1>
 
-                <a href="#" class="article-card">
-                    <div class="article-image">
-                        <div class="img-placeholder">🌡️</div>
-                        <span class="article-cat-badge">Technique</span>
-                    </div>
-                    <div class="article-body">
-                        <span class="article-category">Technique</span>
-                        <h3>Steam Management for Open Baking: A Practical Guide</h3>
-                        <p>No Dutch oven? No problem. Here's how to engineer serious steam in a conventional oven using
-                            trays, towels, and timing — and what your loaf needs in that first crucial 15 minutes.</p>
-                        <div class="article-footer">
-                            <span class="article-date">28 May 2026</span>
-                            <span class="read-link-ghost">Read →</span>
-                        </div>
-                    </div>
-                </a>
+            <p class="article-subtitle">
+                How to keep your bread fresh and delicious for as long as possible, with tips on storage methods,
+                containers, and ideal conditions.
+            </p>
+        </section>
 
-                <a href="#" class="article-card">
-                    <div class="article-image">
-                        <div class="img-placeholder">🫙</div>
-                        <span class="article-cat-badge">Fermentation</span>
-                    </div>
-                    <div class="article-body">
-                        <span class="article-category">Fermentation</span>
-                        <h3>Lacto-Fermentation vs. Vinegar Pickling: Which Is Right for You?</h3>
-                        <p>Both methods preserve your produce, but they produce wildly different results. We break down
-                            the science, shelf life, and flavour profiles so you can pick the right approach for your
-                            pantry.</p>
-                        <div class="article-footer">
-                            <span class="article-date">20 May 2026</span>
-                            <span class="read-link-ghost">Read →</span>
-                        </div>
-                    </div>
-                </a>
+        <section class="container blog-section">
+            The internet is pretty divided on this but here is my take:
+            <h2 class="section-title">Day 1-2</h2>
+            <p>
+                If this is a soft-crusted bread skip straight to Day 3-4 as these first two days are trying to maintain
+                the crispiness and freshness of the crust. Do not slice the whole loaf in one go. Cut as you go and keep
+                the loaf cut-side face down on the cutting board or in a paper bag. If you dont keep the <b>cut-side
+                    face down</b>, the inside layer will go stale overnight.
+            </p>
+            <h2 class="section-title">Day 3-4</h2>
+            <p>
+                The main goal is to now prevent staleness, so cut the rest of the loaf and store in a plastic freezer
+                bag at room temp, <b>not the fridge</b>. The crust will soften in the plastic bag (which some people
+                actually
+                prefer) but it's either this or a rock-hard loaf soooo.
+            </p>
+            <h2 class="section-title">Day 5+</h2>
+            <p>
+                Into the <b>freezer</b>. You are now sentenced to only toasting for the crime of taking so long to
+                finish my
+                bread. Good news is, the bread is now safe indefinitely (you didn't hear that from me) or until you find
+                it gross based off how long it's been in there.
+            </p>
+            <h2 class="section-title">Bonus: Reviving Stale Bread</h2>
+            <p>
+                If you find your bread has gone kinda hard/stale and you want to go out in a blaze of glory:
+            </p>
+            <ol>
+                <li>Preheat oven to 150°C.</li>
+                <li>Throw the whole loaf under the tap and drown that thing in water. Don't be shy.</li>
+                <li>Chuck it in the oven for about 10 minutes. Go longer if its REALLY wet.</li>
+                <li>Bread should come out looking brand new and crispy.</li>
+            </ol>
+            <p>
+                Caveat here is that you gotta finish this loaf here and now. Once it cools it will go stale and hard
+                twice as fast.
+            </p>
+        </section>
 
-                <a href="#" class="article-card">
-                    <div class="article-image">
-                        <div class="img-placeholder">🍲</div>
-                        <span class="article-cat-badge">Recipes</span>
-                    </div>
-                    <div class="article-body">
-                        <span class="article-category">Recipes</span>
-                        <h3>Gelatine-Rich Stock from a Single Chicken Carcass</h3>
-                        <p>Great stock is the secret weapon in every serious kitchen. How to maximise gelatine
-                            extraction, keep your liquid crystal clear, and what happens when you throw lamb offcuts
-                            into the mix.</p>
-                        <div class="article-footer">
-                            <span class="article-date">11 May 2026</span>
-                            <span class="read-link-ghost">Read →</span>
-                        </div>
-                    </div>
-                </a>
-            </div>
-    </section>
+    </main>
 
-    <!-- ── FOOTER (matches index.html) ── -->
     <footer>
         <div class="container">
             <div class="footer-top">
@@ -158,35 +122,18 @@
         </div>
     </footer>
 
-    <!-- Cart popup (required by cart.js) -->
     <div class="cart-popup" id="cart-popup">
         <div class="cart-panel">
-            <div class="cart-header">
-                <h2>Your Cart</h2>
-                <button class="close-cart" id="close-cart-btn">✕</button>
-            </div>
-            <div class="cart-items" id="cart-items"></div>
-            <div class="cart-footer">
-                <div class="cart-total-line">
-                    Total: <span id="popup-cart-total">$0.00</span>
-                </div>
-                <button class="btn-primary">Checkout</button>
-            </div>
+            <h2>Your Cart</h2>
         </div>
     </div>
 
     <script src="js/products.js"></script>
     <script src="js/cart.js"></script>
+    <script src="js/affiliates.js"></script>
+
     <script>
         Cart.init(PRODUCTS);
-
-        // Filter tab interaction
-        document.querySelectorAll('.filter-tab').forEach(tab => {
-            tab.addEventListener('click', () => {
-                document.querySelectorAll('.filter-tab').forEach(t => t.classList.remove('active'));
-                tab.classList.add('active');
-            });
-        });
     </script>
 
 </body>

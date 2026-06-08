@@ -1,6 +1,6 @@
 window.PRODUCTS = [
     {
-        name: "Blue Cheese Sourdough Foccacia",
+        name: "Blue Cheese Sourdough Focaccia",
         pricedisplay: "$15.00",
         price: 15,
         id: 1,
@@ -51,7 +51,7 @@ window.PRODUCTS = [
         tags: ["sourdough", "savory", "focaccia", "spicy"]
     },
     {
-        name: "Olive and Rosemary Sourdough Foccacia",
+        name: "Olive and Rosemary Sourdough Focaccia",
         pricedisplay: "$13.00",
         price: 13,
         id: 7,
@@ -59,7 +59,7 @@ window.PRODUCTS = [
         tags: ["sourdough", "savory", "focaccia", "vegetarian", "vegan-options"]
     },
     {
-        name: "Lao Gan Ma Sourdough Foccacia",
+        name: "Lao Gan Ma Sourdough Focaccia",
         pricedisplay: "$13.00",
         price: 13,
         id: 8,
@@ -92,7 +92,7 @@ window.PRODUCTS = [
         tags: ["sweet", "vegetarian", "vegan-options"]
     },
     {
-        name: "Sourdough Foccacia",
+        name: "Sourdough Focaccia",
         pricedisplay: "$12.00",
         price: 12,
         id: 12,
@@ -116,7 +116,7 @@ window.PRODUCTS = [
         tags: ["sourdough", "savory", "vegetarian", "vegan-options"]
     },
     {
-        name: "Omega Seed Mix",
+        name: "Omega Seed Mix Sourdough",
         pricedisplay: "$15.00",
         price: 15,
         id: 15,
