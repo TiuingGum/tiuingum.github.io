@@ -29,13 +29,13 @@
                 <a href="blogTemplate.html">Blog</a>
             </nav>
 
-            <a href="#" id="open-cart-btn" class="cart-btn">
+            <button id="open-cart-btn" class="cart-btn">
                 <span>🧺 Cart (</span>
                 <span id="cart-count">0</span>
                 <span>)</span>
                 <span>—</span>
                 <span id="cart-total">$0.00</span>
-            </a>
+            </button>
 
         </div>
     </header>
@@ -91,7 +91,8 @@
                 <li>Bread should come out looking brand new and crispy.</li>
             </ol>
             <p>
-                Caveat here is that you gotta finish this loaf here and now. Once it cools it will go stale and hard twice as fast. 
+                Caveat here is that you gotta finish this loaf here and now. Once it cools it will go stale and hard
+                twice as fast.
             </p>
         </section>
 
@@ -121,9 +122,36 @@
     </footer>
 
     <div class="cart-popup" id="cart-popup">
+
         <div class="cart-panel">
-            <h2>Your Cart</h2>
+
+            <div class="cart-header">
+                <h2>Your Cart</h2>
+
+                <button class="close-cart" id="close-cart-btn">
+                    ✕
+                </button>
+            </div>
+
+            <div class="cart-items" id="cart-items">
+                <!-- JS inserts items here -->
+            </div>
+
+            <div class="cart-footer">
+
+                <div class="cart-total-line">
+                    Total:
+                    <span id="popup-cart-total">$0.00</span>
+                </div>
+
+                <button class="btn-primary" onclick="Cart.checkout()">
+                    Checkout
+                </button>
+
+            </div>
+
         </div>
+
     </div>
 
     <script src="js/products.js"></script>

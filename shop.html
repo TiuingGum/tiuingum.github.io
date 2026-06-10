@@ -33,13 +33,13 @@
                 <a href="blog_HomePage.html">Blog</a>
             </nav>
 
-            <a href="#" id="open-cart-btn" class="cart-btn">
+            <button id="open-cart-btn" class="cart-btn">
                 <span>🧺 Cart (</span>
                 <span id="cart-count">0</span>
                 <span>)</span>
                 <span>—</span>
                 <span id="cart-total">$0.00</span>
-            </a>
+            </button>
 
         </div>
     </header>
@@ -163,7 +163,7 @@
                     <span id="popup-cart-total">$0.00</span>
                 </div>
 
-                <button class="btn-primary">
+                <button class="btn-primary" onclick="Cart.checkout()">
                     Checkout
                 </button>
 

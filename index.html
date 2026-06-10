@@ -31,13 +31,13 @@
         <a href="blog_HomePage.html">Blog</a>
       </nav>
 
-      <a href="#" id="open-cart-btn" class="cart-btn">
+      <button id="open-cart-btn" class="cart-btn">
         <span>🧺 Cart (</span>
         <span id="cart-count">0</span>
         <span>)</span>
         <span>—</span>
         <span id="cart-total">$0.00</span>
-      </a>
+      </button>
 
     </div>
   </header>
@@ -230,7 +230,7 @@
           <span id="popup-cart-total">$0.00</span>
         </div>
 
-        <button class="btn-primary">
+        <button class="btn-primary" onclick="Cart.checkout()">
           Checkout
         </button>
 
@@ -249,32 +249,32 @@
 <script>
   function renderProducts(list) {
     const grid = document.getElementById("products-grid");
-    grid.innerHTML = "";
 
-    list.forEach(p => {
-      grid.innerHTML += `
-      <div class="product-card">
-        
-        <div class="product-image">
-          <img src="${p.image}" alt="${p.name}">
-        </div>
-
-        ${p.badge ? `<div class="product-badge">${p.badge}</div>` : ""}
-
-        <div class="product-info">
-          <div>
-            <div class="product-name">${p.name}</div>
-            <div class="product-pricedisplay">${p.pricedisplay}</div>
-          </div>
-
-          <button class="add-btn" onclick="Cart.add(${p.id})">
-            Add to cart
-          </button>
-        </div>
-
+    const html = list.map(p => `
+    <div class="product-card">
+      
+      <div class="product-image">
+        <img src="${p.image}" alt="${p.name}">
       </div>
-    `;
-    });
+
+      ${p.badge ? `<div class="product-badge">${p.badge}</div>` : ""}
+
+      <div class="product-info">
+        <div>
+          <div class="product-name">${p.name}</div>
+          <div class="product-pricedisplay">${p.pricedisplay}</div>
+        </div>
+
+        <button class="add-btn"
+          onclick="Cart.add('${p.id}'); Cart.renderPopup(); document.getElementById('cart-popup')?.classList.add('active');">
+          Add to cart
+        </button>
+      </div>
+
+    </div>
+  `).join("");
+
+    grid.innerHTML = html;
   }
 
   renderProducts(PRODUCTS.filter(p => p.badge));

@@ -106,6 +106,62 @@ window.Cart = {
     this.update();
   },
 
+  async checkout() {
+    const btn = document.getElementById("checkout-btn");
+
+    // 1. Guard: empty cart FIRST
+    if (this.data.length === 0) {
+      alert("Your cart is empty");
+      return;
+    }
+
+    if (btn) {
+      btn.disabled = true;
+      btn.textContent = "Redirecting...";
+    }
+
+    try {
+      const items = this.data
+        .map(item => {
+          const product = this.products.find(p => p.id === item.id);
+
+          if (!product?.stripePrice) return null;
+
+          return {
+            price: product.stripePrice,
+            quantity: item.qty
+          };
+        })
+        .filter(Boolean);
+
+      const res = await fetch("https://btbread-checkout.btbread.workers.dev", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ items })
+      });
+
+      const data = await res.json();
+
+      if (!data.url) {
+        throw new Error("No checkout URL returned");
+      }
+
+      // Close cart BEFORE redirect (clean UX)
+      document.getElementById("cart-popup")?.classList.remove("active");
+
+      window.location.href = data.url;
+
+    } catch (err) {
+      console.error(err);
+      alert("Checkout failed. Please try again.");
+
+      if (btn) {
+        btn.disabled = false;
+        btn.textContent = "Checkout";
+      }
+    }
+  },
+
   bind() {
     const open = document.getElementById("open-cart-btn");
     const popup = document.getElementById("cart-popup");
