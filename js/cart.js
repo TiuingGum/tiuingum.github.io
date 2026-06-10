@@ -5,11 +5,9 @@ window.Cart = {
   init(products) {
     this.products = products;
 
-    this.data = JSON.parse(localStorage.getItem("btbread-cart")) || [];
+    const saved = JSON.parse(localStorage.getItem("btbread-cart"));
 
-    this.data = this.data.filter(item =>
-      products.some(p => p.id === item.id)
-    );
+    this.data = Array.isArray(saved) ? saved : [];
 
     this.save();
     this.update();
@@ -27,7 +25,9 @@ window.Cart = {
     else this.data.push({ id, qty: 1 });
 
     this.save();
+
     this.update();
+    this.renderPopup(); // 🔥 ADD THIS
   },
 
   remove(id) {
@@ -42,13 +42,17 @@ window.Cart = {
 
     this.save();
     this.update();
-    this.renderPopup();
+    this.renderPopup(); // ensure UI sync
   },
 
   getTotal() {
     return this.data.reduce((sum, item) => {
       const p = this.products.find(x => x.id === item.id);
-      return p ? sum + p.price * item.qty : sum;
+      if (!p) return sum;
+
+      const price = Number(p.price);
+
+      return sum + (isNaN(price) ? 0 : price * item.qty);
     }, 0);
   },
 
@@ -109,7 +113,6 @@ window.Cart = {
   async checkout() {
     const btn = document.getElementById("checkout-btn");
 
-    // 1. Guard: empty cart FIRST
     if (this.data.length === 0) {
       alert("Your cart is empty");
       return;
@@ -121,18 +124,14 @@ window.Cart = {
     }
 
     try {
-      const items = this.data
-        .map(item => {
-          const product = this.products.find(p => p.id === item.id);
+      const items = this.data.map(item => {
+        const product = this.products.find(p => p.id === item.id);
 
-          if (!product?.stripePrice) return null;
-
-          return {
-            price: product.stripePrice,
-            quantity: item.qty
-          };
-        })
-        .filter(Boolean);
+        return {
+          price: product.stripePrice,
+          quantity: item.qty
+        };
+      });
 
       const res = await fetch("https://btbread-checkout.btbread.workers.dev", {
         method: "POST",
@@ -142,18 +141,11 @@ window.Cart = {
 
       const data = await res.json();
 
-      if (!data.url) {
-        throw new Error("No checkout URL returned");
-      }
-
-      // Close cart BEFORE redirect (clean UX)
-      document.getElementById("cart-popup")?.classList.remove("active");
-
       window.location.href = data.url;
 
     } catch (err) {
       console.error(err);
-      alert("Checkout failed. Please try again.");
+      alert("Checkout failed");
 
       if (btn) {
         btn.disabled = false;
