@@ -1,25 +1,44 @@
-<header>
-  <div class="container navbar">
+<!DOCTYPE html>
+<html lang="en">
 
-    <a href="index.html" style="font-weight:200; font-size:1.6rem; color:var(--brown); letter-spacing:-0.02em;">
-      BTBread
-    </a>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>TITLE</title>
 
-    <nav class="nav-links">
-      <a href="index.html#shop">Best Sellers</a>
-      <a href="shop.html">Shop</a>
-      <a href="affiliates.html">Affiliates</a>
-      <a href="index.html#about">Latest News</a>
-      <a href="blog_HomePage.html">Blog</a>
-    </nav>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preload" as="image" href="assets/Bakery BG.webp">
+  <!-- Inter Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+<body>
 
-    <a href="#" id="open-cart-btn" class="cart-btn">
-      <span>🧺 Cart (</span>
-      <span id="cart-count">0</span>
-      <span>)</span>
-      <span>—</span>
-      <span id="cart-total">$0.00</span>
-    </a>
+  <header>
+    <div class="container navbar">
 
-  </div>
-</header>
+      <a href="index.html" style="font-weight:200; font-size:1.6rem; color:var(--brown); letter-spacing:-0.02em;">
+        BTBread
+      </a>
+
+      <nav class="nav-links">
+        <a href="index.html#shop">Best Sellers</a>
+        <a href="shop.html">Shop</a>
+        <a href="affiliates.html">Affiliates</a>
+        <a href="index.html#about">Latest News</a>
+        <a href="blog_HomePage.html">Blog</a>
+      </nav>
+      <button class="nav-toggle" id="nav-toggle">
+        ☰
+      </button>
+
+      <button id="open-cart-btn" class="cart-btn">
+        <span>🛒(</span>
+        <span id="cart-count">0</span>
+        <span>)</span>
+        <span>—</span>
+        <span id="cart-total">$0.00</span>
+      </button>
+
+    </div>
+  </header>

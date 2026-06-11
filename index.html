@@ -12,8 +12,6 @@
   <!-- Inter Font -->
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700;900&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/style.css">
-</head>
-
 <body>
 
   <header>
@@ -30,9 +28,12 @@
         <a href="index.html#about">Latest News</a>
         <a href="blog_HomePage.html">Blog</a>
       </nav>
+      <button class="nav-toggle" id="nav-toggle">
+        ☰
+      </button>
 
       <button id="open-cart-btn" class="cart-btn">
-        <span>🧺 Cart (</span>
+        <span>🛒(</span>
         <span id="cart-count">0</span>
         <span>)</span>
         <span>—</span>
@@ -243,6 +244,7 @@
 </body>
 <script src="js/products.js"></script>
 <script src="js/cart.js"></script>
+<script src="js/shop.js"></script>
 <script>
   Cart.init(PRODUCTS);
 </script>
@@ -279,6 +281,14 @@
 
   renderProducts(PRODUCTS.filter(p => p.badge));
 
+</script>
+<script>
+  const navToggle = document.getElementById("nav-toggle");
+  const navLinks = document.querySelector(".nav-links");
+
+  navToggle.addEventListener("click", () => {
+    navLinks.classList.toggle("active");
+  });
 </script>
 
 </html>

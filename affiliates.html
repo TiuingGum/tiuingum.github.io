@@ -28,9 +28,12 @@
                 <a href="index.html#about">Latest News</a>
                 <a href="blog_HomePage.html">Blog</a>
             </nav>
+            <button class="nav-toggle" id="nav-toggle">
+                ☰
+            </button>
 
             <button id="open-cart-btn" class="cart-btn">
-                <span>🧺 Cart (</span>
+                <span>🛒(</span>
                 <span id="cart-count">0</span>
                 <span>)</span>
                 <span>—</span>
@@ -92,6 +95,8 @@
         </div>
     </footer>
 
+    </main>
+
     <div class="cart-popup" id="cart-popup">
 
         <div class="cart-panel">
@@ -125,14 +130,20 @@
 
     </div>
 
-    <script src="js/products.js"></script>
-    <script src="js/cart.js"></script>
-    <script src="js/affiliates.js"></script>
-
-    <script>
-        Cart.init(PRODUCTS);
-    </script>
-
 </body>
+<script src="js/products.js"></script>
+<script src="js/cart.js"></script>
+<script src="js/shop.js"></script>
+<script>
+    Cart.init(PRODUCTS);
+</script>
+<script>
+    const navToggle = document.getElementById("nav-toggle");
+    const navLinks = document.querySelector(".nav-links");
+
+    navToggle.addEventListener("click", () => {
+        navLinks.classList.toggle("active");
+    });
+</script>
 
 </html>
