@@ -35,7 +35,7 @@
       </button>
 
       <button id="open-cart-btn" class="cart-btn">
-        <span>🧺 Cart (</span>
+        <span>🛒(</span>
         <span id="cart-count">0</span>
         <span>)</span>
         <span>—</span>
@@ -282,6 +282,14 @@
 
   renderProducts(PRODUCTS.filter(p => p.badge));
 
+</script>
+<script>
+  const navToggle = document.getElementById("nav-toggle");
+  const navLinks = document.querySelector(".nav-links");
+
+  navToggle.addEventListener("click", () => {
+    navLinks.classList.toggle("active");
+  });
 </script>
 
 </html>

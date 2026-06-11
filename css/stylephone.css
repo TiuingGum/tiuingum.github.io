@@ -88,6 +88,10 @@
         color: var(--brown-mid);
     }
 
+    .nav-links.active {
+        display: flex;
+    }
+
     .nav-links a:hover {
         color: var(--brown);
     }
@@ -101,10 +105,27 @@
         cursor: pointer;
     }
 
-    /* Mobile */
     @media (max-width: 900px) {
+
         .nav-links {
             display: none;
+
+            position: absolute;
+            top: 100%;
+            left: 0;
+            right: 0;
+
+            flex-direction: column;
+            gap: 1rem;
+
+            background: white;
+            padding: 1.5rem;
+
+            border-bottom: 1.5px solid var(--warm-gray);
+        }
+
+        .nav-links.active {
+            display: flex;
         }
 
         .nav-toggle {
