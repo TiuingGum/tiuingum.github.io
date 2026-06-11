@@ -29,7 +29,7 @@ body {
     overflow-x: hidden;
 }
 
-/* Grain overlay */
+/* grain */
 body::before {
     content: '';
     position: fixed;
@@ -40,7 +40,7 @@ body::before {
     opacity: 0.18;
 }
 
-/* BASE */
+/* base */
 a { text-decoration: none; color: inherit; }
 
 img {
@@ -52,7 +52,6 @@ button,
 .btn-primary,
 .add-btn {
     min-height: 44px;
-    padding: 12px 16px;
     font-size: 16px;
     border-radius: 10px;
 }
@@ -64,7 +63,8 @@ button,
     padding: 0 16px;
 }
 
-/* HEADER */
+/* ================= HEADER ================= */
+
 header {
     position: sticky;
     top: 0;
@@ -83,6 +83,11 @@ header {
     padding: 0.85rem 0;
 }
 
+/* IMPORTANT FIX: prevent cart dropping awkwardly */
+.navbar > a {
+    flex-shrink: 0;
+}
+
 .nav-links {
     display: flex;
     gap: 2.5rem;
@@ -91,6 +96,7 @@ header {
     text-transform: uppercase;
     font-size: 1.2rem;
     color: var(--brown-mid);
+    flex-wrap: wrap;
 }
 
 .nav-links a:hover {
@@ -104,44 +110,38 @@ header {
     border-radius: 999px;
     font-weight: 900;
     font-size: 0.82rem;
+
     display: inline-flex;
     align-items: center;
     gap: 0.25rem;
-    transition: 0.2s ease;
+
+    white-space: nowrap; /* FIX: stops weird wrapping */
 }
 
-.cart-btn:hover {
-    background: var(--brown);
-    color: var(--cream);
-    transform: translateY(-2px);
-}
-
-/* MOBILE NAV FIX (DO NOT HIDE NAV COMPLETELY) */
-@media (max-width: 900px) {
+/* mobile header ONLY stacking fix */
+@media (max-width: 768px) {
     .nav-links {
         width: 100%;
-        flex-wrap: wrap;
         justify-content: center;
-        gap: 12px;
+        gap: 10px;
         font-size: 0.9rem;
     }
 
     .cart-btn {
-        width: 100%;
-        justify-content: center;
+        width: auto; /* FIX: prevents it going to new row full width */
+        margin-left: auto;
     }
 }
 
-/* LOGO HERO */
+/* ================= LOGO HERO ================= */
+
 .logo-hero {
-    position: relative;
-    overflow: hidden;
-    min-height: 700px;
-    padding: 1rem;
     display: flex;
     align-items: center;
     justify-content: center;
     text-align: center;
+    position: relative;
+    min-height: 700px;
 
     background-image: url('../assets/Bakery BG.webp');
     background-size: cover;
@@ -153,26 +153,32 @@ header {
     position: absolute;
     inset: 0;
     background: rgba(0,0,0,0.08);
-    z-index: 1;
 }
 
 .logo-hero-card {
     position: relative;
-    z-index: 2;
     background: var(--yellow);
     border: 5px solid var(--brown);
     border-radius: 2rem;
     padding: 2.5rem 3rem;
+    z-index: 2;
 }
 
-/* HERO */
+/* FIX: logo was not constrained properly */
+.logo-hero-card img {
+    width: 220px;
+    height: auto;
+}
+
+/* ================= HERO ================= */
+
 .hero {
     position: relative;
     min-height: 90vh;
     display: flex;
     align-items: center;
-    gap: 40px;
     justify-content: space-between;
+    gap: 40px;
 }
 
 .hero::after {
@@ -185,7 +191,6 @@ header {
     height: 1200px;
     background-image: url('assets/BTBreadLogoNoText.svg');
     background-size: contain;
-    background-repeat: no-repeat;
     opacity: 0.05;
     pointer-events: none;
 }
@@ -206,43 +211,70 @@ header {
     max-width: 480px;
 }
 
-.hero-image-wrap {
-    position: relative;
-}
-
+/* FIX: image was causing scaling weirdness */
 .hero-image-wrap img {
     width: 100%;
     max-width: 700px;
     height: auto;
-    border-radius: 63% 37% 72% 28% / 31% 56% 44% 69%;
-    box-shadow: 0 30px 70px rgba(59,42,26,0.2);
 }
 
-/* MOBILE HERO */
+/* mobile hero */
 @media (max-width: 768px) {
     .hero {
         flex-direction: column;
         text-align: center;
     }
-
-    .hero-image-wrap img {
-        width: 100%;
-    }
 }
 
-/* PRODUCTS */
+/* ================= MARQUEE (FIXED) ================= */
+
+.marquee-strip {
+    background: var(--yellow);
+    border-top: 2px solid var(--brown);
+    border-bottom: 2px solid var(--brown);
+    padding: 0.75rem 0;
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+.marquee-track {
+    display: inline-flex;
+    width: max-content;
+    animation: marquee 22s linear infinite;
+}
+
+.marquee-track span {
+    font-style: italic;
+    font-size: 1rem;
+    color: var(--brown);
+    padding: 0 2rem;
+}
+
+.marquee-track span.dot {
+    opacity: 0.5;
+}
+
+@keyframes marquee {
+    from { transform: translateX(0); }
+    to { transform: translateX(-50%); }
+}
+
+/* ================= PRODUCTS ================= */
+
 .products-grid {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     gap: 20px;
 }
 
+/* FIX: prevents badge/button breaking inside cards */
 .product-card {
     background: white;
     border: 1px solid var(--warm-gray);
     border-radius: 1.5rem;
     overflow: hidden;
     width: 100%;
+    position: relative;
 }
 
 /* responsive grid */
@@ -258,20 +290,37 @@ header {
     }
 }
 
-/* ABOUT */
+/* ================= ABOUT (FIXED) ================= */
+
 .about-cards {
     display: flex;
     flex-direction: column;
     gap: 16px;
 }
 
-/* CART SAFETY */
+/* ================= FOOTER FIX (safe alignment) ================= */
+
+.footer-top {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 2rem;
+}
+
+/* ================= CART SAFETY ================= */
+
 .cart-panel {
     overflow-y: auto;
     -webkit-overflow-scrolling: touch;
 }
 
-/* TOUCH IMPROVEMENT */
-button {
-    cursor: pointer;
+/* ================= CRITICAL FIX: prevent flex wrap breaking navbar layout ================= */
+
+.navbar {
+    align-items: center;
+}
+
+/* ensure cart doesn't drop randomly */
+.cart-btn {
+    flex-shrink: 0;
 }
