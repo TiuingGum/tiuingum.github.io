@@ -148,7 +148,7 @@ window.Cart = {
         return;
       }
 
-      const res = await fetch("https://btbread-checkout.btbread.workers.dev", {
+      const res = await fetch("https://btbread-checkout.btbread.workers.dev/create-checkout-session", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ items })
