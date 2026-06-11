@@ -306,7 +306,8 @@
         margin-top: 1.5rem;
         color: var(--text-muted);
         font-size: 1.05rem;
-        max-width: 480px;
+        max-width: 650px;
+        width: min(650px, 90%);
         line-height: 1.75;
     }
 
