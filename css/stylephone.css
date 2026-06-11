@@ -1,0 +1,326 @@
+:root {
+    --cream: #fdf8ed;
+    --yellow-light: #fef3c0;
+    --yellow: #f9e07a;
+    --yellow-dark: #e8c840;
+    --brown: #3b2a1a;
+    --brown-mid: #6b4c2a;
+    --brown-light: #a07850;
+    --warm-gray: #c8b89a;
+    --text: #2c1a0e;
+    --text-muted: #8a6a4a;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html, body {
+    overflow-x: hidden;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    background: var(--cream);
+    color: var(--text);
+    line-height: 1.6;
+    overflow-x: hidden;
+}
+
+/* grain */
+body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
+    pointer-events: none;
+    z-index: 9999;
+    opacity: 0.18;
+}
+
+/* base */
+a { text-decoration: none; color: inherit; }
+
+img {
+    max-width: 100%;
+    display: block;
+}
+
+button,
+.btn-primary,
+.add-btn {
+    min-height: 44px;
+    font-size: 16px;
+    border-radius: 10px;
+}
+
+.container {
+    max-width: 1200px;
+    width: 100%;
+    margin: 0 auto;
+    padding: 0 16px;
+}
+
+/* ================= HEADER ================= */
+
+header {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: rgba(255,255,255,0.96);
+    backdrop-filter: blur(12px);
+    border-bottom: 1.5px solid var(--warm-gray);
+}
+
+.navbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 12px;
+    padding: 0.85rem 0;
+}
+
+/* IMPORTANT FIX: prevent cart dropping awkwardly */
+.navbar > a {
+    flex-shrink: 0;
+}
+
+.nav-links {
+    display: flex;
+    gap: 2.5rem;
+    font-weight: 300;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    font-size: 1.2rem;
+    color: var(--brown-mid);
+    flex-wrap: wrap;
+}
+
+.nav-links a:hover {
+    color: var(--brown);
+}
+
+.cart-btn {
+    border: 2px solid var(--brown);
+    color: var(--brown);
+    padding: 0.6rem 1.3rem;
+    border-radius: 999px;
+    font-weight: 900;
+    font-size: 0.82rem;
+
+    display: inline-flex;
+    align-items: center;
+    gap: 0.25rem;
+
+    white-space: nowrap; /* FIX: stops weird wrapping */
+}
+
+/* mobile header ONLY stacking fix */
+@media (max-width: 768px) {
+    .nav-links {
+        width: 100%;
+        justify-content: center;
+        gap: 10px;
+        font-size: 0.9rem;
+    }
+
+    .cart-btn {
+        width: auto; /* FIX: prevents it going to new row full width */
+        margin-left: auto;
+    }
+}
+
+/* ================= LOGO HERO ================= */
+
+.logo-hero {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    position: relative;
+    min-height: 700px;
+
+    background-image: url('../assets/Bakery BG.webp');
+    background-size: cover;
+    background-position: center top;
+}
+
+.logo-hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: rgba(0,0,0,0.08);
+}
+
+.logo-hero-card {
+    position: relative;
+    background: var(--yellow);
+    border: 5px solid var(--brown);
+    border-radius: 2rem;
+    padding: 2.5rem 3rem;
+    z-index: 2;
+}
+
+/* FIX: logo was not constrained properly */
+.logo-hero-card img {
+    width: 220px;
+    height: auto;
+}
+
+/* ================= HERO ================= */
+
+.hero {
+    position: relative;
+    min-height: 90vh;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 40px;
+}
+
+.hero::after {
+    content: '';
+    position: absolute;
+    left: -25rem;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 1200px;
+    height: 1200px;
+    background-image: url('assets/BTBreadLogoNoText.svg');
+    background-size: contain;
+    opacity: 0.05;
+    pointer-events: none;
+}
+
+.hero h1 {
+    font-size: clamp(2.4rem, 5vw, 4rem);
+    font-weight: 900;
+    line-height: 1.05;
+}
+
+.hero h1 em {
+    color: var(--brown-light);
+}
+
+.hero p {
+    margin-top: 1.5rem;
+    color: var(--text-muted);
+    max-width: 480px;
+}
+
+/* FIX: image was causing scaling weirdness */
+.hero-image-wrap img {
+    width: 100%;
+    max-width: 700px;
+    height: auto;
+}
+
+/* mobile hero */
+@media (max-width: 768px) {
+    .hero {
+        flex-direction: column;
+        text-align: center;
+    }
+}
+
+/* ================= MARQUEE (FIXED) ================= */
+
+.marquee-strip {
+    background: var(--yellow);
+    border-top: 2px solid var(--brown);
+    border-bottom: 2px solid var(--brown);
+    padding: 0.75rem 0;
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+.marquee-track {
+    display: inline-flex;
+    width: max-content;
+    animation: marquee 22s linear infinite;
+}
+
+.marquee-track span {
+    font-style: italic;
+    font-size: 1rem;
+    color: var(--brown);
+    padding: 0 2rem;
+}
+
+.marquee-track span.dot {
+    opacity: 0.5;
+}
+
+@keyframes marquee {
+    from { transform: translateX(0); }
+    to { transform: translateX(-50%); }
+}
+
+/* ================= PRODUCTS ================= */
+
+.products-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+}
+
+/* FIX: prevents badge/button breaking inside cards */
+.product-card {
+    background: white;
+    border: 1px solid var(--warm-gray);
+    border-radius: 1.5rem;
+    overflow: hidden;
+    width: 100%;
+    position: relative;
+}
+
+/* responsive grid */
+@media (max-width: 900px) {
+    .products-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 600px) {
+    .products-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* ================= ABOUT (FIXED) ================= */
+
+.about-cards {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+/* ================= FOOTER FIX (safe alignment) ================= */
+
+.footer-top {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 2rem;
+}
+
+/* ================= CART SAFETY ================= */
+
+.cart-panel {
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+}
+
+/* ================= CRITICAL FIX: prevent flex wrap breaking navbar layout ================= */
+
+.navbar {
+    align-items: center;
+}
+
+/* ensure cart doesn't drop randomly */
+.cart-btn {
+    flex-shrink: 0;
+}
