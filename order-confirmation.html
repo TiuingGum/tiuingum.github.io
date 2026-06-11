@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Order Confirmed | BTBread</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/shopstyle.css">
+</head>
+
+<body>
+
+<header>
+  <div class="container navbar">
+    <a href="index.html" style="font-weight:200; font-size:1.6rem; color:var(--brown);">
+      BTBread
+    </a>
+  </div>
+</header>
+
+<main class="container" style="padding: 6rem 0; text-align: center;">
+
+  <div style="
+    background: white;
+    border: 2px solid var(--warm-gray);
+    border-radius: 2rem;
+    padding: 3rem;
+    max-width: 600px;
+    margin: 0 auto;
+  ">
+
+    <h1 style="font-size: 2.5rem; font-weight: 900; color: var(--brown);">
+      🎉 Order Confirmed!
+    </h1>
+
+    <p style="margin-top: 1rem; color: var(--text-muted);">
+      Thanks for your order. Your sourdough is now in motion.
+    </p>
+
+    <div id="order-id" style="margin-top: 1.5rem; font-weight: 700;"></div>
+
+    <a href="index.html" class="btn-primary" style="display:inline-block; margin-top:2rem;">
+      Back to Home
+    </a>
+
+  </div>
+
+</main>
+
+<script src="js/cart.js"></script>
+
+<script>
+  // 1. Get session ID
+  const params = new URLSearchParams(window.location.search);
+  const sessionId = params.get("session_id");
+
+  document.getElementById("order-id").textContent =
+    sessionId ? `Order ID: ${sessionId}` : "Order complete";
+
+  // 2. Clear cart AFTER successful payment
+  localStorage.removeItem("btbread-cart");
+
+  // 3. Reset UI cart if still loaded
+  if (window.Cart) {
+    Cart.data = [];
+    Cart.update?.();
+  }
+</script>
+
+</body>
+</html>
