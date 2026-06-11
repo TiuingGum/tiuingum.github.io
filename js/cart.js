@@ -155,6 +155,11 @@ window.Cart = {
       });
 
       const data = await res.json();
+      localStorage.setItem("pendingCheckout", JSON.stringify(this.data));
+      if (btn) {
+        btn.disabled = true;
+        btn.textContent = "Redirecting...";
+      }
       window.location.href = data.url;
 
     } catch (err) {
