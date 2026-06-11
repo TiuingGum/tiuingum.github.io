@@ -111,13 +111,12 @@ window.Cart = {
   },
 
   async checkout() {
-    const btn = document.getElementById("checkout-btn");
-
     if (this.data.length === 0) {
       alert("Your cart is empty");
       return;
     }
 
+    const btn = document.getElementById("checkout-btn");
     if (btn) {
       btn.disabled = true;
       btn.textContent = "Redirecting...";
@@ -128,10 +127,26 @@ window.Cart = {
         const product = this.products.find(p => p.id === item.id);
 
         return {
-          price: product.stripePrice,
+          name: product.name,
+          price: product.price,
           quantity: item.qty
         };
       });
+
+      const total = this.getTotal().toFixed(2);
+
+      // 👇 optional confirmation popup BEFORE redirect
+      const confirmCheckout = confirm(
+        `Confirm checkout?\n\nTotal: $${total} AUD`
+      );
+
+      if (!confirmCheckout) {
+        if (btn) {
+          btn.disabled = false;
+          btn.textContent = "Checkout";
+        }
+        return;
+      }
 
       const res = await fetch("https://btbread-checkout.btbread.workers.dev", {
         method: "POST",
@@ -140,18 +155,14 @@ window.Cart = {
       });
 
       const data = await res.json();
-
       window.location.href = data.url;
 
     } catch (err) {
       console.error(err);
-      alert("Checkout failed");
-
-      if (btn) {
-        btn.disabled = false;
-        btn.textContent = "Checkout";
-      }
+      alert("Checkout failed.");
     }
+
+    document.getElementById("cart-popup")?.classList.remove("active");
   },
 
   bind() {
