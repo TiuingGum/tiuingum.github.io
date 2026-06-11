@@ -248,8 +248,38 @@ header {
     margin-top: 3rem;
 }
 
+.featured-blog {
+    margin-bottom: 3rem;
+}
+
+.blog-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 2rem;
+}
+
+.featured-card h2,
+.blog-card h3 {
+    color: var(--brown);
+    margin-bottom: 1rem;
+}
+
+.featured-card p,
+.blog-card p {
+    color: var(--text-muted);
+    line-height: 1.7;
+    margin-bottom: 1.5rem;
+}
+
+.read-more {
+    font-weight: 700;
+    color: var(--brown);
+}
+
 .featured-card,
 .blog-card {
+    display: block;
+    flex-direction: column;
     cursor: pointer;
 }
 
