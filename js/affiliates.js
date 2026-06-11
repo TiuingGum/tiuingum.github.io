@@ -86,7 +86,7 @@ const fermentationProducts = [
     },
     {
         name: 'Heating Mat',
-        description: 'Provides consistent heat for fermentation. Place beneath your proofing setup rather than directly under the dough.',
+        description: 'Provides consistent heat for fermentation. Place at the bottom of an insulated container and put your dough on a steam tray/cooling rack above. I try to avoid placing dough directly on heating mat.',
         image: 'assets/heatmat.jpg',
         url: 'https://amzn.to/4dySF6B'
     },
