@@ -257,12 +257,12 @@
 
         position: absolute;
 
-        left: -25rem;
+        left: -50rem;
         top: 50%;
         transform: translateY(-50%);
 
-        width: 1200px;
-        height: 1200px;
+        width: 1600px;
+        height: 1600px;
 
         background-image: url('../assets/BTBreadLogoNoText.svg');
         background-repeat: no-repeat;
