@@ -2,6 +2,7 @@
 <html lang="en">
 
 <head>
+  <link rel="icon" type="image/png" href="./assets/favicon.ico">
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>BTBread</title>
@@ -11,8 +12,7 @@
   <link rel="preload" as="image" href="assets/Bakery BG.webp">
   <!-- Inter Font -->
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700;900&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/stylephone.css">
-</head>
+  <link rel="stylesheet" href="css/style.css">
 
 <body>
 
@@ -71,8 +71,14 @@
         </h1>
 
         <p>
-          Sourdough country loaves, foccacias and enriched loaves made from local organic ingredients where possible—
-          delivered straight to you.
+          My sourdough is naturally leavened with a homegrown starter (mine is a about 4 years old now). The long
+          sourdough fermentation process provides a nice tangy flavour as well as a plethora of health benefits like
+          improving gut health, blood sugar management and reduce risk of heart disease.<br><br>
+
+          Place an order on this website and the order can be delivered to North Brisbane or Brisbane City.<br><br>
+
+          If you subscribe to the newsletter you can be the first to hear about discounted/free loaves and
+          specials.<br><br>
         </p>
 
       </div>
@@ -138,9 +144,8 @@
         <div class="about-image">
           <img src="assets/blog.jpg" alt="Blog Image" />
         </div>
-
         <div>
-          <div class="section-tag">Latest News</div>
+          <div class="section-tag">BTBlog</div>
           <h2 class="section-title">Have a read of <br>✨<em>my blog</em>✨.</h2>
 
           <div class="about-cards">
@@ -160,14 +165,6 @@
                 <p>How you can tailor your bread to your taste by customising crumb, hydration levels and tanginess.</p>
               </div>
             </div>
-
-            <div class="about-card clickable" onclick="window.location='blog_DeliveredFresh.html'">
-              <div class="about-icon">🚚</div>
-              <div>
-                <h3>Delivered Fresh</h3>
-                <p>Same-day baking and delivery so your bread arrives as fresh as it left the oven.</p>
-              </div>
-            </div>
           </div>
         </div>
       </div>
@@ -179,8 +176,8 @@
       <h2 class="section-title">Join the <em>BTBread</em> club.</h2>
       <p>Be the first to hear about new bakes, seasonal specials, and exclusive discounts.</p>
 
-      <form class="newsletter-form" onsubmit="return false;">
-        <input type="email" placeholder="your@email.com">
+      <form class="newsletter-form" id="newsletter-form">
+        <input type="email" id="newsletter-email" placeholder="your@email.com" required>
         <button type="submit">Subscribe</button>
       </form>
     </section>
@@ -233,6 +230,14 @@
           <span id="popup-cart-total">$0.00</span>
         </div>
 
+        <div class="checkout-fields">
+          <label for="order-date">Preferred Date</label>
+          <input type="date" id="order-date" name="order-date">
+
+          <label for="order-notes">Order Notes</label>
+          <textarea id="order-notes" name="order-notes" rows="4" placeholder="If you have any special requests I will try my best to accomodate!"></textarea>
+        </div>
+
         <button class="btn-primary" id="checkout-btn" onclick="Cart.checkout()">
           Checkout
         </button>
@@ -246,6 +251,7 @@
 </body>
 <script src="js/products.js"></script>
 <script src="js/cart.js"></script>
+<script src="js/shop.js"></script>
 <script>
   Cart.init(PRODUCTS);
 </script>
@@ -289,6 +295,28 @@
 
   navToggle.addEventListener("click", () => {
     navLinks.classList.toggle("active");
+  });
+</script>
+<script>
+  document.getElementById("newsletter-form").addEventListener("submit", async (e) => {
+    e.preventDefault();
+
+    const email = document.getElementById("newsletter-email").value;
+
+    const res = await fetch("https://btbread-checkout.btbread.workers.dev/newsletter", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify({ email })
+    });
+
+    if (res.ok) {
+      alert("Thanks for subscribing!");
+      document.getElementById("newsletter-email").value = "";
+    } else {
+      alert("Something went wrong. Try again.");
+    }
   });
 </script>
 
