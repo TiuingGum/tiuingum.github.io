@@ -264,7 +264,7 @@
         width: 1200px;
         height: 1200px;
 
-        background-image: url('assets/BTBreadLogoNoText.svg');
+        background-image: url('./assets/BTBreadLogoNoText.svg');
         background-repeat: no-repeat;
         background-size: contain;
         background-position: center;
