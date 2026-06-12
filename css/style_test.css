@@ -985,62 +985,62 @@
     }
 
     .checkout-fields {
-    margin-top: 1.5rem;
-    display: flex;
-    flex-direction: column;
-    gap: 0.75rem;
-}
+        margin-top: 1.5rem;
+        display: flex;
+        flex-direction: column;
+        gap: 0.75rem;
+    }
 
-.checkout-fields label {
-    font-weight: 700;
-    color: var(--brown);
-    font-size: 0.95rem;
-}
+    .checkout-fields label {
+        font-weight: 700;
+        color: var(--brown);
+        font-size: 0.95rem;
+    }
 
-.checkout-fields input,
-.checkout-fields textarea {
-    width: 100%;
-    padding: 0.9rem 1rem;
+    .checkout-fields input,
+    .checkout-fields textarea {
+        width: 100%;
+        padding: 0.9rem 1rem;
 
-    border: 2px solid var(--yellow-light);
-    border-radius: 14px;
+        border: 2px solid var(--yellow-light);
+        border-radius: 14px;
 
-    background: white;
-    color: var(--text);
+        background: white;
+        color: var(--text);
 
-    font: inherit;
+        font: inherit;
 
-    transition:
-        border-color 0.2s ease,
-        box-shadow 0.2s ease;
-}
+        transition:
+            border-color 0.2s ease,
+            box-shadow 0.2s ease;
+    }
 
-.checkout-fields textarea {
-    resize: vertical;
-    min-height: 100px;
-}
+    .checkout-fields textarea {
+        resize: vertical;
+        min-height: 100px;
+    }
 
-.checkout-fields input:focus,
-.checkout-fields textarea:focus {
-    outline: none;
-    border-color: var(--yellow-dark);
-    box-shadow: 0 0 0 4px rgba(249, 224, 122, 0.25);
-}
+    .checkout-fields input:focus,
+    .checkout-fields textarea:focus {
+        outline: none;
+        border-color: var(--yellow-dark);
+        box-shadow: 0 0 0 4px rgba(249, 224, 122, 0.25);
+    }
 
-.checkout-fields input::placeholder,
-.checkout-fields textarea::placeholder {
-    color: var(--text-muted);
-}
+    .checkout-fields input::placeholder,
+    .checkout-fields textarea::placeholder {
+        color: var(--text-muted);
+    }
 
-.checkout-fields {
-    margin-top: 1.5rem;
-    padding: 1rem;
+    .checkout-fields {
+        margin-top: 1.5rem;
+        padding: 1rem;
 
-    background: var(--cream);
-    border: 1px solid var(--yellow-light);
-    border-radius: 18px;
+        background: var(--cream);
+        border: 1px solid var(--yellow-light);
+        border-radius: 18px;
 
-    display: flex;
-    flex-direction: column;
-    gap: 0.75rem;
-}
+        display: flex;
+        flex-direction: column;
+        gap: 0.75rem;
+    }

@@ -122,6 +122,12 @@ window.Cart = {
       btn.textContent = "Redirecting...";
     }
 
+    const preferredDate =
+      document.getElementById("order-date")?.value || "";
+
+    const orderNotes =
+      document.getElementById("order-notes")?.value || "";
+
     try {
       const items = this.data.map(item => {
         const product = this.products.find(p => p.id === item.id);
@@ -151,7 +157,7 @@ window.Cart = {
       const res = await fetch("https://btbread-checkout.btbread.workers.dev/create-checkout-session", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ items })
+        body: JSON.stringify({ items, preferredDate, orderNotes })
       });
 
       const data = await res.json();

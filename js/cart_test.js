@@ -116,14 +116,6 @@ window.Cart = {
       return;
     }
 
-    document.addEventListener("DOMContentLoaded", () => {
-      const dateInput = document.getElementById("order-date");
-
-      if (dateInput) {
-        dateInput.min = new Date().toISOString().split("T")[0];
-      }
-    });
-
     const btn = document.getElementById("checkout-btn");
     if (btn) {
       btn.disabled = true;

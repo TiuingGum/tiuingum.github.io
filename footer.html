@@ -1,60 +1,69 @@
-    <footer>
-      <div class="container">
-        <div class="footer-top">
-          <div class="footer-logo">
-            <img src="assets/BTBreadLogoHorizontal.svg" alt="BTBread Bakery">
-            <div class="footer-tagline">
-              Handcrafted sourdough, engineered to your taste.
-            </div>
-          </div>
-
-          <div class="footer-links">
-            <a href="https://www.instagram.com/btbread/">Instagram</a>
-            <a href="https://www.tiktok.com/@btbreadofficial">TikTok</a>
-            <a href="mailto:btbread@hotmail.com">Contact</a>
-          </div>
-        </div>
-
-        <div class="footer-bottom">
-          <span>© 2025 BTBread. All rights reserved.</span>
+<footer>
+  <div class="container">
+    <div class="footer-top">
+      <div class="footer-logo">
+        <img src="assets/BTBreadLogoHorizontal.svg" alt="BTBread Bakery">
+        <div class="footer-tagline">
+          Handcrafted sourdough, engineered to your taste.
         </div>
       </div>
-    </footer>
 
-  </main>
+      <div class="footer-links">
+        <a href="https://www.instagram.com/btbread/">Instagram</a>
+        <a href="https://www.tiktok.com/@btbreadofficial">TikTok</a>
+        <a href="mailto:btbread@hotmail.com">Contact</a>
+      </div>
+    </div>
 
-  <div class="cart-popup" id="cart-popup">
+    <div class="footer-bottom">
+      <span>© 2025 BTBread. All rights reserved.</span>
+    </div>
+  </div>
+</footer>
 
-    <div class="cart-panel">
+</main>
 
-      <div class="cart-header">
-        <h2>Your Cart</h2>
+<div class="cart-popup" id="cart-popup">
 
-        <button class="close-cart" id="close-cart-btn">
-          ✕
-        </button>
+  <div class="cart-panel">
+
+    <div class="cart-header">
+      <h2>Your Cart</h2>
+
+      <button class="close-cart" id="close-cart-btn">
+        ✕
+      </button>
+    </div>
+
+    <div class="cart-items" id="cart-items">
+      <!-- JS inserts items here -->
+    </div>
+
+    <div class="cart-footer">
+
+      <div class="cart-total-line">
+        Total:
+        <span id="popup-cart-total">$0.00</span>
       </div>
 
-      <div class="cart-items" id="cart-items">
-        <!-- JS inserts items here -->
+      <div class="checkout-fields">
+        <label for="order-date">Preferred Date</label>
+        <input type="date" id="order-date" name="order-date">
+
+        <label for="order-notes">Order Notes</label>
+        <textarea id="order-notes" name="order-notes" rows="4"
+          placeholder="If you have any special requests I will try my best to accomodate!"></textarea>
       </div>
 
-      <div class="cart-footer">
-
-        <div class="cart-total-line">
-          Total:
-          <span id="popup-cart-total">$0.00</span>
-        </div>
-
-        <button class="btn-primary" id="checkout-btn" onclick="Cart.checkout()">
-          Checkout
-        </button>
-
-      </div>
+      <button class="btn-primary" id="checkout-btn" onclick="Cart.checkout()">
+        Checkout
+      </button>
 
     </div>
 
   </div>
+
+</div>
 
 </body>
 <script src="js/products.js"></script>

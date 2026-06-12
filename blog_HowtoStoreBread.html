@@ -150,6 +150,15 @@
                     <span id="popup-cart-total">$0.00</span>
                 </div>
 
+                <div class="checkout-fields">
+                    <label for="order-date">Preferred Date</label>
+                    <input type="date" id="order-date" name="order-date">
+
+                    <label for="order-notes">Order Notes</label>
+                    <textarea id="order-notes" name="order-notes" rows="4"
+                        placeholder="If you have any special requests I will try my best to accomodate!"></textarea>
+                </div>
+
                 <button class="btn-primary" id="checkout-btn" onclick="Cart.checkout()">
                     Checkout
                 </button>
