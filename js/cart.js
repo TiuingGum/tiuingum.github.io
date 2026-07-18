@@ -172,14 +172,8 @@ window.Cart = {
         throw new Error(data.error || "Unknown error");
       }
 
-      window.location.href = data.url;
-
-      const data = await res.json();
       localStorage.setItem("pendingCheckout", JSON.stringify(this.data));
-      if (btn) {
-        btn.disabled = true;
-        btn.textContent = "Redirecting...";
-      }
+
       window.location.href = data.url;
 
     } catch (err) {

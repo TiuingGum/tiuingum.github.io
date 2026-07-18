@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <link rel="icon" type="image/png" href="./assets/favicon.ico">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>BTBread</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preload" as="image" href="assets/Bakery BG.webp">
+  <!-- Inter Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+
+<body>
+
+  <header>
+    <div class="container navbar">
+
+      <a href="index.html" style="font-weight:200; font-size:1.6rem; color:var(--brown); letter-spacing:-0.02em;">
+        BTBread
+      </a>
+
+      <nav class="nav-links">
+        <a href="index.html#shop">Best Sellers</a>
+        <a href="shop.html">Shop</a>
+        <a href="affiliates.html">Affiliates</a>
+        <a href="index.html#about">Latest News</a>
+        <a href="blog_HomePage.html">Blog</a>
+      </nav>
+      <button class="nav-toggle" id="nav-toggle">
+        ☰
+      </button>
+
+      <button id="open-cart-btn" class="cart-btn">
+        <span>🛒(</span>
+        <span id="cart-count">0</span>
+        <span>)</span>
+        <span>—</span>
+        <span id="cart-total">$0.00</span>
+      </button>
+
+    </div>
+  </header>
+
+  <!-- LOGO HERO -->
+
+  <div class="logo-hero">
+    <div class="logo-hero-card">
+
+      <img src="assets/BTBreadLogo.svg" alt="BTBread Bakery">
+
+    </div>
+  </div>
+
+  <main>
+
+    <!-- HERO -->
+
+    <section class="container hero">
+
+      <div>
+
+        <span class="hero-label">🍞 From my oven to your table. </span>
+
+        <h1>
+          Handcrafted sourdough,<br>
+          <em>Engineered to your taste.</em>
+        </h1>
+
+        <p>
+          My sourdough is naturally leavened with a homegrown starter (mine is a about 4 years old now). The long
+          sourdough fermentation process provides a nice tangy flavour as well as a plethora of health benefits like
+          improving gut health, blood sugar management and reduce risk of heart disease.<br><br>
+
+          Place an order on this website and the order can be delivered to North Brisbane or Brisbane City.<br><br>
+
+          If you subscribe to the newsletter you can be the first to hear about discounted/free loaves and
+          specials.<br><br>
+        </p>
+
+      </div>
+
+      <div class="hero-image-wrap">
+
+        <img loading="eager" src="assets/breadhero.webp" alt="Freshly baked bread" />
+
+        <div class="hero-badge">
+          <span>★★★★★</span>
+          Loved by<br>100+ locals
+        </div>
+
+      </div>
+
+    </section>
+
+    <!-- MARQUEE -->
+
+    <div class="marquee-strip">
+      <div class="marquee-track">
+
+        <span>Boules</span><span class="dot">✦</span>
+        <span>Batards</span><span class="dot">✦</span>
+        <span>Focaccia</span><span class="dot">✦</span>
+        <span>Baguettes</span><span class="dot">✦</span>
+        <span>Demi-Baguettes</span><span class="dot">✦</span>
+        <span>Sandwich Loaves</span><span class="dot">✦</span>
+
+        <span>Boules</span><span class="dot">✦</span>
+        <span>Batards</span><span class="dot">✦</span>
+        <span>Focaccia</span><span class="dot">✦</span>
+        <span>Baguettes</span><span class="dot">✦</span>
+        <span>Demi-Baguettes</span><span class="dot">✦</span>
+        <span>Sandwich Loaves</span><span class="dot">✦</span>
+
+      </div>
+    </div>
+
+    <!-- SHOP -->
+
+    <section id="shop" class="products-section container">
+
+      <div class="section-tag">Hand Delivered</div>
+
+      <h2 class="section-title">
+        Our <em>best sellers</em><br>this season.
+      </h2>
+
+      <div class="products-grid" id="products-grid"></div>
+
+      <div class="shop-more">
+        <a href="shop.html" class="btn-primary">
+          Browse Full Menu
+        </a>
+      </div>
+
+    </section>
+
+    <!-- ABOUT -->
+    <section id="about" class="about">
+      <div class="container about-grid">
+        <div class="about-image">
+          <img src="assets/blog.jpg" alt="Blog Image" />
+        </div>
+        <div>
+          <div class="section-tag">BTBlog</div>
+          <h2 class="section-title">Have a read of <br>✨<em>my blog</em>✨.</h2>
+
+          <div class="about-cards">
+            <div class="about-card clickable" onclick="window.location='blog_HowtoStoreBread.html'">
+              <div class="about-icon">📦</div>
+              <div>
+                <h3>How to Store Your Bread</h3>
+                <p>How to keep your bread fresh and delicious for as long as possible, with tips on storage methods,
+                  containers, and ideal conditions.</p>
+              </div>
+            </div>
+
+            <div class="about-card clickable" onclick="window.location='blog_TailorYourBread.html'">
+              <div class="about-icon">🛠️</div>
+              <div>
+                <h3>Tailor Your Bread</h3>
+                <p>How you can tailor your bread to your taste by customising crumb, hydration levels and tanginess.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- NEWSLETTER -->
+    <section id="newsletter" class="newsletter container">
+      <div class="section-tag">Stay in the Loop</div>
+      <h2 class="section-title">Join the <em>BTBread</em> club.</h2>
+      <p>Be the first to hear about new bakes, seasonal specials, and exclusive discounts.</p>
+
+      <form class="newsletter-form" id="newsletter-form">
+        <input type="email" id="newsletter-email" placeholder="your@email.com" required>
+        <button type="submit">Subscribe</button>
+      </form>
+    </section>
+
+    <footer>
+      <div class="container">
+        <div class="footer-top">
+          <div class="footer-logo">
+            <img src="assets/BTBreadLogoHorizontal.svg" alt="BTBread Bakery">
+            <div class="footer-tagline">
+              Handcrafted sourdough, engineered to your taste.
+            </div>
+          </div>
+
+          <div class="footer-links">
+            <a href="https://www.instagram.com/btbread/">Instagram</a>
+            <a href="https://www.tiktok.com/@btbreadofficial">TikTok</a>
+            <a href="mailto:btbread@hotmail.com">Contact</a>
+          </div>
+        </div>
+
+        <div class="footer-bottom">
+          <span>© 2025 BTBread. All rights reserved.</span>
+        </div>
+      </div>
+    </footer>
+
+  </main>
+
+  <div class="cart-popup" id="cart-popup">
+
+    <div class="cart-panel">
+
+      <div class="cart-header">
+        <h2>Your Cart</h2>
+
+        <button class="close-cart" id="close-cart-btn">
+          ✕
+        </button>
+      </div>
+
+      <div class="cart-items" id="cart-items">
+        <!-- JS inserts items here -->
+      </div>
+
+      <div class="cart-footer">
+
+        <div class="cart-total-line">
+          Total:
+          <span id="popup-cart-total">$0.00</span>
+        </div>
+
+        <div class="checkout-fields">
+          <label for="order-date">Preferred Date</label>
+          <input type="date" id="order-date" name="order-date">
+
+          <label for="order-notes">Order Notes</label>
+          <textarea id="order-notes" name="order-notes" rows="4" placeholder="If you have any special requests I will try my best to accomodate!"></textarea>
+        </div>
+
+        <button class="btn-primary" id="checkout-btn" onclick="Cart.checkout()">
+          Checkout
+        </button>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</body>
+<script src="js/products.js"></script>
+<script src="js/cart.js"></script>
+<script src="js/shop.js"></script>
+<script>
+  Cart.init(PRODUCTS);
+</script>
+<script>
+  function renderProducts(list) {
+    const grid = document.getElementById("products-grid");
+
+    const html = list.map(p => `
+    <div class="product-card">
+      
+      <div class="product-image">
+        <img src="${p.image}" alt="${p.name}">
+      </div>
+
+      ${p.badge ? `<div class="product-badge">${p.badge}</div>` : ""}
+
+      <div class="product-info">
+        <div>
+          <div class="product-name">${p.name}</div>
+          <div class="product-pricedisplay">${p.pricedisplay}</div>
+        </div>
+
+        <button class="add-btn"
+          onclick="Cart.add(${p.id}); Cart.renderPopup(); document.getElementById('cart-popup')?.classList.add('active');">
+          Add to cart
+        </button>
+      </div>
+
+    </div>
+  `).join("");
+
+    grid.innerHTML = html;
+  }
+
+  renderProducts(PRODUCTS.filter(p => p.badge));
+
+</script>
+<script>
+  const navToggle = document.getElementById("nav-toggle");
+  const navLinks = document.querySelector(".nav-links");
+
+  navToggle.addEventListener("click", () => {
+    navLinks.classList.toggle("active");
+  });
+</script>
+<script>
+  document.getElementById("newsletter-form").addEventListener("submit", async (e) => {
+    e.preventDefault();
+
+    const email = document.getElementById("newsletter-email").value;
+
+    const res = await fetch("https://btbread-checkout.btbread.workers.dev/newsletter", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify({ email })
+    });
+
+    if (res.ok) {
+      alert("Thanks for subscribing!");
+      document.getElementById("newsletter-email").value = "";
+    } else {
+      alert("Something went wrong. Try again.");
+    }
+  });
+</script>
+
+</html>
