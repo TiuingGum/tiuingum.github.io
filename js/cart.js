@@ -164,7 +164,15 @@ window.Cart = {
       );
 
       console.log(res.status);
-      console.log(await res.text());
+
+      const data = await res.json();
+      console.log("Worker response:", data);
+
+      if (!res.ok) {
+        throw new Error(data.error || "Unknown error");
+      }
+
+      window.location.href = data.url;
 
       const data = await res.json();
       localStorage.setItem("pendingCheckout", JSON.stringify(this.data));
