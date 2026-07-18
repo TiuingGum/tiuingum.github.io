@@ -154,11 +154,17 @@ window.Cart = {
         return;
       }
 
-      const res = await fetch("https://btbread-checkout.btbread.workers.dev/create-checkout-session", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ items, preferredDate, orderNotes })
-      });
+      const res = await fetch(
+        "https://btbread-checkout.btbread.workers.dev/create-checkout-session",
+        {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ items, preferredDate, orderNotes })
+        }
+      );
+
+      console.log(res.status);
+      console.log(await res.text());
 
       const data = await res.json();
       localStorage.setItem("pendingCheckout", JSON.stringify(this.data));
